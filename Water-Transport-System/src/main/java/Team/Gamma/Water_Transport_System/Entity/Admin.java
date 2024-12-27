@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Table(name = "admindata")
 public class Admin {
     @Id
-    private String adminId;
+    private Long adminId;
 
     private String password;
 
@@ -17,16 +17,16 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String password, String adminId) {
+    public Admin(String password, Long adminId) {
         this.password = password;
         this.adminId = adminId;
     }
 
-    public String getAdminId() {
+    public Long getAdminId() {
         return adminId;
     }
 
-    public void setAdminId(String adminId) {
+    public void setAdminId(Long adminId) {
         this.adminId = adminId;
     }
 
@@ -38,4 +38,3 @@ public class Admin {
         this.password = password;
     }
 }
-
