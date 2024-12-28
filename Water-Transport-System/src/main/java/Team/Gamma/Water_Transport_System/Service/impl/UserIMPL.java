@@ -51,7 +51,7 @@ public class UserIMPL implements UserService {
         }
     }
 
-    public User getUserDetails(int userid) {
+    public User getUserDetails(Long userid) {
         // Retrieve the user by userid
         return userRepo.findByUserid(userid).orElse(null);
     }
