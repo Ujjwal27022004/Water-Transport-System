@@ -22,16 +22,7 @@ public class ShipDetailController {
     @GetMapping()
     public List<ShipDetail> getAllShipDetails(){
         return shipDetailService.getAllShipDetails();
-
-//        return new CloudVendor("C1","Vendor 1","Address one","XXXXXX");
     }
-    @PostMapping
-    public String createShipDetails(@RequestBody ShipDetail shipDetail){
-        shipDetailService.createShipDetails(shipDetail);
-        return "Ship Created Successfully";
-    }
-////
-//
 
 }
 
