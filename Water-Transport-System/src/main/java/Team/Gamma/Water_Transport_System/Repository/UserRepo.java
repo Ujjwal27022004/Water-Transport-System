@@ -1,4 +1,4 @@
-package Team.Gamma.Water_Transport_System.Repo;
+package Team.Gamma.Water_Transport_System.Repository;
 
 
 import Team.Gamma.Water_Transport_System.Entity.User;

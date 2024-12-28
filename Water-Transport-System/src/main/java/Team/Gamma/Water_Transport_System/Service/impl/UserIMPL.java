@@ -3,7 +3,7 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
-import Team.Gamma.Water_Transport_System.Repo.UserRepo;
+import Team.Gamma.Water_Transport_System.Repository.UserRepo;
 import Team.Gamma.Water_Transport_System.Service.UserService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
