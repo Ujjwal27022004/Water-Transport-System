@@ -1,9 +1,9 @@
 package Team.Gamma.Water_Transport_System.Entity;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.util.*;
 
 @Entity
@@ -11,23 +11,25 @@ import java.util.*;
 
 public class ShipDetail {
     @Id
-    private int shipId;
+    private Long shipId;
     private  String name;
     private String source;
+    @JsonProperty("destination")
     private String destination;
     private int capacity;
     private int cruiseLength;
     private String cruiseType;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
     private float price;
     private float rating;
-    private int availability;
+    private boolean availability;
 
     public ShipDetail(){
 
     }
 
-    public ShipDetail(int shipId, String name, String source, String destination, int capacity, int cruiseLength, String cruiseType, Date date, float price, float rating, int availability) {
+    public ShipDetail(Long shipId, String name, String source, String destination, int capacity, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
         this.shipId = shipId;
         this.name = name;
         this.source = source;
@@ -41,11 +43,11 @@ public class ShipDetail {
         this.availability = availability;
     }
 
-    public int getShipId() {
+    public Long getShipId() {
         return shipId;
     }
 
-    public void setShipId(int shipId) {
+    public void setShipId(Long shipId) {
         this.shipId = shipId;
     }
 
@@ -121,12 +123,11 @@ public class ShipDetail {
         this.rating = rating;
     }
 
-    public int isAvailability() {
+    public boolean getAvailability() {
         return availability;
     }
 
-    public void setAvailability(int availability) {
+    public void setAvailability(boolean availability) {
         this.availability = availability;
     }
 }
-
