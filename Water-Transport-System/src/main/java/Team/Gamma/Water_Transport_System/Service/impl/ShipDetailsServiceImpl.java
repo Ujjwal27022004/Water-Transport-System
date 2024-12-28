@@ -1,4 +1,4 @@
-package Team.Gamma.Water_Transport_System.Impl;
+package Team.Gamma.Water_Transport_System.Service.impl;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;

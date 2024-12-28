@@ -73,13 +73,4 @@ public class Payment {
         this.date = date;
     }
 
-
-
-
-        // Default constructor is required by JPA
-
-
-
-
-
 }
