@@ -50,7 +50,13 @@ public class ShipDetailController {
     public String deleteShipDetails(@PathVariable("shipId") Long shipId){
         this.shipService = null;
         return "Ship Deleted Successfully";
+    }
 
+    @GetMapping("/search")
+    public List<ShipDetail> getShipDetailsBySourceAndDestination(
+            @RequestParam("source") String source,
+            @RequestParam("destination") String destination) {
+        return shipService.searchCruise(source, destination);
     }
 
 }
