@@ -9,5 +9,6 @@ public interface ShipDetailsService {
     public String deleteShip(Long shipId);
     public ShipDetail getShip(Long adminId);
     public List<ShipDetail> getAllShips();
+    List<ShipDetail> searchCruise(String source, String destination);
 
 }

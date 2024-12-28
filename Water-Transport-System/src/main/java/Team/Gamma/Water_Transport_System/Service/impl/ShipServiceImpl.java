@@ -43,4 +43,9 @@ public class ShipServiceImpl implements ShipDetailsService {
     public List<ShipDetail> getAllShips() {
         return shipRepository.findAll();
     }
+
+    @Override
+    public List<ShipDetail> searchCruise(String source, String destination) {
+        return shipRepository.searchCruise(source, destination);
+    }
 }
