@@ -23,9 +23,11 @@ public class ShipDetailController {
 
     // function for fetching details of ship from DB
     @GetMapping("/{shipId}")
-    public ShipDetail getShipDetails(@PathVariable("shipIdId") Long shipId) {
+    public ShipDetail getShipDetails(@PathVariable("shipId") Long shipId) {
         return shipService.getShip(shipId);
     }
+
+
     // function for fetching details of all ships from DB
     @GetMapping
     public List<ShipDetail> getAllShipDetails() {
@@ -48,6 +50,7 @@ public class ShipDetailController {
     public String deleteShipDetails(@PathVariable("shipId") Long shipId){
         this.shipService = null;
         return "Ship Deleted Successfully";
+
     }
 
 }
