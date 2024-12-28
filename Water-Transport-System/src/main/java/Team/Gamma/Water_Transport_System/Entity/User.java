@@ -2,7 +2,7 @@ package Team.Gamma.Water_Transport_System.Entity;
 
 import jakarta.persistence.*;
 @Entity
-@Table(name="user")
+@Table(name="users")
 
 public class User {
     @Id
