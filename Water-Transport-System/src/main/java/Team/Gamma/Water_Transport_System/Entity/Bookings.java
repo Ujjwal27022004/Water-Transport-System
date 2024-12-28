@@ -15,8 +15,8 @@ public class Bookings {
 
     @Id
     private long bookingId;
-    private int userId;
-    private int shipId;
+    private long userId;
+    private long shipId;
     private Date localdate;
     private int seatsbooked;
     private int totalprice;
@@ -42,7 +42,7 @@ public class Bookings {
         this.bookingId = bookingId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
@@ -50,7 +50,7 @@ public class Bookings {
         this.userId = userId;
     }
 
-    public int getShipId() {
+    public long getShipId() {
         return shipId;
     }
 
