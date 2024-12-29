@@ -7,20 +7,25 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "Payment")
-public class Payment {
+@Table(name = "Receipt")
+public class Receipt {
     @Id
+    private long receiptId;
     private long paymentID;
+    private long userID;
 
-
-
-    private long bookingID;
-    private enum paymentStatus{Successful,Pending,Cancelled};
-
-    private String paymentMethod;
-
+    private long shipID;
+    private enum transactionType{UPI,CreditCard,DebitCard};
     private double amount;
     private Date date;
+
+    public long getReceiptId() {
+        return receiptId;
+    }
+
+    public void setReceiptId(int receiptId) {
+        this.receiptId = receiptId;
+    }
 
     public long getPaymentID() {
         return paymentID;
@@ -30,20 +35,20 @@ public class Payment {
         this.paymentID = paymentID;
     }
 
-    public long getBookingID() {
-        return bookingID;
+    public long getUserID() {
+        return userID;
     }
 
-    public void setBookingID(int bookingID) {
-        this.bookingID = bookingID;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
+    public long getShipID() {
+        return shipID;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+    public void setShipID(int shipID) {
+        this.shipID = shipID;
     }
 
     public double getAmount() {
@@ -62,15 +67,15 @@ public class Payment {
         this.date = date;
     }
 
-    public Payment() {
-    }
-
-    public Payment(int paymentID, int bookingID, String paymentMethod, double amount, Date date) {
+    public Receipt(int receiptId, int paymentID, int userID, int shipID, double amount, Date date) {
+        this.receiptId = receiptId;
         this.paymentID = paymentID;
-        this.bookingID = bookingID;
-        this.paymentMethod = paymentMethod;
+        this.userID = userID;
+        this.shipID = shipID;
         this.amount = amount;
         this.date = date;
     }
 
+    public Receipt() {
+    }
 }
