@@ -2,13 +2,13 @@ package Team.Gamma.Water_Transport_System.Entity;
 
 import jakarta.persistence.*;
 @Entity
-@Table(name="user")
+@Table(name="users")
 
 public class User {
     @Id
     @Column(name="user_id", length = 45)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userid;
+    private Long userid;
     @Column(name="username", length = 255)
     private String username;
     @Column(name="email", length = 255)
@@ -19,14 +19,14 @@ public class User {
     public User() {
     }
 
-    public User(int userid, String username, String email, String password) {
+    public User(Long userid, String username, String email, String password) {
         this.userid = userid;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public int getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
@@ -42,7 +42,7 @@ public class User {
         return password;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 

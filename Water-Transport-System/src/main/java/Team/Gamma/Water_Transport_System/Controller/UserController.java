@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/details")
-    public User getUserDetails(@RequestParam("userid") int userid) {
+    public User getUserDetails(@RequestParam("userid") Long userid) {
         // Fetch the current user's details from the UserService
         return userService.getUserDetails(userid);
     }

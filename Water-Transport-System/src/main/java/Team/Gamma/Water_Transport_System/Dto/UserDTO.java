@@ -1,7 +1,7 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
 public class UserDTO {
-    private int userid;
+    private Long userid;
     private String username;
     private String email;
     private String password;
@@ -9,14 +9,14 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(int userid, String username, String email, String password) {
+    public UserDTO(Long userid, String username, String email, String password) {
         this.userid = userid;
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public int getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
@@ -32,7 +32,7 @@ public class UserDTO {
         return username;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 
