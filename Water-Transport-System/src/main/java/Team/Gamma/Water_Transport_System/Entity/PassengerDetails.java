@@ -1,5 +1,4 @@
 package Team.Gamma.Water_Transport_System.Entity;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -8,27 +7,27 @@ import jakarta.persistence.Table;
 @Table(name = "PassengerDetail")
 public class PassengerDetails {
     @Id
-    private Long passengerId;
-    private Long bookingId;
+    private long passengerID;
+    private long bookingID;
     private String name;
     private int age;
-    private String gender;
-//    private enum seatPreference{Balcony,Insider,Outsider};
+    private int gender;
+    private enum seatPreference{Balcony,Insider,Outsider};
 
-    public long getPassengerId() {
-        return passengerId;
+    public long getPassengerID() {
+        return passengerID;
     }
 
-    public void setPassengerID(long passengerId) {
-        this.passengerId = passengerId;
+    public void setPassengerID(long passengerID) {
+        this.passengerID = passengerID;
     }
 
-    public long getBookingId() {
-        return bookingId;
+    public long getBookingID() {
+        return bookingID;
     }
 
-    public void setBookingID(long bookingId) {
-        this.bookingId = bookingId;
+    public void setBookingID(long bookingID) {
+        this.bookingID = bookingID;
     }
 
     public String getName() {
@@ -47,11 +46,11 @@ public class PassengerDetails {
         this.age = age;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
