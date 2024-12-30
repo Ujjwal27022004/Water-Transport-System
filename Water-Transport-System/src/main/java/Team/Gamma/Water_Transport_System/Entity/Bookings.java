@@ -1,85 +1,78 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-import java.util.Date;
-
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "bookings_info")
-
 public class Bookings {
 
     @Id
-    private long bookingId;
-    private long userId;
-    private long shipId;
-    private Date localdate;
-    private int seatsbooked;
-    private int totalprice;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bookingId;
 
-    public Bookings() {
+    private LocalDateTime localDate;
 
-    }
+    private int seatsBooked;
 
-    public Bookings(long bookingId, int userId, int shipId, Date localdate, int seatsbooked, int totalprice) {
-        this.bookingId = bookingId;
-        this.userId = userId;
-        this.shipId = shipId;
-        this.localdate = localdate;
-        this.seatsbooked = seatsbooked;
-        this.totalprice = totalprice;
-    }
+    private int totalPrice;
 
-    public long getBookingId() {
+    @ManyToOne(cascade = CascadeType.PERSIST) // Add CascadeType.PERSIST here
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "ship_id", referencedColumnName = "ship_id", nullable = false)
+    private ShipDetail ship;
+
+    public Long getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(long bookingId) {
+    public void setBookingId(Long bookingId) {
         this.bookingId = bookingId;
     }
 
-    public long getUserId() {
-        return userId;
+    public LocalDateTime getLocalDate() {
+        return localDate;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setLocalDate(LocalDateTime localDate) {
+        this.localDate = localDate;
     }
 
-    public long getShipId() {
-        return shipId;
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setShipId(int shipId) {
-        this.shipId = shipId;
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public Date getLocaldate() {
-        return localdate;
+    public int getSeatsBooked() {
+        return seatsBooked;
     }
 
-    public void setLocaldate(Date localdate) {
-        this.localdate = localdate;
+    public void setSeatsBooked(int seatsBooked) {
+        this.seatsBooked = seatsBooked;
     }
 
-    public int getSeatsbooked() {
-        return seatsbooked;
+    public User getUser() {
+        return user;
     }
 
-    public void setSeatsbooked(int seatsbooked) {
-        this.seatsbooked = seatsbooked;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getTotalprice() {
-        return totalprice;
+    public ShipDetail getShip() {
+        return ship;
     }
 
-    public void setTotalprice(int totalprice) {
-        this.totalprice = totalprice;
+    public void setShip(ShipDetail ship) {
+        this.ship = ship;
     }
 }
+
 
