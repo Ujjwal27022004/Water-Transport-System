@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "PassengerDetail")
+@Table(name = "PassengerDDetail")
 public class PassengerDetails {
     @Id
     private Long passengerId;
@@ -13,6 +13,7 @@ public class PassengerDetails {
     private String name;
     private int age;
     private String gender;
+
 //    private enum seatPreference{Balcony,Insider,Outsider};
 
     public long getPassengerId() {
