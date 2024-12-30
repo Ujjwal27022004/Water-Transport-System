@@ -51,12 +51,11 @@ public class ShipDetailController {
         this.shipService = null;
         return "Ship Deleted Successfully";
     }
-
+    // function for searching Ship by using source and destination
     @GetMapping("/search")
     public List<ShipDetail> getShipDetailsBySourceAndDestination(
             @RequestParam("source") String source,
             @RequestParam("destination") String destination) {
         return shipService.searchCruise(source, destination);
     }
-
 }
