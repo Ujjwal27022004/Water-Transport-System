@@ -20,9 +20,10 @@ public class UserController {
 
 
     @PostMapping(path = "/signup")
-    public User signup(@RequestBody UserDTO userDTO)
+    public ResponseEntity<?> signup(@RequestBody UserDTO userDTO)
     {
-        return  userService.addUser(userDTO);
+        LoginMessage loginResponse =  userService.addUser(userDTO);
+        return ResponseEntity.ok(loginResponse);
     }
 
     @PostMapping(path = "/login")
@@ -43,7 +44,6 @@ public class UserController {
         // Fetch the current user's details from the UserService
         return userService.getUserDetails(userid);
     }
-
 
 }
 
