@@ -1,8 +1,7 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 
@@ -10,39 +9,51 @@ import java.util.Date;
 @Table(name = "Payment")
 public class Payment {
     @Id
-    private long paymentID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "paymentId")
+    private Long paymentId;
+    @Column(name = "bookingId", insertable = false, updatable = false)
+    private Long bookingId;
+    @Column(name = "paymentStatus")
+    private String paymentStatus;
 
-
-
-    private long bookingID;
-    private enum paymentStatus{Successful,Pending,Cancelled};
-
-    private String paymentMethod;
-
+    @Column(name = "amount")
     private double amount;
+    @Column(name = "date")
     private Date date;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "paymentMethod")
+    private PaymentMethod paymentMethod;
 
-    public long getPaymentID() {
-        return paymentID;
+    public enum PaymentMethod {
+        UPI, CREDIT_DEBIT_CARD, PAYPAL, NETBANKING
     }
 
-    public void setPaymentID(int paymentID) {
-        this.paymentID = paymentID;
+    @ManyToOne
+    @JoinColumn(name = "bookingId")
+    private Bookings booking; // Foreign key to Booking entity
+
+    public Long getPaymentID() {
+        return paymentId;
     }
 
-    public long getBookingID() {
-        return bookingID;
+    public void setPaymentID(Long paymentID) {
+        this.paymentId = paymentID;
     }
 
-    public void setBookingID(int bookingID) {
-        this.bookingID = bookingID;
+    public Long getBookingID() {
+        return bookingId;
     }
 
-    public String getPaymentMethod() {
+    public void setBookingID(Long bookingID) {
+        this.bookingId = bookingID;
+    }
+
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
@@ -61,13 +72,20 @@ public class Payment {
     public void setDate(Date date) {
         this.date = date;
     }
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
 
     public Payment() {
     }
 
-    public Payment(int paymentID, int bookingID, String paymentMethod, double amount, Date date) {
-        this.paymentID = paymentID;
-        this.bookingID = bookingID;
+    public Payment(Long paymentID, Long bookingID, PaymentMethod paymentMethod, double amount, Date date) {
+        this.paymentId = paymentID;
+        this.bookingId = bookingID;
         this.paymentMethod = paymentMethod;
         this.amount = amount;
         this.date = date;
