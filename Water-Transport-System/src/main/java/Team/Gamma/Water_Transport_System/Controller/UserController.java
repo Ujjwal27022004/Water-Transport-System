@@ -42,16 +42,16 @@ public class UserController {
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(
-            @RequestParam("userid") Long userid,
+            @RequestParam("userId") Long userId,
             @RequestBody UpdateUser request) {
-        LoginMessage loginResponse = userService.updateProfile(userid, request);
+        LoginMessage loginResponse = userService.updateProfile(userId, request);
         return ResponseEntity.ok(loginResponse);
     }
 
     @GetMapping("/details")
-    public User getUserDetails(@RequestParam("userid") Long userid) {
+    public User getUserDetails(@RequestParam("userId") Long userId) {
         // Fetch the current user's details from the UserService
-        return userService.getUserDetails(userid);
+        return userService.getUserDetails(userId);
     }
 
 }

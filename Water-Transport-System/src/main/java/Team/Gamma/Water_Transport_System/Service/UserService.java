@@ -9,8 +9,8 @@ import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 public interface UserService {
     LoginMessage  addUser(UserDTO userDTO);
     LoginMessage loginUser(LoginDTO loginDTO);
-    LoginMessage updateProfile(Long userid, UpdateUser request);
-    User getUserDetails(Long userid);
+    LoginMessage updateProfile(Long userId, UpdateUser request);
+    User getUserDetails(Long userId);
 
 }
 

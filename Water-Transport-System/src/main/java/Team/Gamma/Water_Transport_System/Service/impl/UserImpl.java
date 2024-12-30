@@ -20,7 +20,7 @@ public class UserImpl implements UserService {
     @Override
     public LoginMessage addUser(UserDTO userDTO) {
         User user = new User(
-                userDTO.getUserid(),
+                userDTO.getuserId(),
                 userDTO.getUsername(),
                 userDTO.getEmail(),
                 userDTO.getPassword()
@@ -53,9 +53,9 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public LoginMessage updateProfile(Long userid, UpdateUser request) {
-        User user = userRepo.findByUserid(userid)
-                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userid));
+    public LoginMessage updateProfile(Long userId, UpdateUser request) {
+        User user = userRepo.findByuserId(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
 
         if (request.getUsername() != null) {
             user.setUsername(request.getUsername());
@@ -72,9 +72,9 @@ public class UserImpl implements UserService {
 
     }
 
-    public User getUserDetails(Long userid) {
-        // Retrieve the user by userid
-        return userRepo.findByUserid(userid).orElse(null);
+    public User getUserDetails(Long userId) {
+        // Retrieve the user by userId
+        return userRepo.findByuserId(userId).orElse(null);
     }
 
 }
