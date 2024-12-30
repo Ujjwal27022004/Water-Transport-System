@@ -38,12 +38,13 @@ public class ShipServiceImpl implements ShipDetailsService {
     public ShipDetail getShip(Long shipId) {
         return shipRepository.findById(shipId).get();
     }
-    // function to get ship details from DB
+    // function to get all ship details from DB
     @Override
     public List<ShipDetail> getAllShips() {
         return shipRepository.findAll();
     }
 
+    //function to search ship details by using source and destination
     @Override
     public List<ShipDetail> searchCruise(String source, String destination) {
         return shipRepository.searchCruise(source, destination);
