@@ -1,11 +1,12 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 
-import Team.Gamma.Water_Transport_System.Entity.Bookings;
+
+import Team.Gamma.Water_Transport_System.Dto.BookingDto;
 import Team.Gamma.Water_Transport_System.Service.Bookingservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-;
+
 
 
 @RestController
@@ -16,7 +17,7 @@ public class BookingController {
     private Bookingservice bookingservice;
 
     @PostMapping
-    public String createbookingdetails(@RequestBody Bookings bookings) {
+    public String createbookingdetails(@RequestBody BookingDto bookings) {
         bookingservice.makebooking(bookings);
         return "Booking created successfully";
     }
