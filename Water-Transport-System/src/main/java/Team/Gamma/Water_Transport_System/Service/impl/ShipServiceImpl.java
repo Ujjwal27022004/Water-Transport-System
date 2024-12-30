@@ -48,6 +48,4 @@ public class ShipServiceImpl implements ShipDetailsService {
     public List<ShipDetail> searchCruise(String source, String destination) {
         return shipRepository.searchCruise(source, destination);
     }
-
-
 }
