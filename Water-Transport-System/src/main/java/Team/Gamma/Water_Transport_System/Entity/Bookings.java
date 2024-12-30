@@ -23,7 +23,7 @@ public class Bookings {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "ship_id", referencedColumnName = "ship_id", nullable = false)
+    @JoinColumn(name = "ship_id", nullable = false)
     private ShipDetail ship;
 
     public Long getBookingId() {
