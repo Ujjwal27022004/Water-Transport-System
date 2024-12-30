@@ -17,7 +17,7 @@ public class UserImpl implements UserService {
     private UserRepository userRepo;
 
     @Override
-    public User addUser(UserDTO userDTO) {
+    public LoginMessage addUser(UserDTO userDTO) {
         User user = new User(
                 userDTO.getUserid(),
                 userDTO.getUsername(),
@@ -25,7 +25,7 @@ public class UserImpl implements UserService {
                 userDTO.getPassword()
         );
         userRepo.save(user);
-        return user;
+        return new LoginMessage("Signup Successfully", true);
     }
     UserDTO userDTO;
     @Override
