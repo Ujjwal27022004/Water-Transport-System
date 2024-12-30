@@ -48,7 +48,7 @@ public class ShipDetailController {
     // function for deleting Ship from DB
     @DeleteMapping("{shipId}")
     public String deleteShipDetails(@PathVariable("shipId") Long shipId){
-        this.shipService = null;
+        shipService.deleteShip(shipId);
         return "Ship Deleted Successfully";
     }
     // function for searching Ship by using source and destination
