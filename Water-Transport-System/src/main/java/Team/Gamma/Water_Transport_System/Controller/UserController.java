@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
+import Team.Gamma.Water_Transport_System.Dto.UpdateUser;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Service.UserService;
@@ -37,6 +38,14 @@ public class UserController {
     public String logout() {
         SecurityContextHolder.clearContext();
         return "Logout successful!";
+    }
+
+    @PutMapping("/profile")
+    public ResponseEntity<?> updateProfile(
+            @RequestParam("userid") Long userid,
+            @RequestBody UpdateUser request) {
+        LoginMessage loginResponse = userService.updateProfile(userid, request);
+        return ResponseEntity.ok(loginResponse);
     }
 
     @GetMapping("/details")
