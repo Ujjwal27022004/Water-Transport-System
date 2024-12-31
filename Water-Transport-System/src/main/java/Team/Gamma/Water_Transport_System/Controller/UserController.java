@@ -1,9 +1,10 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
-import Team.Gamma.Water_Transport_System.Dto.UpdateUser;
+import Team.Gamma.Water_Transport_System.Dto.QueryDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
+import Team.Gamma.Water_Transport_System.Service.QueryService;
 import Team.Gamma.Water_Transport_System.Service.UserService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private QueryService queryService;
 
 
     @PostMapping(path = "/signup")
@@ -43,15 +46,22 @@ public class UserController {
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(
             @RequestParam("userid") Long userid,
-            @RequestBody UpdateUser request) {
+            @RequestBody UserDTO request) {
         LoginMessage loginResponse = userService.updateProfile(userid, request);
         return ResponseEntity.ok(loginResponse);
     }
+
 
     @GetMapping("/details")
     public User getUserDetails(@RequestParam("userid") Long userid) {
         // Fetch the current user's details from the UserService
         return userService.getUserDetails(userid);
+    }
+
+    @PostMapping("/ask")
+    public ResponseEntity<?> askQuery(@RequestParam("userid") Long userid, @RequestBody QueryDTO queryDTO) {
+        LoginMessage loginResponse =  queryService.askQuery(userid,queryDTO);
+        return ResponseEntity.ok(loginResponse);
     }
 
 }
