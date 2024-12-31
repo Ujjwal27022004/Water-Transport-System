@@ -1,7 +1,7 @@
 package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
-import Team.Gamma.Water_Transport_System.Dto.UpdateUser;
+import Team.Gamma.Water_Transport_System.Dto.UpdateUserDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
@@ -53,7 +53,7 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public LoginMessage updateProfile(Long userId, UpdateUser request) {
+    public LoginMessage updateProfile(Long userId, UpdateUserDTO request) {
         User user = userRepo.findByuserId(userId)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
 

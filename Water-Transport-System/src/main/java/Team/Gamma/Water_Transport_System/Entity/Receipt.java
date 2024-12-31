@@ -12,7 +12,7 @@ public class Receipt {
     @Id
     private long receiptId;
     private long paymentID;
-    private long userID;
+    private long userId;
 
     private long shipID;
     private enum transactionType{UPI,CreditCard,DebitCard};
@@ -35,12 +35,12 @@ public class Receipt {
         this.paymentID = paymentID;
     }
 
-    public long getUserID() {
-        return userID;
+    public long getuserId() {
+        return userId;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setuserId(int userId) {
+        this.userId = userId;
     }
 
     public long getShipID() {
@@ -67,10 +67,10 @@ public class Receipt {
         this.date = date;
     }
 
-    public Receipt(int receiptId, int paymentID, int userID, int shipID, double amount, Date date) {
+    public Receipt(int receiptId, int paymentID, int userId, int shipID, double amount, Date date) {
         this.receiptId = receiptId;
         this.paymentID = paymentID;
-        this.userID = userID;
+        this.userId = userId;
         this.shipID = shipID;
         this.amount = amount;
         this.date = date;

@@ -1,14 +1,14 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
-public class UpdateUser {
+public class UpdateUserDTO {
     private String username;
     private String email;
     private String password;
 
-    public UpdateUser() {
+    public UpdateUserDTO() {
     }
 
-    public UpdateUser(String username, String email, String password) {
+    public UpdateUserDTO(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;

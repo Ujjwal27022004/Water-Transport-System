@@ -31,7 +31,7 @@ public class Bookingserviceimpl implements Bookingservice {
 
 
         // Save user first
-        User user = userRepository.findById(bookings.getUserid()).get();
+        User user = userRepository.findById(bookings.getuserId()).get();
         ShipDetail shipDetail = shipService.getShip(bookings.getShipId());
         Bookings saveBooking = new Bookings();
         saveBooking.setSeatsBooked(bookings.getSeatsBooked());

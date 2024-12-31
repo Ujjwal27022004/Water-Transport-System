@@ -1,7 +1,7 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
-import Team.Gamma.Water_Transport_System.Dto.UpdateUser;
+import Team.Gamma.Water_Transport_System.Dto.UpdateUserDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Service.UserService;
@@ -43,7 +43,7 @@ public class UserController {
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(
             @RequestParam("userId") Long userId,
-            @RequestBody UpdateUser request) {
+            @RequestBody UpdateUserDTO request) {
         LoginMessage loginResponse = userService.updateProfile(userId, request);
         return ResponseEntity.ok(loginResponse);
     }

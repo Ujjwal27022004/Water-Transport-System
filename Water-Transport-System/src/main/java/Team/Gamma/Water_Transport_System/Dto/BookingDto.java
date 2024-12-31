@@ -10,7 +10,7 @@ public class BookingDto {
 
     private int totalPrice;
 
-    private Long userid;
+    private Long userId;
     private Long shipId;
 
     public LocalDateTime getLocalDate() {
@@ -37,12 +37,12 @@ public class BookingDto {
         this.totalPrice = totalPrice;
     }
 
-    public Long getUserid() {
-        return userid;
+    public Long getuserId() {
+        return userId;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setuserId(Long userId) {
+        this.userId = userId;
     }
 
     public Long getShipId() {
