@@ -1,7 +1,6 @@
 package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
-import Team.Gamma.Water_Transport_System.Dto.UpdateUser;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
@@ -10,6 +9,7 @@ import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 
@@ -21,6 +21,7 @@ public class UserImpl implements UserService {
     public LoginMessage addUser(UserDTO userDTO) {
         User user = new User(
                 userDTO.getUserid(),
+                List.of(),
                 userDTO.getUsername(),
                 userDTO.getEmail(),
                 userDTO.getPassword()
@@ -53,7 +54,7 @@ public class UserImpl implements UserService {
     }
 
     @Override
-    public LoginMessage updateProfile(Long userid, UpdateUser request) {
+    public LoginMessage updateProfile(Long userid, UserDTO request) {
         User user = userRepo.findByUserid(userid)
                 .orElseThrow(() -> new RuntimeException("User not found with ID: " + userid));
 
