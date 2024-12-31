@@ -1,9 +1,13 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
 
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Transient;
+
 import java.time.LocalDateTime;
 
-public class BookingDto {
+public class BookingDTO {
     private LocalDateTime localDate;
 
     private int seatsBooked;
@@ -13,6 +17,17 @@ public class BookingDto {
     private Long userid;
     private Long shipId;
 
+//    @Transient
+//    private final static int pricePerSeat = 1000;
+//
+//    @PrePersist
+//    @PreUpdate
+//    public void calculatetotalprice(){
+//
+//        this.totalPrice = this.seatsBooked*pricePerSeat;
+//
+//
+//    }
     public LocalDateTime getLocalDate() {
         return localDate;
     }
