@@ -1,8 +1,7 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 
@@ -10,45 +9,67 @@ import java.util.Date;
 @Table(name = "Receipt")
 public class Receipt {
     @Id
-    private long receiptId;
-    private long paymentID;
-    private long userID;
-
-    private long shipID;
-    private enum transactionType{UPI,CreditCard,DebitCard};
-    private double amount;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "receiptId")
+    private Long receiptId;
+    @Column(name = "paymentId", insertable = false, updatable = false)
+    private Long paymentId;
+    @Column(name = "userId", insertable = false, updatable = false)
+    private Long userId;
+    @Column(name = "shipId", insertable = false, updatable = false)
+    private Long shipId;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "transactionType")
+    private Payment.PaymentMethod transactionType;
+    @Column(name = "date")
     private Date date;
+
+    @Column(name = "amount")
+    private double amount;
+
+
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "shipId", nullable = false)
+    private ShipDetail ship;
+
+    @ManyToOne
+    @JoinColumn(name = "paymentId", nullable = false)
+    private Payment payment;
 
     public long getReceiptId() {
         return receiptId;
     }
 
-    public void setReceiptId(int receiptId) {
+    public void setReceiptId(Long receiptId) {
         this.receiptId = receiptId;
     }
 
     public long getPaymentID() {
-        return paymentID;
+        return paymentId;
     }
 
-    public void setPaymentID(int paymentID) {
-        this.paymentID = paymentID;
+    public void setPaymentID(Long paymentID) {
+        this.paymentId = paymentID;
     }
 
     public long getUserID() {
-        return userID;
+        return userId;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setUserID(Long userID) {
+        this.userId = userID;
     }
 
     public long getShipID() {
-        return shipID;
+        return shipId;
     }
 
-    public void setShipID(int shipID) {
-        this.shipID = shipID;
+    public void setShipID(Long shipID) {
+        this.shipId = shipID;
     }
 
     public double getAmount() {
@@ -58,6 +79,14 @@ public class Receipt {
     public void setAmount(double amount) {
         this.amount = amount;
     }
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
 
     public Date getDate() {
         return date;
@@ -66,12 +95,20 @@ public class Receipt {
     public void setDate(Date date) {
         this.date = date;
     }
+    public Payment.PaymentMethod getTransactionType() {
+        return transactionType;
+    }
 
-    public Receipt(int receiptId, int paymentID, int userID, int shipID, double amount, Date date) {
+    public void setTransactionType(Payment.PaymentMethod transactionType) {
+        this.transactionType = transactionType;
+    }
+
+
+    public Receipt(Long receiptId, Long paymentID, Long userID, Long shipID, double amount, Date date) {
         this.receiptId = receiptId;
-        this.paymentID = paymentID;
-        this.userID = userID;
-        this.shipID = shipID;
+        this.paymentId = paymentID;
+        this.userId = userID;
+        this.shipId = shipID;
         this.amount = amount;
         this.date = date;
     }
