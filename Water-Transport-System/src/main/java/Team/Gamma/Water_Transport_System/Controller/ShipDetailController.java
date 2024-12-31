@@ -1,15 +1,11 @@
 package Team.Gamma.Water_Transport_System.Controller;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/shipdetails")
@@ -23,15 +19,29 @@ public class ShipDetailController {
 
     // function for fetching details of ship from DB
     @GetMapping("/{shipId}")
-    public ShipDetail getShipDetails(@PathVariable("shipId") Long shipId) {
-        return shipService.getShip(shipId);
+    public ResponseEntity<?> getShipDetails(@PathVariable("shipId") Long shipId) {
+        try {
+            ShipDetail shipDetail = shipService.getShip(shipId);
+            return ResponseEntity.ok(shipDetail);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ship not found with ID: " + shipId);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching ship details");
+        }
     }
 
 
     // function for fetching details of all ships from DB
-    @GetMapping
-    public List<ShipDetail> getAllShipDetails() {
-        return shipService.getAllShips();
+    public ResponseEntity<?> getAllShipDetails() {
+        try {
+            List<ShipDetail> ships = shipService.getAllShips();
+            if (ships == null || ships.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No ship details found");
+            }
+            return ResponseEntity.ok(ships);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching all ship details");
+        }
     }
     // function for creating Ship in DB
     @PostMapping
@@ -48,14 +58,24 @@ public class ShipDetailController {
     // function for deleting Ship from DB
     @DeleteMapping("{shipId}")
     public String deleteShipDetails(@PathVariable("shipId") Long shipId){
-        this.shipService = null;
+        shipService.deleteShip(shipId);
         return "Ship Deleted Successfully";
     }
-    // function for searching Ship by using source and destination
+    // Function for searching Ship by using source and destination
     @GetMapping("/search")
-    public List<ShipDetail> getShipDetailsBySourceAndDestination(
+    public ResponseEntity<?> getShipDetailsBySourceAndDestination(
             @RequestParam("source") String source,
             @RequestParam("destination") String destination) {
-        return shipService.searchCruise(source, destination);
+        try {
+            List<ShipDetail> ships = shipService.searchCruise(source, destination);
+            if (ships == null || ships.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No ships found for the given source and destination");
+            }
+            return ResponseEntity.ok(ships);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error searching ships");
+        }
     }
 }
+
+
