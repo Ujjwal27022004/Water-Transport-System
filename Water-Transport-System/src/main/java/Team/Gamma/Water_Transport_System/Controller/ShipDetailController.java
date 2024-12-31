@@ -32,6 +32,7 @@ public class ShipDetailController {
 
 
     // function for fetching details of all ships from DB
+    @GetMapping
     public ResponseEntity<?> getAllShipDetails() {
         try {
             List<ShipDetail> ships = shipService.getAllShips();
