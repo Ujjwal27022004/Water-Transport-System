@@ -1,7 +1,5 @@
 package Team.Gamma.Water_Transport_System.Service.impl;
 
-
-
 import Team.Gamma.Water_Transport_System.Dto.QueryDTO;
 import Team.Gamma.Water_Transport_System.Entity.Query;
 import Team.Gamma.Water_Transport_System.Entity.User;
@@ -24,19 +22,24 @@ public class QueryImpl implements QueryService {
 
     @Override
     public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {
-        User user = userRepository.findById(userid)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        Query query = new Query();
-        query.setUser(user);
-        query.setQueryDetails(queryDTO.getQueryDetails());
-        query.setStatus("Pending");
-        query.setCreatedDate(new Date());
+        try {
+            User user = userRepository.findById(userid)
+                    .orElseThrow(() -> new RuntimeException("User not found with ID: " + userid));
 
-        user.getQueries().add(query);
+            Query query = new Query();
+            query.setUser(user);
+            query.setQueryDetails(queryDTO.getQueryDetails());
+            query.setStatus("Pending");
+            query.setCreatedDate(new Date());
 
-        queryRepository.save(query);
+            user.getQueries().add(query);
+            queryRepository.save(query);
 
-        return new LoginMessage( "Query successfully Submitted!", true);
-
+            return new LoginMessage("Query successfully Submitted!", true);
+        } catch (RuntimeException e) {
+            return new LoginMessage(e.getMessage(), false);
+        } catch (Exception e) {
+            return new LoginMessage("Error while submitting the query: " + e.getMessage(), false);
+        }
     }
 }
