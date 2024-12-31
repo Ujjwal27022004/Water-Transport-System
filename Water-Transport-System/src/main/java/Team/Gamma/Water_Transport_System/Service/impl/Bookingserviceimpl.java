@@ -60,7 +60,7 @@ public class Bookingserviceimpl implements Bookingservice {
     }
 
     @Override
-    public String cancelbooking(long bookingId) {
+    public String cancelbooking(Long bookingId) {
         Optional<Bookings> optionalBooking = bookingRepository.findById(bookingId);
         if (!optionalBooking.isPresent()) {
             return "Booking not found with ID: " + bookingId;

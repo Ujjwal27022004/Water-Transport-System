@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 
+import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/admindetails")
 public class AdminController {
-    private final AdminService adminService;
-
     @Autowired
-    public AdminController(AdminService adminService) {
-        this.adminService = adminService;
-    }
+    private  AdminService adminService;
+
     // function for fetching details of admin from DB
     @GetMapping("/{adminId}")
     public Admin getAdminDetails(@PathVariable("adminId") Long adminId) {
@@ -31,7 +29,7 @@ public class AdminController {
 
     // function for updating details of admin in DB
     @PutMapping
-    public String updateAdminDetails(@RequestBody Admin admin) {
+    public String updateAdminDetails(@RequestBody AdminDTO admin) {
         adminService.updateAdmin(admin);
         return "AdminDetails updated successfully!";
     }
