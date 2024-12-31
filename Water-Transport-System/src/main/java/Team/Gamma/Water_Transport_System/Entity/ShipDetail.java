@@ -16,7 +16,7 @@ public class ShipDetail {
     private String source;
     @JsonProperty("destination")
     private String destination;
-    private int capacity;
+    private int capacity = 200;
     private int cruiseLength;
     private String cruiseType;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -26,15 +26,14 @@ public class ShipDetail {
     private boolean availability;
 
     public ShipDetail(){
-
+        // Default constructor
     }
 
-    public ShipDetail(Long shipId, String name, String source, String destination, int capacity, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
+    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
         this.shipId = shipId;
         this.name = name;
         this.source = source;
         this.destination = destination;
-        this.capacity = capacity;
         this.cruiseLength = cruiseLength;
         this.cruiseType = cruiseType;
         this.date = date;
@@ -56,6 +55,9 @@ public class ShipDetail {
     }
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
         this.name = name;
     }
 
@@ -64,6 +66,9 @@ public class ShipDetail {
     }
 
     public void setSource(String source) {
+        if (source == null || source.trim().isEmpty()) {
+            throw new IllegalArgumentException("Source cannot be null or empty");
+        }
         this.source = source;
     }
 
@@ -72,6 +77,9 @@ public class ShipDetail {
     }
 
     public void setDestination(String destination) {
+        if (destination == null || destination.trim().isEmpty()) {
+            throw new IllegalArgumentException("Destination cannot be null or empty");
+        }
         this.destination = destination;
     }
 
@@ -79,9 +87,7 @@ public class ShipDetail {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
+    // No setter for capacity to enforce immutability
 
     public float getCruiseLength() {
         return cruiseLength;
@@ -112,14 +118,21 @@ public class ShipDetail {
     }
 
     public void setPrice(float price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
         this.price = price;
     }
+
 
     public float getRating() {
         return rating;
     }
 
     public void setRating(float rating) {
+        if (rating < 0 || rating > 10) {
+            throw new IllegalArgumentException("Rating must be between 0 and 10");
+        }
         this.rating = rating;
     }
 

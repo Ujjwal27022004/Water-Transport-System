@@ -44,20 +44,33 @@ public class Bookingserviceimpl implements Bookingservice {
             return "Ship not found with ID: " + bookings.getShipId();
         }
 
-        // Create a new booking and set the details
+        // Check seat availability before booking
+        int bookedSeats = bookingRepository.countBookedSeatsForShip(bookings.getShipId());
+        int remainingSeats = shipDetail.getCapacity() - bookedSeats;
+
+        if (remainingSeats < bookings.getSeatsBooked()) {
+            return "Not enough seats available on the ship. Remaining seats: " + remainingSeats;
+        }
+
+        // Create a new booking
         Bookings saveBooking = new Bookings();
         saveBooking.setSeatsBooked(bookings.getSeatsBooked());
-        System.out.println("Booking seats: " + bookings.getSeatsBooked());
-        saveBooking.setUser(optionalUser.get()); // Use the user fetched above
-        saveBooking.setShip(shipDetail);
+        saveBooking.setUser(optionalUser.get()); // Set the user
+        saveBooking.setShip(shipDetail);         // Set the ship
         saveBooking.setLocalDate(LocalDateTime.now());
         saveBooking.setTotalPrice(bookings.getTotalPrice());
 
         // Save the booking to the database
         bookingRepository.save(saveBooking);
 
-        return "Your Ticket has been booked successfully!";
+        // Recalculate remaining seats after booking
+        bookedSeats += bookings.getSeatsBooked();
+        remainingSeats = shipDetail.getCapacity() - bookedSeats;
+
+        return "Your Ticket has been booked successfully! Remaining seats: " + remainingSeats;
     }
+
+
 
     @Override
     public String cancelbooking(long bookingId) {
@@ -65,7 +78,6 @@ public class Bookingserviceimpl implements Bookingservice {
         if (!optionalBooking.isPresent()) {
             return "Booking not found with ID: " + bookingId;
         }
-
         // Delete the booking by ID
         bookingRepository.deleteById(bookingId);
         return "Your Ticket has been cancelled successfully!";

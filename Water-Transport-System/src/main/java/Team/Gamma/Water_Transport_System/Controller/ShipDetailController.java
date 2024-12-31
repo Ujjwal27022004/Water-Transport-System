@@ -32,6 +32,7 @@ public class ShipDetailController {
 
 
     // function for fetching details of all ships from DB
+    @GetMapping
     public ResponseEntity<?> getAllShipDetails() {
         try {
             List<ShipDetail> ships = shipService.getAllShips();
@@ -74,6 +75,18 @@ public class ShipDetailController {
             return ResponseEntity.ok(ships);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error searching ships");
+        }
+    }
+
+    @GetMapping("/{shipId}/remaining-seats")
+    public ResponseEntity<?> getRemainingSeats(@PathVariable Long shipId) {
+        try {
+            int remainingSeats = shipService.getRemainingSeats(shipId);
+            return ResponseEntity.ok("Remaining seats: " + remainingSeats);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching remaining seats");
         }
     }
 }
