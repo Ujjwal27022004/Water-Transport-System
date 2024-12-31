@@ -23,7 +23,7 @@ public class BookingController {
     }
 
     @DeleteMapping("{bookingId}")
-    public String cancelbooking(@PathVariable long bookingId) {
+    public String cancelbooking(@PathVariable Long bookingId) {
         bookingservice.cancelbooking(bookingId);
         return "Your booking has been successfully canceled";
     }
