@@ -50,6 +50,14 @@ public class Bookingserviceimpl implements Bookingservice {
         int totalPrice = bookings.getSeatsBooked() * PRICE_PER_SEAT;
         bookings.setTotalPrice(totalPrice); // Set the calculated total price in the DTO
 
+        // Check seat availability before booking
+        int bookedSeats = bookingRepository.countBookedSeatsForShip(bookings.getShipId());
+        int remainingSeats = shipDetail.getCapacity() - bookedSeats;
+
+        if (remainingSeats < bookings.getSeatsBooked()) {
+            return "Not enough seats available on the ship. Remaining seats: " + remainingSeats;
+        }
+
         // Create a new booking and set the details
         Bookings saveBooking = new Bookings();
         saveBooking.setSeatsBooked(bookings.getSeatsBooked());
@@ -67,6 +75,10 @@ public class Bookingserviceimpl implements Bookingservice {
 
         // Save the booking to the database
         bookingRepository.save(saveBooking);
+
+        // Recalculate remaining seats after booking
+        bookedSeats += bookings.getSeatsBooked();
+        remainingSeats = shipDetail.getCapacity() - bookedSeats;
 
         return "Your Ticket has been booked successfully!";
     }
