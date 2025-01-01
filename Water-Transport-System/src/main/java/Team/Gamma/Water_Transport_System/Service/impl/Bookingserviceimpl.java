@@ -4,6 +4,7 @@ import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
+import Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
@@ -29,69 +30,48 @@ public class Bookingserviceimpl implements Bookingservice {
     @Autowired
     private ShipServiceImpl shipService;
 
-    private static final int PRICE_PER_SEAT = 1000; // Define the price per seat
+    private static final int PRICE_PER_SEAT = 1000;
 
     @Override
-    public String makebooking(BookingDTO bookings) {
-
-        // Fetch the user from the database
+    public void makeBooking(BookingDTO bookings) {
         Optional<User> optionalUser = userRepository.findById(bookings.getUserid());
         if (!optionalUser.isPresent()) {
-            return "User not found with ID: " + bookings.getUserid();
+            throw new BookingNotFoundException("User not found with ID: " + bookings.getUserid());
         }
 
-        // Fetch the ship details
         ShipDetail shipDetail = shipService.getShip(bookings.getShipId());
         if (shipDetail == null) {
-            return "Ship not found with ID: " + bookings.getShipId();
+            throw new BookingNotFoundException("User not found with ID: " + bookings.getUserid());
         }
 
-        // Calculate total price based on seats booked
         int totalPrice = bookings.getSeatsBooked() * PRICE_PER_SEAT;
-        bookings.setTotalPrice(totalPrice); // Set the calculated total price in the DTO
+        bookings.setTotalPrice(totalPrice);
 
-        // Check seat availability before booking
         int bookedSeats = bookingRepository.countBookedSeatsForShip(bookings.getShipId());
         int remainingSeats = shipDetail.getCapacity() - bookedSeats;
 
         if (remainingSeats < bookings.getSeatsBooked()) {
-            return "Not enough seats available on the ship. Remaining seats: " + remainingSeats;
+            throw new IllegalArgumentException("Not enough seats available. Remaining seats: " + remainingSeats);
         }
 
-        // Create a new booking and set the details
         Bookings saveBooking = new Bookings();
         saveBooking.setSeatsBooked(bookings.getSeatsBooked());
-        saveBooking.setUser(optionalUser.get()); // Use the user fetched above
+        saveBooking.setUser(optionalUser.get());
         saveBooking.setShip(shipDetail);
-
-        // Check if localDate is null and set current date as fallback
-        if (bookings.getLocalDate() != null) {
-            saveBooking.setLocalDate(bookings.getLocalDate());
-        } else {
-            saveBooking.setLocalDate(LocalDateTime.now()); // Default to current time
-        }
-
+        saveBooking.setLocalDate(bookings.getLocalDate() != null ? bookings.getLocalDate() : LocalDateTime.now());
         saveBooking.setTotalPrice(totalPrice);
 
-        // Save the booking to the database
         bookingRepository.save(saveBooking);
-
-        // Recalculate remaining seats after booking
-        bookedSeats += bookings.getSeatsBooked();
-        remainingSeats = shipDetail.getCapacity() - bookedSeats;
-
-        return "Your Ticket has been booked successfully!";
     }
 
     @Override
-    public String cancelbooking(Long bookingId) {
+    public boolean cancelBooking(Long bookingId) {
         Optional<Bookings> optionalBooking = bookingRepository.findById(bookingId);
         if (!optionalBooking.isPresent()) {
-            return "Booking not found with ID: " + bookingId;
+            return false; // Booking not found
         }
 
-        // Delete the booking by ID
         bookingRepository.deleteById(bookingId);
-        return "Your Ticket has been cancelled successfully!";
+        return true; // Booking canceled successfully
     }
 }

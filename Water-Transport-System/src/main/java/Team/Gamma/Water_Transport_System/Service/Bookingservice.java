@@ -4,6 +4,6 @@ import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 
 public interface Bookingservice {
 
-    public String makebooking(BookingDTO bookings);
-    public String cancelbooking(Long bookingId);
+    void makeBooking(BookingDTO bookings);
+    boolean cancelBooking(Long bookingId);
 }
