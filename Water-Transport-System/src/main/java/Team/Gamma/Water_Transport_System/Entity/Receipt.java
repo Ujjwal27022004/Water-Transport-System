@@ -34,7 +34,7 @@ public class Receipt {
 
     @ManyToOne
     @JoinColumn(name = "shipId", nullable = false)
-    private ShipDetail ship;
+    private Ship ship;
 
     @ManyToOne
     @JoinColumn(name = "paymentId", nullable = false)

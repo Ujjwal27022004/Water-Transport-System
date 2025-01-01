@@ -1,5 +1,5 @@
 package Team.Gamma.Water_Transport_System.Repository;
-import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+import Team.Gamma.Water_Transport_System.Entity.Ship;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface ShipDetailsRepository extends JpaRepository<ShipDetail, Long> {
+public interface ShipRepository extends JpaRepository<Ship, Long> {
 
     /**
      * Custom query method to search for cruises based on source and destination.
@@ -17,8 +17,8 @@ public interface ShipDetailsRepository extends JpaRepository<ShipDetail, Long> {
      * @return A list of ShipDetail objects that match the given source and destination.
      */
     @Query("SELECT s FROM ShipDetail s WHERE s.source = :source AND s.destination = :destination")
-    List<ShipDetail> searchCruise(@Param("source") String source, @Param("destination") String destination);
-    Optional<ShipDetail> findById(Long id);
-    Optional<ShipDetail> findByName(String name);
+    List<Ship> searchCruise(@Param("source") String source, @Param("destination") String destination);
+    Optional<Ship> findById(Long id);
+    Optional<Ship> findByName(String name);
 
 }
