@@ -2,7 +2,7 @@ package Team.Gamma.Water_Transport_System.Controller;
 
 
 
-import Team.Gamma.Water_Transport_System.Dto.BookingDto;
+import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 import Team.Gamma.Water_Transport_System.Service.Bookingservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class BookingController {
     private Bookingservice bookingservice;
 
     @PostMapping
-    public String createbookingdetails(@RequestBody BookingDto bookings) {
+    public String createbookingdetails(@RequestBody BookingDTO bookings) {
         bookingservice.makebooking(bookings);
         return "Booking created successfully";
     }

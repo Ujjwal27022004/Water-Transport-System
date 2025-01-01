@@ -17,6 +17,7 @@ public class Bookings {
 
     private int seatsBooked;
 
+    @Column(name = "totalPrice")
     private int totalPrice;
 
     @ManyToOne(cascade = CascadeType.PERSIST) // Add CascadeType.PERSIST here
