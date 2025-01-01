@@ -16,7 +16,6 @@ public class Payment {
     private Long bookingId;
     @Column(name = "paymentStatus")
     private String paymentStatus;
-
     @Column(name = "amount")
     private double amount;
     @Column(name = "date")
@@ -80,6 +79,7 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
+    //constructor
     public Payment() {
     }
 

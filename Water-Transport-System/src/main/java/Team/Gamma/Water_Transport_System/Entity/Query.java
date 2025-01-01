@@ -14,10 +14,6 @@ public class Query {
     @Column(name = "query_id", length = 45)
     private Long queryid;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user; // Reference to the User entity (Foreign Key)
-
     @Column(name = "query_details", length = 500)
     private String queryDetails;
 
@@ -35,18 +31,11 @@ public class Query {
     @Temporal(TemporalType.DATE)
     private Date resolvedDate;
 
-    public Query() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    public Query(Long queryid, Date resolvedDate, Date createdDate, String status, String queryResolution, String queryDetails, User user) {
-        this.queryid = queryid;
-        this.resolvedDate = resolvedDate;
-        this.createdDate = createdDate;
-        this.status = status;
-        this.queryResolution = queryResolution;
-        this.queryDetails = queryDetails;
-        this.user = user;
-    }
+
 
     // Getters and Setters
     public Long getqueryid() {
@@ -103,6 +92,20 @@ public class Query {
 
     public void setResolvedDate(Date resolvedDate) {
         this.resolvedDate = resolvedDate;
+    }
+
+    //constructor
+    public Query() {
+    }
+
+    public Query(Long queryid, Date resolvedDate, Date createdDate, String status, String queryResolution, String queryDetails, User user) {
+        this.queryid = queryid;
+        this.resolvedDate = resolvedDate;
+        this.createdDate = createdDate;
+        this.status = status;
+        this.queryResolution = queryResolution;
+        this.queryDetails = queryDetails;
+        this.user = user;
     }
 }
 

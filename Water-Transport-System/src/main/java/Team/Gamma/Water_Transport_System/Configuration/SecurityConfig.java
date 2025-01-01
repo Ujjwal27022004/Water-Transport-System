@@ -9,17 +9,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity (adjust based on your app's needs)
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/user/signup", "/api/v1/user/login", "/api/v1/user/logout" , "/api/v1/user/details","/api/v1/user/ask", "/api/v1/shipdetails", "/api/v1/admindetails", "/api/v1/bookings","/api/v1/payments","/api/v1/receipts").permitAll() // Allow public access
-                        .anyRequest().authenticated() // Secure all other endpoints
+                        .requestMatchers("/api/v1/user/signup",
+                                "/api/v1/user/login",
+                                "/api/v1/user/logout" ,
+                                "/api/v1/user/details",
+                                "/api/v1/user/ask",
+                                "/api/v1/shipdetails",
+                                "/api/v1/admindetails",
+                                "/api/v1/bookings",
+                                "/api/v1/payments",
+                                "/api/v1/receipts").permitAll()
+                        .anyRequest().authenticated()
                 )
-                .httpBasic(basic -> {}); // Enable Basic Authentication
-
+                .httpBasic(basic -> {});
         return http.build();
     }
 }

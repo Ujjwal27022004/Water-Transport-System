@@ -10,11 +10,12 @@ public class ReceiptDTO {
     private Long userID;
     private Long shipID;
     private TransactionType transactionType;
+    private Double amount;
+    private Date date;
+
     public enum TransactionType {
         UPI, CREDIT_DEBIT_CARD, PAYPAL, NETBANKING
     }
-    private Double amount;
-    private Date date;
 
     // Getters and Setters
     public Long getReceiptId() {
@@ -52,10 +53,6 @@ public class ReceiptDTO {
     public TransactionType getTransactionType() {
         return transactionType;
     }
-
-//    public void setTransactionType(Receipt.TransactionType transactionType) {
-//        this.transactionType = transactionType;
-//    }
 
     public Double getAmount() {
         return amount;

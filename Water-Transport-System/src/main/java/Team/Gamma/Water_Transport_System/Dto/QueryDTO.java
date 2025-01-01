@@ -5,11 +5,15 @@ import Team.Gamma.Water_Transport_System.Entity.User;
 import java.util.Date;
 
 public class QueryDTO {
-
     private String queryDetails;
     private Long queryid;
     private User user;
+    private String queryResolution;
+    private String status;
+    private Date createdDate;
+    private Date resolvedDate;
 
+    //Getter and Setter
     public Long getQueryid() {
         return queryid;
     }
@@ -58,23 +62,6 @@ public class QueryDTO {
         this.resolvedDate = resolvedDate;
     }
 
-    private String queryResolution;
-    private String status;
-    private Date createdDate;
-    private Date resolvedDate;
-
-
-    public QueryDTO() {
-    }
-
-
-
-
-    public QueryDTO(String queryDetails) {
-        this.queryDetails = queryDetails;
-    }
-
-
     public String getQueryDetails() {
         return queryDetails;
     }
@@ -82,6 +69,15 @@ public class QueryDTO {
     public void setQueryDetails(String queryDetails) {
         this.queryDetails = queryDetails;
     }
+
+    //constructor
+    public QueryDTO() {
+    }
+
+    public QueryDTO(String queryDetails) {
+        this.queryDetails = queryDetails;
+    }
+
 
 }
 

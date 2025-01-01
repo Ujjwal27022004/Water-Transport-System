@@ -14,8 +14,7 @@ public class PassengerDetails {
     private int age;
     private String gender;
 
-//    private enum seatPreference{Balcony,Insider,Outsider};
-
+    //Getter and setter
     public long getPassengerId() {
         return passengerId;
     }
@@ -56,6 +55,7 @@ public class PassengerDetails {
         this.gender = gender;
     }
 
+    //Constructor
     public PassengerDetails() {
     }
 }

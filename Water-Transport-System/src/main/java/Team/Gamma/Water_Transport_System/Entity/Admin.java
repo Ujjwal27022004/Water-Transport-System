@@ -10,18 +10,10 @@ import jakarta.persistence.Table;
 public class Admin {
     @Id
     private Long adminId;
-
     private String password;
 
-    // Default constructor is required by JPA
-    public Admin() {
-    }
 
-    public Admin(String password, Long adminId) {
-        this.password = password;
-        this.adminId = adminId;
-    }
-
+    //Getter and Setter
     public Long getAdminId() {
         return adminId;
     }
@@ -36,5 +28,13 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    //constructor
+    public Admin() {
+    }
+    public Admin(String password, Long adminId) {
+        this.password = password;
+        this.adminId = adminId;
     }
 }

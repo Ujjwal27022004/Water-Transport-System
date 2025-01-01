@@ -1,10 +1,9 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
 public class ResolutionRequestDTO {
-
-
         private String resolutionDetails;
         private String status;
+
 
         // Getters and Setters
         public String getResolutionDetails() {

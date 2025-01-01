@@ -15,6 +15,7 @@ public class QueryController {
     @Autowired
     private QueryService queryService;
 
+    //Method is for user to ask query
     @PostMapping("/ask")
     public ResponseEntity<?> askQuery(@RequestParam("userid") Long userid, @RequestBody QueryDTO queryDTO) {
         LoginMessage loginResponse = queryService.askQuery(userid, queryDTO);

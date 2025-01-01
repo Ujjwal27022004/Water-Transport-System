@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/receipts")
 public class ReceiptController {
-
     @Autowired
     private ReceiptServiceImpl receiptService;
 

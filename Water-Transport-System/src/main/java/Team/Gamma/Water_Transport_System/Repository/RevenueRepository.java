@@ -7,8 +7,6 @@
 
     public interface RevenueRepository extends JpaRepository<Bookings,Long> {
 
-
-
             @Query("SELECT COUNT(b) FROM Bookings b WHERE b.ship.shipId = :shipId")
             int countByShipId(@Param("shipId") int shipId);
 

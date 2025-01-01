@@ -18,10 +18,8 @@ public class paymentDTO {
         UPI, CREDIT_DEBIT_CARD, PAYPAL, NETBANKING
     }
 
-    public paymentDTO() {
-    }
 
-
+    //Getter and Setter
 
     public Long getPaymentId() {
         return paymentId;
@@ -79,18 +77,6 @@ public class paymentDTO {
         this.paymentMethod = paymentMethod;
     }
 
-
-
-
-
-
-
-
-    public paymentDTO(String message, boolean success) {
-        this.message = message;
-        this.success = success;
-    }
-
     public String getMessage() {
         return message;
     }
@@ -98,4 +84,12 @@ public class paymentDTO {
     public boolean isSuccess() {
         return success;
     }
+
+    public paymentDTO() {
+    }
+    public paymentDTO(String message, boolean success) {
+        this.message = message;
+        this.success = success;
+    }
 }
+

@@ -11,7 +11,6 @@ public interface BookingRepository extends  JpaRepository<Bookings, Long> {
     Bookings findByBookingId(Long bookingId);
 
     Bookings findByUser_userid(Long userId);
-    // Custom query to count the booked seats for a particular ship
     @Query("SELECT SUM(b.seatsBooked) FROM Bookings b WHERE b.ship.shipId = :shipId")
     Integer countBookedSeatsForShip(@Param("shipId") Long shipId);
 }

@@ -6,15 +6,8 @@ public class UserDTO {
     private String email;
     private String password;
 
-    public UserDTO() {
-    }
 
-    public UserDTO(Long userid, String username, String email, String password) {
-        this.userid = userid;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+    //Getter and Setter
 
     public Long getUserid() {
         return userid;
@@ -46,6 +39,17 @@ public class UserDTO {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+
+    //Constructor
+    public UserDTO() {
+    }
+    public UserDTO(Long userid, String username, String email, String password) {
+        this.userid = userid;
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 }
 

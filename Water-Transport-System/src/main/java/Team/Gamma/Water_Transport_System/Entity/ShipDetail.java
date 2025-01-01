@@ -25,24 +25,6 @@ public class ShipDetail {
     private float rating;
     private boolean availability;
 
-    public ShipDetail(){
-
-    }
-
-    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
-        this.shipId = shipId;
-        this.name = name;
-        this.source = source;
-        this.destination = destination;
-        //this.capacity = capacity;
-        this.cruiseLength = cruiseLength;
-        this.cruiseType = cruiseType;
-        this.date = date;
-        this.price = price;
-        this.rating = rating;
-        this.availability = availability;
-    }
-
     public Long getShipId() {
         return shipId;
     }
@@ -126,6 +108,25 @@ public class ShipDetail {
     }
 
     public void setAvailability(boolean availability) {
+        this.availability = availability;
+    }
+
+
+    //constructor
+    public ShipDetail(){
+
+    }
+    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
+        this.shipId = shipId;
+        this.name = name;
+        this.source = source;
+        this.destination = destination;
+        //this.capacity = capacity;
+        this.cruiseLength = cruiseLength;
+        this.cruiseType = cruiseType;
+        this.date = date;
+        this.price = price;
+        this.rating = rating;
         this.availability = availability;
     }
 }
