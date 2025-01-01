@@ -16,7 +16,7 @@ public class ShipDetail {
     private String source;
     @JsonProperty("destination")
     private String destination;
-    private int capacity;
+    private int capacity = 200;
     private int cruiseLength;
     private String cruiseType;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -29,12 +29,12 @@ public class ShipDetail {
 
     }
 
-    public ShipDetail(Long shipId, String name, String source, String destination, int capacity, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
+    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
         this.shipId = shipId;
         this.name = name;
         this.source = source;
         this.destination = destination;
-        this.capacity = capacity;
+        //this.capacity = capacity;
         this.cruiseLength = cruiseLength;
         this.cruiseType = cruiseType;
         this.date = date;
@@ -79,9 +79,7 @@ public class ShipDetail {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
+    // No setter for capacity to enforce immutability
 
     public float getCruiseLength() {
         return cruiseLength;
