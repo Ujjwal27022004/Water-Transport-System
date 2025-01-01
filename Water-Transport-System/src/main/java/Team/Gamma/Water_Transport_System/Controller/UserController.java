@@ -19,8 +19,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class UserController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private QueryService queryService;
 
 
     @PostMapping(path = "/signup")
@@ -58,11 +56,7 @@ public class UserController {
         return userService.getUserDetails(userid);
     }
 
-    @PostMapping("/ask")
-    public ResponseEntity<?> askQuery(@RequestParam("userid") Long userid, @RequestBody QueryDTO queryDTO) {
-        LoginMessage loginResponse =  queryService.askQuery(userid,queryDTO);
-        return ResponseEntity.ok(loginResponse);
-    }
+
 
 }
 
