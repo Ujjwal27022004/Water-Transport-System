@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AdminService {
     // Admin Actions
-    public String updateAdmin(AdminDTO admin);
+    boolean updateAdmin(AdminDTO admin);
     public Admin getAdmin(Long adminId);
     public List<Admin> getAllAdmin();
 

@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Entity.User;
+import Team.Gamma.Water_Transport_System.Exception.UserNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.UserManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,26 +15,32 @@ public class UserManagementController {
     private final UserManagementService userManagementService;
 
     @Autowired
-    public UserManagementController(UserManagementService user) {
-        this.userManagementService = user;
+    public UserManagementController(UserManagementService userManagementService) {
+        this.userManagementService = userManagementService;
     }
-    @GetMapping("/search")
-    public User getUserDetailsById(
 
-            @RequestParam("userId") Long userId) {
-        return userManagementService.searchUser(userId);
+    @GetMapping("/search")
+    public User getUserDetailsById(@RequestParam("userId") Long userId) {
+        User user = userManagementService.searchUser(userId);
+        if (user == null) {
+            throw new UserNotFoundException("User not found with ID: " + userId);
+        }
+        return user;
     }
+
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userManagementService.getAllUsers();
     }
+
     @PutMapping
-    public String editUser(@RequestBody User user){
-    userManagementService.updateUser(user);
-    return "User updated Successfully!";
+    public String editUser(@RequestBody User user) {
+        userManagementService.updateUser(user);
+        return "User updated Successfully!";
     }
+
     @DeleteMapping("{userId}")
-    public String deleteUser(@PathVariable("userId") Long userId){
+    public String deleteUser(@PathVariable("userId") Long userId) {
         userManagementService.removeUser(userId);
         return "User Deleted Successfully";
     }

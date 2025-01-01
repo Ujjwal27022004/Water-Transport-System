@@ -5,59 +5,50 @@ import Team.Gamma.Water_Transport_System.Repository.PassengerDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.PassengerDetailsService;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PassengerDetailsimpl implements PassengerDetailsService {
 
-    PassengerDetailsRepository passengerDetailsRepository;
+    private final PassengerDetailsRepository passengerDetailsRepository;
 
     public PassengerDetailsimpl(PassengerDetailsRepository passengerDetailsRepository) {
         this.passengerDetailsRepository = passengerDetailsRepository;
     }
 
-//for get
     @Override
     public PassengerDetails getpassengerdetails(Long passengerId) {
-
-        return  passengerDetailsRepository.findById(passengerId).get();
+        Optional<PassengerDetails> passengerDetails = passengerDetailsRepository.findById(passengerId);
+        return passengerDetails.orElse(null);
     }
 
-
-
-    //for post
     @Override
     public String createpassengerdetails(PassengerDetails passengerDetails) {
-
-
         passengerDetailsRepository.save(passengerDetails);
-
-        return "The passenger details have been added successfully";
+        return "The passenger details have been added successfully.";
     }
 
-    //for put
     @Override
-    public String updatepassengerdetails(PassengerDetails passengerDetails) {
-
-        passengerDetailsRepository.save(passengerDetails);
-
-        return "The passenger details have been added successfully";
+    public boolean updatepassengerdetails(PassengerDetails passengerDetails) {
+        if (passengerDetailsRepository.existsById(passengerDetails.getPassengerId())) {
+            passengerDetailsRepository.save(passengerDetails);
+            return true;
+        }
+        return false;
     }
-//for delete
+
     @Override
-    public String deletepassengerdetails(Long passengerId) {
-
-
-        passengerDetailsRepository.deleteById(passengerId);
-        return "The passenger has been deleted successfully";
+    public boolean deletepassengerdetails(Long passengerId) {
+        if (passengerDetailsRepository.existsById(passengerId)) {
+            passengerDetailsRepository.deleteById(passengerId);
+            return true;
+        }
+        return false;
     }
-
-    //for fetching the list;
 
     @Override
     public List<PassengerDetails> getAllPassengerdetails() {
-
         return passengerDetailsRepository.findAll();
     }
 }
