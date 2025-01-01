@@ -3,6 +3,7 @@ package Team.Gamma.Water_Transport_System.Entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "bookings_info")
@@ -25,7 +26,7 @@ public class Bookings {
 
     @ManyToOne
     @JoinColumn(name = "ship_id", nullable = false)
-    private Ship ship;
+    private ShipDetail ship;
 
 
     // One-to-One relationship with Payment
@@ -70,11 +71,11 @@ public class Bookings {
         this.user = user;
     }
 
-    public Ship getShip() {
+    public ShipDetail getShip() {
         return ship;
     }
 
-    public void setShip(Ship ship) {
+    public void setShip(ShipDetail ship) {
         this.ship = ship;
     }
     public Thread getPayment() {

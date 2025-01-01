@@ -2,10 +2,10 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
-import Team.Gamma.Water_Transport_System.Entity.Ship;
+import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
-import Team.Gamma.Water_Transport_System.Repository.ShipRepository;
+import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
 import Team.Gamma.Water_Transport_System.Service.Bookingservice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class Bookingserviceimpl implements Bookingservice {
     private UserRepository userRepository;
 
     @Autowired
-    private ShipRepository shipRepository;
+    private ShipDetailsRepository shipRepository;
 
     @Autowired
     private ShipServiceImpl shipService;
@@ -41,7 +41,7 @@ public class Bookingserviceimpl implements Bookingservice {
         }
 
         // Fetch the ship details
-        Ship shipDetail = shipService.getShip(bookings.getShipId());
+        ShipDetail shipDetail = shipService.getShip(bookings.getShipId());
         if (shipDetail == null) {
             return "Ship not found with ID: " + bookings.getShipId();
         }
