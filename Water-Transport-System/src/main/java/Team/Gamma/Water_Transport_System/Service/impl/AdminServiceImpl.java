@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-    @Autowired
-    AdminRepository adminRepository;
 
+    @Autowired
+    private AdminRepository adminRepository;
 
     public AdminServiceImpl(AdminRepository adminRepository) {
         this.adminRepository = adminRepository;
@@ -21,20 +22,24 @@ public class AdminServiceImpl implements AdminService {
 
     // function to update admin details
     @Override
-    public String updateAdmin(AdminDTO admin) {
-        Admin saveAdmin = new Admin();
-        saveAdmin.setAdminId(admin.getAdminId());
-        saveAdmin.setPassword(admin.getPassword());
-        adminRepository.save(saveAdmin);
-        return "Updated Successfully!";
+    public boolean updateAdmin(AdminDTO admin) {
+        Optional<Admin> existingAdmin = adminRepository.findById(admin.getAdminId());
+        if (existingAdmin.isPresent()) {
+            Admin saveAdmin = existingAdmin.get();
+            saveAdmin.setPassword(admin.getPassword());
+            adminRepository.save(saveAdmin);
+            return true;
+        }
+        return false; // Return false if the admin does not exist
     }
 
     // function to fetch admin details using id from DB
     @Override
     public Admin getAdmin(Long adminId) {
-        return adminRepository.findById(adminId).get();
+        return adminRepository.findById(adminId).orElse(null);
     }
-    // function to fetch admin details from DB
+
+    // function to fetch all admin details from DB
     @Override
     public List<Admin> getAllAdmin() {
         return adminRepository.findAll();

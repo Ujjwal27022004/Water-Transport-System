@@ -1,30 +1,17 @@
 package Team.Gamma.Water_Transport_System.Service;
 
-
-
 import Team.Gamma.Water_Transport_System.Entity.PassengerDetails;
 
 import java.util.List;
 
 public interface PassengerDetailsService {
+ PassengerDetails getpassengerdetails(Long passengerId);
 
+ String createpassengerdetails(PassengerDetails passengerDetails);
 
-   //get
-    public PassengerDetails getpassengerdetails(Long passengerId);
-    //post
-    public String createpassengerdetails(PassengerDetails passengerDetails);
+ boolean updatepassengerdetails(PassengerDetails passengerDetails);
 
-    //put
-    public String updatepassengerdetails(PassengerDetails passengerDetails);
-    //delete
+ boolean deletepassengerdetails(Long passengerId);
 
-    public String deletepassengerdetails(Long passengerId);
-
-    //list
-
-    public List<PassengerDetails> getAllPassengerdetails();
-
-
-
-
+ List<PassengerDetails> getAllPassengerdetails();
 }

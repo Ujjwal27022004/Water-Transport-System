@@ -4,33 +4,34 @@ import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Dto.QueryDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;
+import Team.Gamma.Water_Transport_System.Exception.UserNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.QueryService;
 import Team.Gamma.Water_Transport_System.Service.UserService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
 @RequestMapping("api/v1/user")
-
 public class UserController {
+
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private QueryService queryService;
 
     @PostMapping(path = "/signup")
-    public ResponseEntity<?> signup(@RequestBody UserDTO userDTO)
-    {
-        LoginMessage loginResponse =  userService.addUser(userDTO);
+    public ResponseEntity<?> signup(@RequestBody UserDTO userDTO) {
+        LoginMessage loginResponse = userService.addUser(userDTO);
         return ResponseEntity.ok(loginResponse);
     }
 
     @PostMapping(path = "/login")
-    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO)
-    {
+    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
         LoginMessage loginResponse = userService.loginUser(loginDTO);
         return ResponseEntity.ok(loginResponse);
     }
@@ -49,14 +50,13 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
-
     @GetMapping("/details")
     public User getUserDetails(@RequestParam("userid") Long userid) {
-        // Fetch the current user's details from the UserService
-        return userService.getUserDetails(userid);
+        User user = userService.getUserDetails(userid);
+        if (user == null) {
+            throw new UserNotFoundException("User not found with ID: " + userid);
+        }
+        return user;
     }
 
-
-
 }
-
