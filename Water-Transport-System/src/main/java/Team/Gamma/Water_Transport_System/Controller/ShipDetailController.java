@@ -77,18 +77,6 @@ public class ShipDetailController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error searching ships");
         }
     }
-
-    @GetMapping("/{shipId}/remaining-seats")
-    public ResponseEntity<?> getRemainingSeats(@PathVariable Long shipId) {
-        try {
-            int remainingSeats = shipService.getRemainingSeats(shipId);
-            return ResponseEntity.ok("Remaining seats: " + remainingSeats);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching remaining seats");
-        }
-    }
 }
 
 
