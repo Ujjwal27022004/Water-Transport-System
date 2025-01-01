@@ -4,6 +4,7 @@ import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Exception.ShipDetailNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,5 +65,17 @@ public class ShipDetailController {
             throw new ShipDetailNotFoundException("No ships found for the given source and destination");
         }
         return ResponseEntity.ok(ships);
+    }
+
+    @GetMapping("/{shipId}/remaining-seats")
+    public ResponseEntity<?> getRemainingSeats(@PathVariable Long shipId) {
+        try {
+            int remainingSeats = shipService.getRemainingSeats(shipId);
+            return ResponseEntity.ok("Remaining seats: " + remainingSeats);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error fetching remaining seats");
+        }
     }
 }
