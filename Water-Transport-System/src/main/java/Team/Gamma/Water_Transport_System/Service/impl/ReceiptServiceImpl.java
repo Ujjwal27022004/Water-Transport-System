@@ -1,14 +1,13 @@
 package Team.Gamma.Water_Transport_System.Service.impl;
 
-import Team.Gamma.Water_Transport_System.Dto.paymentDTO;
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.Payment;
 import Team.Gamma.Water_Transport_System.Entity.Receipt;
-import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+import Team.Gamma.Water_Transport_System.Entity.Ship;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
 import Team.Gamma.Water_Transport_System.Repository.ReceiptRepository;
-import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
+import Team.Gamma.Water_Transport_System.Repository.ShipRepository;
 import Team.Gamma.Water_Transport_System.Service.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class ReceiptServiceImpl implements ReceiptService {
     private BookingRepository bookingRepository; // Assuming you have a booking repository to fetch booking info
 
     @Autowired
-    private ShipDetailsRepository shipRepository; // Assuming you have a ship repository
+    private ShipRepository shipRepository; // Assuming you have a ship repository
     @Autowired
     private PaymentRepository paymentRepository; // Assuming you have a payment repository
 
@@ -36,8 +35,8 @@ public class ReceiptServiceImpl implements ReceiptService {
         Bookings booking = bookingRepository.findByUser_userid(userId);
         // Assuming you have a Booking object
         // Corrected method
-        Optional<ShipDetail> shipOptional = shipRepository.findById(booking.getShip().getShipId());
-        ShipDetail ship = shipOptional.orElseThrow(() -> new RuntimeException("Ship not found with ID: " + booking.getShip().getShipId()));
+        Optional<Ship> shipOptional = shipRepository.findById(booking.getShip().getShipId());
+        Ship ship = shipOptional.orElseThrow(() -> new RuntimeException("Ship not found with ID: " + booking.getShip().getShipId()));
 
 
         Optional<Payment> paymentOptional = paymentRepository.findById(booking.getPayment().getId());

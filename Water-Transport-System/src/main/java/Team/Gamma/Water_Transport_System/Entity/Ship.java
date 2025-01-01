@@ -9,7 +9,7 @@ import java.util.*;
 @Entity
 @Table(name = "ship_detail")
 
-public class ShipDetail {
+public class Ship {
     @Id
     private Long shipId;
     private  String name;
@@ -25,11 +25,11 @@ public class ShipDetail {
     private float rating;
     private boolean availability;
 
-    public ShipDetail(){
+    public Ship(){
 
     }
 
-    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
+    public Ship(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
         this.shipId = shipId;
         this.name = name;
         this.source = source;
