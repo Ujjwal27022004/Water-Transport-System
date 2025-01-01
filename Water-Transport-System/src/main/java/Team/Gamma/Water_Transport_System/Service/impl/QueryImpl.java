@@ -42,4 +42,28 @@ public class QueryImpl implements QueryService {
             return new LoginMessage("Error while submitting the query: " + e.getMessage(), false);
         }
     }
+
+    @Override
+    public LoginMessage resolveQuery(Long queryId, String resolutionDetails, String status) {
+
+        try {
+            Query query = queryRepository.findById(queryId)
+                    .orElseThrow(() -> new RuntimeException("Query not found with ID: " + queryId));
+
+        query.setQueryResolution(resolutionDetails);
+        query.setResolvedDate(new Date());
+        query.setStatus(status);
+
+        queryRepository.save(query);
+            return new LoginMessage("Query resolved successfully!", true);
+        } catch (RuntimeException e) {
+            return new LoginMessage(e.getMessage(), false);
+        } catch (Exception e) {
+            return new LoginMessage("Error while resolving the query: " + e.getMessage(), false);
+        }
+    }
+
+
+
+
 }
