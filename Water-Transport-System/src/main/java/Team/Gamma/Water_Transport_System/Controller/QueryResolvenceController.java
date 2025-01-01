@@ -13,13 +13,6 @@ public class QueryResolvenceController {
     @Autowired
     private QueryService queryService;
 
-    /**
-     * Endpoint to resolve a query
-     *
-     * @param queryId the ID of the query to be resolved
-     * @param resolutionRequest the resolution details and status in JSON format
-     * @return a response message indicating success or failure
-     */
     @PutMapping("/{queryId}/resolve")
     public LoginMessage resolveQuery(@PathVariable Long queryId,
                                      @RequestBody ResolutionRequestDTO resolutionRequest) {
