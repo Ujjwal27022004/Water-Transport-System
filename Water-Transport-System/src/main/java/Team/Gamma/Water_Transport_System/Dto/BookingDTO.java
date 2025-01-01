@@ -9,25 +9,12 @@ import java.time.LocalDateTime;
 
 public class BookingDTO {
     private LocalDateTime localDate;
-
     private int seatsBooked;
-
     private int totalPrice;
-
     private Long userid;
     private Long shipId;
 
-//    @Transient
-//    private final static int pricePerSeat = 1000;
-//
-//    @PrePersist
-//    @PreUpdate
-//    public void calculatetotalprice(){
-//
-//        this.totalPrice = this.seatsBooked*pricePerSeat;
-//
-//
-//    }
+    //Getter and Setter
     public LocalDateTime getLocalDate() {
         return localDate;
     }

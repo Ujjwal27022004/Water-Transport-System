@@ -14,12 +14,12 @@ import java.util.List;
 @RequestMapping("/shipdetails")
 public class ShipDetailController {
     private ShipDetailsService shipService;
-
     @Autowired
     public ShipDetailController(ShipDetailsService shipService) {
         this.shipService = shipService;
     }
 
+    //This method is for fetching details of ship
     @GetMapping("/{shipId}")
     public ResponseEntity<ShipDetail> getShipDetails(@PathVariable("shipId") Long shipId) {
         ShipDetail shipDetail = shipService.getShip(shipId);
@@ -29,6 +29,7 @@ public class ShipDetailController {
         return ResponseEntity.ok(shipDetail);
     }
 
+    //This method is for fetching details of all ship
     @GetMapping
     public ResponseEntity<List<ShipDetail>> getAllShipDetails() {
         List<ShipDetail> ships = shipService.getAllShips();
@@ -38,24 +39,28 @@ public class ShipDetailController {
         return ResponseEntity.ok(ships);
     }
 
+    //This method is for adding new ship
     @PostMapping
     public String addShipDetails(@RequestBody ShipDetail ship) {
         shipService.addShip(ship);
         return "Ship was successfully created";
     }
 
+    //This method is for updating details of ship
     @PutMapping
     public String editShipDetails(@RequestBody ShipDetail ship) {
         shipService.editShip(ship);
         return "Ship was successfully updated";
     }
 
+    //This method is for deleting ship
     @DeleteMapping("{shipId}")
     public String deleteShipDetails(@PathVariable("shipId") Long shipId) {
         shipService.deleteShip(shipId);
         return "Ship Deleted Successfully";
     }
 
+    // //This method is for searching details of ship
     @GetMapping("/search")
     public ResponseEntity<List<ShipDetail>> getShipDetailsBySourceAndDestination(
             @RequestParam("source") String source,
@@ -67,6 +72,7 @@ public class ShipDetailController {
         return ResponseEntity.ok(ships);
     }
 
+    // //This method is for getting remaining seats of ship
     @GetMapping("/{shipId}/remaining-seats")
     public ResponseEntity<?> getRemainingSeats(@PathVariable Long shipId) {
         try {

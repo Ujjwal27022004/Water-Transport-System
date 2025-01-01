@@ -4,14 +4,8 @@ public class LoginDTO {
     private String email;
     private String password;
 
-    public LoginDTO() {
-    }
 
-    public LoginDTO(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
+    //Getter and Setter
     public String getEmail() {
         return email;
     }
@@ -25,6 +19,14 @@ public class LoginDTO {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+    //constructor
+    public LoginDTO() {
+    }
+    public LoginDTO(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 }

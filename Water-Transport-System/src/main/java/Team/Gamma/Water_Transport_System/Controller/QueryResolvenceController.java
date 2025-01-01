@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/query-resolution")
 public class QueryResolvenceController {
-
     @Autowired
     private QueryService queryService;
-
+    //Method is for admin to resolve queries of users
     @PutMapping("/{queryId}/resolve")
     public LoginMessage resolveQuery(@PathVariable Long queryId,
                                      @RequestBody ResolutionRequestDTO resolutionRequest) {

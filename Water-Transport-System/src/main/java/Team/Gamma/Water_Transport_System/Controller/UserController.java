@@ -17,18 +17,19 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("api/v1/user")
 public class UserController {
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private QueryService queryService;
 
+    //Signup User and admin
     @PostMapping(path = "/signup")
     public ResponseEntity<?> signup(@RequestBody UserDTO userDTO) {
         LoginMessage loginResponse = userService.addUser(userDTO);
         return ResponseEntity.ok(loginResponse);
     }
+
+    //Login User and admin
 
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
@@ -36,11 +37,15 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
+    //logout User and admin
+
     @PostMapping("/logout")
     public String logout() {
         SecurityContextHolder.clearContext();
         return "Logout successful!";
     }
+
+    //profile of User and admin
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(
@@ -49,6 +54,8 @@ public class UserController {
         LoginMessage loginResponse = userService.updateProfile(userid, request);
         return ResponseEntity.ok(loginResponse);
     }
+
+    //User details
 
     @GetMapping("/details")
     public User getUserDetails(@RequestParam("userid") Long userid) {

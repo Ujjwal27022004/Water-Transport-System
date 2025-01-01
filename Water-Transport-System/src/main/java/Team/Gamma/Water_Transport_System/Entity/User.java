@@ -21,16 +21,8 @@ public class User {
     @Column(name = "password", length = 255)
     private String password;
 
-    public User() {
-    }
 
-    public User(Long userid, List<Query> queries, String username, String email, String password) {
-        this.userid = userid;
-        this.queries = queries;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+    //Getter and setter
 
     public Long getUserid() {
         return userid;
@@ -69,6 +61,18 @@ public class User {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    //constructor
+    public User() {
+    }
+    public User(Long userid, List<Query> queries, String username, String email, String password) {
+        this.userid = userid;
+        this.queries = queries;
+        this.username = username;
+        this.email = email;
         this.password = password;
     }
 }

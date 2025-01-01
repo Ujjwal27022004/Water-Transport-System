@@ -19,6 +19,7 @@ public class PassengerDetailsController {
         this.passengerDetailsService = passengerDetailsService;
     }
 
+    //This function is for fetching passenger details
     @GetMapping("/{PassengerId}")
     public PassengerDetails fetchPassengerDetails(@PathVariable Long PassengerId) {
         PassengerDetails passengerDetails = passengerDetailsService.getpassengerdetails(PassengerId);
@@ -28,11 +29,14 @@ public class PassengerDetailsController {
         return passengerDetails;
     }
 
+    //This method is for creating new entry of passenger
     @PostMapping
     public String createPassengerDetails(@RequestBody PassengerDetails passengerDetails) {
         passengerDetailsService.createpassengerdetails(passengerDetails);
         return "Passenger has been created successfully.";
     }
+
+    //This method is for updating passenger details
 
     @PutMapping
     public String updatePassengerDetails(@RequestBody PassengerDetails passengerDetails) {
@@ -43,6 +47,7 @@ public class PassengerDetailsController {
         return "The passenger has been updated successfully.";
     }
 
+    //This method is for deleting entry of passenger
     @DeleteMapping("/{PassengerId}")
     public String deletePassengerDetails(@PathVariable Long PassengerId) {
         boolean isDeleted = passengerDetailsService.deletepassengerdetails(PassengerId);
@@ -52,6 +57,7 @@ public class PassengerDetailsController {
         return "Passenger details have been deleted successfully.";
     }
 
+    //This method is for fetcging all passenger details
     @GetMapping
     public List<PassengerDetails> getAllPassengerDetails() {
         List<PassengerDetails> passengers = passengerDetailsService.getAllPassengerdetails();
