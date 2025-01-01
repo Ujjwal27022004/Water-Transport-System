@@ -1,8 +1,8 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
-import Team.Gamma.Water_Transport_System.Entity.Ship;
+import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Exception.ShipDetailNotFoundException;
-import Team.Gamma.Water_Transport_System.Service.ShipService;
+import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,17 +11,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shipdetails")
-public class ShipController {
-    private ShipService shipService;
+public class ShipDetailController {
+    private ShipDetailsService shipService;
 
     @Autowired
-    public ShipController(ShipService shipService) {
+    public ShipDetailController(ShipDetailsService shipService) {
         this.shipService = shipService;
     }
 
     @GetMapping("/{shipId}")
-    public ResponseEntity<Ship> getShipDetails(@PathVariable("shipId") Long shipId) {
-        Ship shipDetail = shipService.getShip(shipId);
+    public ResponseEntity<ShipDetail> getShipDetails(@PathVariable("shipId") Long shipId) {
+        ShipDetail shipDetail = shipService.getShip(shipId);
         if (shipDetail == null) {
             throw new ShipDetailNotFoundException("Ship not found with ID: " + shipId);
         }
@@ -29,8 +29,8 @@ public class ShipController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Ship>> getAllShipDetails() {
-        List<Ship> ships = shipService.getAllShips();
+    public ResponseEntity<List<ShipDetail>> getAllShipDetails() {
+        List<ShipDetail> ships = shipService.getAllShips();
         if (ships == null || ships.isEmpty()) {
             throw new ShipDetailNotFoundException("No ship details found");
         }
@@ -38,13 +38,13 @@ public class ShipController {
     }
 
     @PostMapping
-    public String addShipDetails(@RequestBody Ship ship) {
+    public String addShipDetails(@RequestBody ShipDetail ship) {
         shipService.addShip(ship);
         return "Ship was successfully created";
     }
 
     @PutMapping
-    public String editShipDetails(@RequestBody Ship ship) {
+    public String editShipDetails(@RequestBody ShipDetail ship) {
         shipService.editShip(ship);
         return "Ship was successfully updated";
     }
@@ -56,10 +56,10 @@ public class ShipController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Ship>> getShipDetailsBySourceAndDestination(
+    public ResponseEntity<List<ShipDetail>> getShipDetailsBySourceAndDestination(
             @RequestParam("source") String source,
             @RequestParam("destination") String destination) {
-        List<Ship> ships = shipService.searchCruise(source, destination);
+        List<ShipDetail> ships = shipService.searchCruise(source, destination);
         if (ships == null || ships.isEmpty()) {
             throw new ShipDetailNotFoundException("No ships found for the given source and destination");
         }
