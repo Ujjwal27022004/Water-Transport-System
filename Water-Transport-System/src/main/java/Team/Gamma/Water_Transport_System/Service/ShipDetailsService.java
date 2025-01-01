@@ -10,5 +10,6 @@ public interface ShipDetailsService {
     public ShipDetail getShip(Long adminId);
     public List<ShipDetail> getAllShips();
     List<ShipDetail> searchCruise(String source, String destination);
+    public int getRemainingSeats(Long shipId);
 
 }

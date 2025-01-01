@@ -1,16 +1,23 @@
 package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ShipServiceImpl implements ShipDetailsService {
+    @Autowired
+    private ShipDetailsRepository shipRepository;
 
-    ShipDetailsRepository shipRepository;
+    @Autowired
+    private BookingRepository bookingRepository;
 
     public ShipServiceImpl(ShipDetailsRepository shipRepository) {
         this.shipRepository = shipRepository;
@@ -50,5 +57,21 @@ public class ShipServiceImpl implements ShipDetailsService {
         return shipRepository.searchCruise(source, destination);
     }
 
+    @Override
+    public int getRemainingSeats(Long shipId) {
+        // Fetch the ship details
+        Optional<ShipDetail> optionalShip = shipRepository.findById(shipId);
+        if (!optionalShip.isPresent()) {
+            throw new RuntimeException("Ship not found with ID: " + shipId);
+        }
+
+        ShipDetail ship = optionalShip.get();
+
+        // Get the total booked seats for the ship
+        int bookedSeats = bookingRepository.countBookedSeatsForShip(shipId);
+
+        // Calculate remaining seats
+        return ship.getCapacity() - bookedSeats;
+    }
 
 }
