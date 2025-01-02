@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 public class Admin {
     @Id
     private Long adminId;
+    private String emailId;
     private String password;
 
 
@@ -29,12 +30,20 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
     //constructor
     public Admin() {
     }
-    public Admin(String password, Long adminId) {
+    public Admin(String password, Long adminId, String emailId) {
         this.password = password;
         this.adminId = adminId;
+        this.emailId = emailId;
     }
 }
