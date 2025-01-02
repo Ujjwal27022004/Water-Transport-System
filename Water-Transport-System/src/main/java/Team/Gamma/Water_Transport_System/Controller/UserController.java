@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/user")
 public class UserController {
     @Autowired
@@ -31,7 +30,9 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 //    Login User and admin
-    @PostMapping(path = "/login")
+@CrossOrigin(origins = "http://localhost:5174")
+
+@PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
         System.out.println("Received login request: " + loginDTO);
         LoginMessage loginResponse = adminService.loginAdmin(loginDTO);
