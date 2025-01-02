@@ -29,21 +29,6 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
-    //Login User and admin
-
-    @PostMapping(path = "/login")
-    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
-        LoginMessage loginResponse = userService.loginUser(loginDTO);
-        return ResponseEntity.ok(loginResponse);
-    }
-
-    //logout User and admin
-
-    @PostMapping("/logout")
-    public String logout() {
-        SecurityContextHolder.clearContext();
-        return "Logout successful!";
-    }
 
     //profile of User and admin
 

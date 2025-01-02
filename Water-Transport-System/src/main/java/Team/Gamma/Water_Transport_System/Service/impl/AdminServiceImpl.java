@@ -1,9 +1,12 @@
 package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
+import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
+import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.AdminRepository;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
+import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +46,33 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Admin> getAllAdmin() {
         return adminRepository.findAll();
+    }
+
+
+    @Override
+    public LoginMessage loginAdmin(LoginDTO loginDTO) {
+        try {
+            String msg = "";
+            Admin admin = adminRepository.findByEmail(loginDTO.getEmail());
+            if (admin != null) {
+                String password = loginDTO.getPassword();
+                String encodedPassword = admin.getPassword();
+
+                if (password.equals(encodedPassword)) {
+                    Optional<Admin> employee = adminRepository.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);
+                    if (employee.isPresent()) {
+                        return new LoginMessage("Login Success", true);
+                    } else {
+                        return new LoginMessage("Login Failed", false);
+                    }
+                } else {
+                    return new LoginMessage("Password does not match", false);
+                }
+            } else {
+                return new LoginMessage("Email does not exist", false);
+            }
+        } catch (Exception e) {
+            return new LoginMessage("Error during login: " + e.getMessage(), false);
+        }
     }
 }
