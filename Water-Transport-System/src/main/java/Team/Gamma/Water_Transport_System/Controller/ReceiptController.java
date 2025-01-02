@@ -1,5 +1,6 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
+import Team.Gamma.Water_Transport_System.Dto.ReceiptDTO;
 import Team.Gamma.Water_Transport_System.Entity.Receipt;
 import Team.Gamma.Water_Transport_System.Exception.ReceiptException;
 import Team.Gamma.Water_Transport_System.Service.impl.ReceiptServiceImpl;
@@ -15,17 +16,10 @@ public class ReceiptController {
     private ReceiptServiceImpl receiptService;
 
     // Endpoint to generate a receipt
-    @GetMapping("/generate/{userId}")
-    public ResponseEntity<Receipt> generateReceipt(@PathVariable Long userId) {
-        try {
-            Receipt receipt = receiptService.generateReceipt(userId);
-            if (receipt == null) {
-                throw new ReceiptException("Receipt generation failed for user ID: " + userId);
-            }
-            return ResponseEntity.status(HttpStatus.OK).body(receipt);
-        } catch (ReceiptException e) {
-            throw new ReceiptException("Error generating receipt: " + e.getMessage());
-        }
+    @PostMapping("/generate")
+    public ResponseEntity<ReceiptDTO> generateReceipt(@RequestParam Long userId) {
+        ReceiptDTO receiptDTO = receiptService.generateReceipt(userId);
+        return ResponseEntity.ok(receiptDTO);
     }
 
     // Exception handler for ReceiptException

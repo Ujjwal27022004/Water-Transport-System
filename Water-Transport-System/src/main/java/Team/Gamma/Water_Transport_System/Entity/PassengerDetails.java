@@ -1,18 +1,21 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "PassengerDDetail")
 public class PassengerDetails {
     @Id
     private Long passengerId;
+    @Column(insertable=false, updatable=false)
     private Long bookingId;
     private String name;
     private int age;
     private String gender;
+
+    @ManyToOne
+    @JoinColumn(name = "bookingId")
+    private Bookings booking; // Foreign key to Booking entity
 
     //Getter and setter
     public long getPassengerId() {

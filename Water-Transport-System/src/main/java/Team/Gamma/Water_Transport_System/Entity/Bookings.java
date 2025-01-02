@@ -17,7 +17,7 @@ public class Bookings {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ship_id", nullable = false)
     private ShipDetail ship;
 
