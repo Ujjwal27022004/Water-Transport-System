@@ -16,7 +16,7 @@ public class ShipDetail {
     private String source;
     @JsonProperty("destination")
     private String destination;
-    private int capacity = 200;
+    private final int capacity = 200;
     private int cruiseLength;
     private String cruiseType;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
