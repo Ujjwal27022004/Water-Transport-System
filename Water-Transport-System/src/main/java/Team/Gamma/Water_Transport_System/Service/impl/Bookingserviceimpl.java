@@ -20,16 +20,12 @@ public class Bookingserviceimpl implements Bookingservice {
 
     @Autowired
     private BookingRepository bookingRepository;
-
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private ShipDetailsRepository shipRepository;
-
     @Autowired
     private ShipServiceImpl shipService;
-
     private static final int PRICE_PER_SEAT = 1000;
 
     @Override
@@ -73,5 +69,9 @@ public class Bookingserviceimpl implements Bookingservice {
 
         bookingRepository.deleteById(bookingId);
         return true; // Booking canceled successfully
+    }
+
+    public Bookings getLatestBookingByUserId(Long userId) {
+        return bookingRepository.findByUser_userid(userId);
     }
 }

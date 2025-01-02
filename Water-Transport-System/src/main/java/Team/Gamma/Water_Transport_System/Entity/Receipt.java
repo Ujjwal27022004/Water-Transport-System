@@ -1,5 +1,6 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -12,32 +13,55 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "receiptId")
     private Long receiptId;
-    @Column(name = "paymentId", insertable = false, updatable = false)
+    @Column(name = "paymentId",insertable = false, updatable = false)
     private Long paymentId;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    private int amount;
+
+    public Long getUserid() {
+        return userId;
+    }
+
+
+
+    public void setUserid(Long userid) {
+        this.userId = userid;
+    }
+
     @Column(name = "userId", insertable = false, updatable = false)
     private Long userId;
     @Column(name = "shipId", insertable = false, updatable = false)
     private Long shipId;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "transactionType")
-    private Payment.PaymentMethod transactionType;
+
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "amount")
-    private double amount;
-
-
-    @ManyToOne
-    @JoinColumn(name = "userId", nullable = false)
+    public User getUser() {
+        return user;
+    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
+    @JsonManagedReference
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "shipId", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "shipId")
+    @JsonManagedReference
+
     private ShipDetail ship;
 
-    @ManyToOne
-    @JoinColumn(name = "paymentId", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "paymentId")
+    @JsonManagedReference
+
     private Payment payment;
 
     public long getReceiptId() {
@@ -56,14 +80,6 @@ public class Receipt {
         this.paymentId = paymentID;
     }
 
-    public long getUserID() {
-        return userId;
-    }
-
-    public void setUserID(Long userID) {
-        this.userId = userID;
-    }
-
     public long getShipID() {
         return shipId;
     }
@@ -72,13 +88,7 @@ public class Receipt {
         this.shipId = shipID;
     }
 
-    public double getAmount() {
-        return amount;
-    }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
     public Payment getPayment() {
         return payment;
     }
@@ -87,7 +97,6 @@ public class Receipt {
         this.payment = payment;
     }
 
-
     public Date getDate() {
         return date;
     }
@@ -95,23 +104,29 @@ public class Receipt {
     public void setDate(Date date) {
         this.date = date;
     }
-    public Payment.PaymentMethod getTransactionType() {
-        return transactionType;
-    }
-
-    public void setTransactionType(Payment.PaymentMethod transactionType) {
-        this.transactionType = transactionType;
-    }
 
 
-    public Receipt(Long receiptId, Long paymentID, Long userID, Long shipID, double amount, Date date) {
+    public Receipt(Long receiptId, Long paymentId, int amount, Long userId, Long shipId, Date date, User user, ShipDetail ship, Payment payment) {
         this.receiptId = receiptId;
-        this.paymentId = paymentID;
-        this.userId = userID;
-        this.shipId = shipID;
+        this.paymentId = paymentId;
         this.amount = amount;
+        this.userId = userId;
+        this.shipId = shipId;
         this.date = date;
+        this.user = user;
+        this.ship = ship;
+        this.payment = payment;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public void setShip(ShipDetail ship) {
+        this.ship = ship;
+    }
+
+
+
 
     public Receipt() {
     }
