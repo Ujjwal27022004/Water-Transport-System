@@ -30,7 +30,7 @@ public class UserController {
         LoginMessage loginResponse = userService.addUser(userDTO);
         return ResponseEntity.ok(loginResponse);
     }
-
+//    Login User and admin
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
         System.out.println("Received login request: " + loginDTO);
