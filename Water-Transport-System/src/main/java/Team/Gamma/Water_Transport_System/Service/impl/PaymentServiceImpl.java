@@ -2,11 +2,10 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.Payment;
-import Team.Gamma.Water_Transport_System.Entity.PassengerDetails;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
 import Team.Gamma.Water_Transport_System.Repository.PassengerDetailsRepository;
-import Team.Gamma.Water_Transport_System.Dto.paymentDTO;
+import Team.Gamma.Water_Transport_System.Dto.PaymentDTO;
 import Team.Gamma.Water_Transport_System.Service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +46,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     // Function to confirm payment
-    public paymentDTO confirmPayment(Long paymentId) {
+    public PaymentDTO confirmPayment(Long paymentId) {
         Optional<Payment> payment = paymentRepository.findById(paymentId);
 
         if (payment.isPresent() && payment.get().getPaymentStatus() .equals("PENDING") ) {
@@ -65,9 +64,9 @@ public class PaymentServiceImpl implements PaymentService {
                 bookingRepository.save(booking);
             }
 
-            return new paymentDTO("Payment is successful.", true);
+            return new PaymentDTO("Payment is successful.", true);
         } else {
-            return new paymentDTO("Payment not found or already processed.", false);
+            return new PaymentDTO("Payment not found or already processed.", false);
         }
     }
 }
