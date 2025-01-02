@@ -3,7 +3,6 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
-import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.AdminRepository;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
