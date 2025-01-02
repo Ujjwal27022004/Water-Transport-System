@@ -1,11 +1,10 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
-import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.Payment;
 
 import java.util.Date;
 
-public class paymentDTO {
+public class PaymentDTO {
     private Long paymentId;
     private Long bookingId;
     private String message;
@@ -85,9 +84,9 @@ public class paymentDTO {
         return success;
     }
 
-    public paymentDTO() {
+    public PaymentDTO() {
     }
-    public paymentDTO(String message, boolean success) {
+    public PaymentDTO(String message, boolean success) {
         this.message = message;
         this.success = success;
     }
