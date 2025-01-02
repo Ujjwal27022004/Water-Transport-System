@@ -3,6 +3,7 @@ package Team.Gamma.Water_Transport_System.Dto;
 public class AdminDTO {
     private Long adminId;
     private String password;
+    private String emailId;
 
     //Getter and Setter
     public Long getAdminId() {
@@ -16,5 +17,12 @@ public class AdminDTO {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 }
