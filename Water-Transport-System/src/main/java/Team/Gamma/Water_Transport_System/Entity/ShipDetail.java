@@ -1,9 +1,8 @@
 package Team.Gamma.Water_Transport_System.Entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import java.util.*;
 
 @Entity
@@ -18,10 +17,12 @@ public class ShipDetail {
     private String destination;
     private final int capacity = 200;
     private int cruiseLength;
-    private String cruiseType;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "cruiseType")
+    private CruiseType cruiseType;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
-    private float price;
+    private final float price = 1000;
     private float rating;
     private boolean availability;
 
@@ -71,11 +72,11 @@ public class ShipDetail {
         this.cruiseLength = cruiseLength;
     }
 
-    public String getCruiseType() {
+    public CruiseType getCruiseType() {
         return cruiseType;
     }
 
-    public void setCruiseType(String cruiseType) {
+    public void setCruiseType(CruiseType cruiseType) {
         this.cruiseType = cruiseType;
     }
 
@@ -89,10 +90,6 @@ public class ShipDetail {
 
     public float getPrice() {
         return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
     }
 
     public float getRating() {
@@ -116,17 +113,32 @@ public class ShipDetail {
     public ShipDetail(){
 
     }
-    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, String cruiseType, Date date, float price, float rating, boolean availability) {
+    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, CruiseType cruiseType, Date date, float rating, boolean availability) {
         this.shipId = shipId;
         this.name = name;
         this.source = source;
         this.destination = destination;
-        //this.capacity = capacity;
         this.cruiseLength = cruiseLength;
         this.cruiseType = cruiseType;
         this.date = date;
-        this.price = price;
         this.rating = rating;
         this.availability = availability;
+    }
+
+    @Override
+    public String toString() {
+        return "ShipDetail{" +
+                "shipId=" + shipId +
+                ", name='" + name + '\'' +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", capacity=" + capacity +
+                ", cruiseLength=" + cruiseLength +
+                ", cruiseType=" + cruiseType +
+                ", date=" + date +
+                ", price=" + price +
+                ", rating=" + rating +
+                ", availability=" + availability +
+                '}';
     }
 }
