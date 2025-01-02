@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>17</java.version>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
+		<sonar.projectName>Aqualure</sonar.projectName>
+		<sonar.login>squ_e29cf8ab88bd0ae43360a3f96711d6fcface538b</sonar.login>
 	</properties>
 
 
