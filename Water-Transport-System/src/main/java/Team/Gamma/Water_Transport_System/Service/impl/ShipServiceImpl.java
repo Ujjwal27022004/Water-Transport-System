@@ -23,7 +23,23 @@ public class ShipServiceImpl implements ShipDetailsService {
         this.shipRepository = shipRepository;
     }
     // function to add ship in DB
-
+    @Override
+    public String addShip(ShipDetail ship) {
+        shipRepository.save(ship);
+        return "Ship Created Successfully!";
+    }
+    // function to edit ship in DB
+    @Override
+    public String editShip(ShipDetail ship) {
+        shipRepository.save(ship);
+        return "Ship Updated Successfully!";
+    }
+    // function to delete ship in DB
+    @Override
+    public String deleteShip(Long shipId) {
+        shipRepository.deleteById(shipId);
+        return "Ship Deleted Successfully!";
+    }
     // function to get ship details using shipId from DB
     @Override
     public ShipDetail getShip(Long shipId) {

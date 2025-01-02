@@ -3,7 +3,6 @@ package Team.Gamma.Water_Transport_System.Controller;
 import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
-import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Exception.AdminNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
@@ -48,30 +47,5 @@ public class AdminController {
         }
         return "Admin details updated successfully!";
     }
-
-    //This method is for adding new ship
-
-
-
-@PostMapping("/Shipadd")
-public String addShipDetails(@RequestBody ShipDetail ship) {
-    adminService.addShip(ship);
-    return "Ship was successfully created";
-}
-
-//This method is for updating details of ship
-@PutMapping("/Shipedit")
-public String editShipDetails(@RequestBody ShipDetail ship) {
-    adminService.editShip(ship);
-    return "Ship was successfully updated";
-}
-
-//This method is for deleting ship
-@DeleteMapping("/delete/{shipId}")
-public String deleteShipDetails(@PathVariable("shipId") Long shipId) {
-    adminService.deleteShip(shipId);
-    return "Ship Deleted Successfully";
-}
-
 
 }
