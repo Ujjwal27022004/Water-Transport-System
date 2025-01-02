@@ -77,6 +77,10 @@ public class ShipDetailController {
     public ResponseEntity<?> getRemainingSeats(@PathVariable Long shipId) {
         try {
             int remainingSeats = shipService.getRemainingSeats(shipId);
+            // If remaining seats are negative, set it to 0
+            if (remainingSeats < 0) {
+                remainingSeats = 0;
+            }
             return ResponseEntity.ok("Remaining seats: " + remainingSeats);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
