@@ -32,7 +32,6 @@ public class QueryImpl implements QueryService {
             query.setStatus("Pending");
             query.setCreatedDate(new Date());
 
-            user.getQueries().add(query);
             queryRepository.save(query);
 
             return new LoginMessage("Query successfully Submitted!", true);

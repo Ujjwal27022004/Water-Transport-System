@@ -18,6 +18,7 @@ public class SecurityConfig {
                                 "/api/v1/user/login",
                                 "/api/v1/user/logout" ,
                                 "/api/v1/user/details",
+                                "/api/v1/user/profile",
                                 "/api/v1/user/ask",
                                 "/api/v1/shipdetails",
                                 "/api/v1/admindetails",

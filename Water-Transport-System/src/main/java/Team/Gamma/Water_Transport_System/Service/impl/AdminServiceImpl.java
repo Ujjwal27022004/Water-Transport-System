@@ -3,8 +3,11 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
+import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Repository.AdminRepository;
+import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
+import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +20,30 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private AdminRepository adminRepository;
+    @Autowired
+    private ShipDetailsRepository shipRepository;
 
     public AdminServiceImpl(AdminRepository adminRepository) {
         this.adminRepository = adminRepository;
     }
 
+    @Override
+    public String addShip(ShipDetail ship) {
+        shipRepository.save(ship);
+        return "Ship Created Successfully!";
+    }
+    // function to edit ship in DB
+    @Override
+    public String editShip(ShipDetail ship) {
+        shipRepository.save(ship);
+        return "Ship Updated Successfully!";
+    }
+    // function to delete ship in DB
+    @Override
+    public String deleteShip(Long shipId) {
+        shipRepository.deleteById(shipId);
+        return "Ship Deleted Successfully!";
+    }
     // function to update admin details
     @Override
     public boolean updateAdmin(AdminDTO admin) {
