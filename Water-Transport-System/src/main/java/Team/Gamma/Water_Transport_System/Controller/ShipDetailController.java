@@ -40,25 +40,7 @@ public class ShipDetailController {
     }
 
     //This method is for adding new ship
-    @PostMapping
-    public String addShipDetails(@RequestBody ShipDetail ship) {
-        shipService.addShip(ship);
-        return "Ship was successfully created";
-    }
 
-    //This method is for updating details of ship
-    @PutMapping
-    public String editShipDetails(@RequestBody ShipDetail ship) {
-        shipService.editShip(ship);
-        return "Ship was successfully updated";
-    }
-
-    //This method is for deleting ship
-    @DeleteMapping("{shipId}")
-    public String deleteShipDetails(@PathVariable("shipId") Long shipId) {
-        shipService.deleteShip(shipId);
-        return "Ship Deleted Successfully";
-    }
 
     // //This method is for searching details of ship
     @GetMapping("/search")

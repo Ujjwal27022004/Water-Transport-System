@@ -4,9 +4,7 @@ import java.util.List;
 
 public interface ShipDetailsService {
 
-    public String addShip(ShipDetail ship);
-    public String editShip(ShipDetail ship);
-    public String deleteShip(Long shipId);
+
     public ShipDetail getShip(Long adminId);
     public List<ShipDetail> getAllShips();
     List<ShipDetail> searchCruise(String source, String destination);
