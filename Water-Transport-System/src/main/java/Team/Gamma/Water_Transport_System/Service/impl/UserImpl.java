@@ -22,7 +22,6 @@ public class UserImpl implements UserService {
         try {
             User user = new User(
                     userDTO.getUserid(),
-                    List.of(),
                     userDTO.getUsername(),
                     userDTO.getEmail(),
                     userDTO.getPassword()
