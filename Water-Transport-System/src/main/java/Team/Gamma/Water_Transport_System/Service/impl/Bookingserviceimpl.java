@@ -4,6 +4,7 @@ import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
+import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
@@ -54,6 +55,7 @@ public class Bookingserviceimpl implements Bookingservice {
         saveBooking.setSeatsBooked(bookings.getSeatsBooked());
         saveBooking.setUser(optionalUser.get());
         saveBooking.setShip(shipDetail);
+        saveBooking.setBookingStatus(BookingStatus.PENDING);
         saveBooking.setLocalDate(bookings.getLocalDate() != null ? bookings.getLocalDate() : LocalDateTime.now());
         saveBooking.setTotalPrice(totalPrice);
 
@@ -66,8 +68,11 @@ public class Bookingserviceimpl implements Bookingservice {
         if (!optionalBooking.isPresent()) {
             return false; // Booking not found
         }
+        Bookings bookings = optionalBooking.get();
+        bookings.setBookingStatus(BookingStatus.CANCELLED);
+        bookingRepository.save(bookings);
+//        bookingRepository.deleteById(bookingId);
 
-        bookingRepository.deleteById(bookingId);
         return true; // Booking canceled successfully
     }
 

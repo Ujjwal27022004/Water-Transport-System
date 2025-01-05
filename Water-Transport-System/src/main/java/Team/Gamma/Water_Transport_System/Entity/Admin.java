@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "admindata")
-public class Admin {
+public class Admin extends Person{
     @Id
     private Long adminId;
     private String email;

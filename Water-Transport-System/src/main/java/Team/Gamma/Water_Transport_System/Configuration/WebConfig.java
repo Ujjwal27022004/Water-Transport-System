@@ -10,17 +10,14 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/v1/user/login") // Adjust the path for your endpoints
-                .allowedOrigins("http://localhost:5173") // Frontend origin
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173")
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
-                .allowCredentials(true); // Enable for cookies or authentication
+                .allowCredentials(true);
 
-        registry.addMapping("/api/v1/user/signup") // Adjust the path for your endpoints
-                .allowedOrigins("http://localhost:5173") // Frontend origin
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true); // Enable for cookies or authentication
+        System.out.println("CORS request received");
+
     }
 }
 

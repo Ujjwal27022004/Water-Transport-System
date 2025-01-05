@@ -12,13 +12,15 @@ public class BookingController {
     @Autowired
     private Bookingservice bookingservice;
 
+    //Create booking for user
     @PostMapping
     public String createBookingDetails(@RequestBody BookingDTO bookings) {
         bookingservice.makeBooking(bookings);
         return "Booking created successfully";
     }
 
-    @DeleteMapping("{bookingId}")
+    //cancel booking of user
+    @PutMapping("{bookingId}")
     public String cancelBooking(@PathVariable Long bookingId) {
         boolean isCanceled = bookingservice.cancelBooking(bookingId);
         if (!isCanceled) {
