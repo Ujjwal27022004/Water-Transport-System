@@ -1,5 +1,6 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
+import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -23,10 +24,6 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     @Column(name = "paymentMethod")
     private PaymentMethod paymentMethod;
-
-    public enum PaymentMethod {
-        UPI, CREDIT_DEBIT_CARD, PAYPAL, NETBANKING
-    }
 
     @ManyToOne
     @JoinColumn(name = "bookingId")

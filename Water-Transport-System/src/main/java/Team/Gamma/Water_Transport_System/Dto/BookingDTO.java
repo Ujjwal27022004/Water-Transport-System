@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
 
+import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Transient;
@@ -13,6 +14,17 @@ public class BookingDTO {
     private int totalPrice;
     private Long userid;
     private Long shipId;
+
+    public BookingStatus getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(BookingStatus bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+
+    private BookingStatus bookingStatus;
+
 
     //Getter and Setter
     public LocalDateTime getLocalDate() {
