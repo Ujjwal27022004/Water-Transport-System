@@ -75,7 +75,7 @@ public class Bookingserviceimpl implements Bookingservice {
 
         return true; // Booking canceled successfully
     }
-
+    @Override
     public Bookings getLatestBookingByUserId(Long userId) {
         return bookingRepository.findByUser_userid(userId);
     }

@@ -1,14 +1,11 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
-import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Exception.AdminNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
-import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
