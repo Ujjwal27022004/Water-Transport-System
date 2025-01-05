@@ -2,6 +2,8 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.Payment;
+import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
+import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
 import Team.Gamma.Water_Transport_System.Repository.PassengerDetailsRepository;
@@ -30,12 +32,14 @@ public class PaymentServiceImpl implements PaymentService {
 
         if (booking.isPresent()) {
             // Create a new Payment with "pending" status
+            Bookings bookings = booking.get();
+            bookings.setBookingStatus(BookingStatus.BOOKED);
             Payment payment = new Payment();
             payment.setBookingID(bookingId);
-            payment.setPaymentMethod(Payment.PaymentMethod.NETBANKING);  // This can be set based on the logic
-            payment.setAmount(amount);  // Assuming this is part of Booking
+            payment.setPaymentMethod(PaymentMethod.NETBANKING);
+            payment.setAmount(amount);
             payment.setDate(new java.util.Date());
-            payment.setPaymentStatus("PENDING");  // Status set to "Pending"
+            payment.setPaymentStatus("PENDING");
 
             paymentRepository.save(payment);
 
@@ -60,7 +64,7 @@ public class PaymentServiceImpl implements PaymentService {
             // Assuming the method exists in Booking to update total passengers
             Bookings booking = bookingRepository.findByBookingId(confirmedPayment.getBookingID());
             if (booking != null) {
-                booking.setSeatsBooked(booking.getSeatsBooked() + (int) passengerCount);  // Increase by the number of people
+                booking.setSeatsBooked(booking.getSeatsBooked() + (int) passengerCount);
                 bookingRepository.save(booking);
             }
 
