@@ -8,10 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.http.HttpHeaders;
+
+
 import java.util.List;
 
 @RestController
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/shipdetails")
 public class ShipDetailController {
     private ShipDetailsService shipService;
@@ -48,6 +51,13 @@ public class ShipDetailController {
     public ResponseEntity<List<ShipDetail>> getShipDetailsBySourceAndDestination(
             @RequestParam("source") String source,
             @RequestParam("destination") String destination) {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Access-Control-Allow-Origin", "http://localhost:5173");  // Your frontend domain
+        headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+        System.out.println("Received request with source: " + source + " and destination: " + destination);
         List<ShipDetail> ships = shipService.searchCruise(source, destination);
         if (ships == null || ships.isEmpty()) {
             throw new ShipDetailNotFoundException("No ships found for the given source and destination");

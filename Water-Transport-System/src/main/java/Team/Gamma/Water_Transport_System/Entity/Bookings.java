@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
 
+import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,6 +15,17 @@ public class Bookings {
     private LocalDateTime localDate;
     private int seatsBooked;
     private int totalPrice;
+
+    public BookingStatus getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(BookingStatus bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private BookingStatus bookingStatus;
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

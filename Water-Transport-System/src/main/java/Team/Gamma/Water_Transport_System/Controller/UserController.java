@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("api/v1/user")
 public class UserController {
     @Autowired
@@ -24,14 +25,12 @@ public class UserController {
     private AdminService adminService;
 
     //Signup User and admin
-    @CrossOrigin(origins = "http://localhost:5174")
     @PostMapping(path = "/signup")
     public ResponseEntity<?> signup(@RequestBody UserDTO userDTO) {
         LoginMessage loginResponse = userService.addUser(userDTO);
         return ResponseEntity.ok(loginResponse);
     }
 //    Login User and admin
-@CrossOrigin(origins = "http://localhost:5174")
 
 @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {

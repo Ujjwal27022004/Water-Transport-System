@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Dto;
 
 import Team.Gamma.Water_Transport_System.Entity.Payment;
+import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
 
 import java.util.Date;
 
@@ -12,10 +13,8 @@ public class PaymentDTO {
     private String paymentStatus;
     private double amount;
     private Date date;
-    private Payment.PaymentMethod paymentMethod;
-    public enum PaymentMethod {
-        UPI, CREDIT_DEBIT_CARD, PAYPAL, NETBANKING
-    }
+    private PaymentMethod paymentMethod;
+
 
 
     //Getter and Setter
@@ -68,11 +67,11 @@ public class PaymentDTO {
         this.date = date;
     }
 
-    public Payment.PaymentMethod getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(Payment.PaymentMethod paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
