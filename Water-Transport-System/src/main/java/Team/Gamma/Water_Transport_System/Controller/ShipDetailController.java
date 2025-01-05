@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/shipdetails")
 public class ShipDetailController {
     private ShipDetailsService shipService;
@@ -21,7 +22,7 @@ public class ShipDetailController {
 
     //This method is for fetching details of ship
     @GetMapping("/{shipId}")
-    public ResponseEntity<ShipDetail> getShipDetails(@PathVariable("shipId") Long shipId) {
+    public  ResponseEntity<ShipDetail> getShipDetails(@PathVariable("shipId") Long shipId) {
         ShipDetail shipDetail = shipService.getShip(shipId);
         if (shipDetail == null) {
             throw new ShipDetailNotFoundException("Ship not found with ID: " + shipId);
