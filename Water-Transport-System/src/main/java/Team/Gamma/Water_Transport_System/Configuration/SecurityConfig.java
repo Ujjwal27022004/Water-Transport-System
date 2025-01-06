@@ -23,6 +23,8 @@ public class SecurityConfig {
                                 "/api/v1/user/ask",
                                 "/api/v1/shipdetails",
                                 "/api/v1/admindetails",
+                                "/shipdetails/search",
+                                "admindetails/Shipadd",
                                 "/api/v1/bookings",
                                 "/api/v1/payments",
                                 "/api/v1/receipts").permitAll()

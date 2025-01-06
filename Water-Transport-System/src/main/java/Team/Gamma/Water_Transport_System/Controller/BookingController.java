@@ -1,7 +1,7 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
-import Team.Gamma.Water_Transport_System.Service.Bookingservice;
+import Team.Gamma.Water_Transport_System.Service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class BookingController {
 
     @Autowired
-    private Bookingservice bookingservice;
+    private BookingService bookingservice;
 
     //Create booking for user
     @PostMapping
