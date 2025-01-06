@@ -125,20 +125,4 @@ public class ShipDetail extends  PassengerVehicle{
         this.availability = availability;
     }
 
-    @Override
-    public String toString() {
-        return "ShipDetail{" +
-                "shipId=" + shipId +
-                ", name='" + name + '\'' +
-                ", source='" + source + '\'' +
-                ", destination='" + destination + '\'' +
-                ", capacity=" + capacity +
-                ", cruiseLength=" + cruiseLength +
-                ", cruiseType=" + cruiseType +
-                ", date=" + date +
-                ", price=" + price +
-                ", rating=" + rating +
-                ", availability=" + availability +
-                '}';
-    }
 }
