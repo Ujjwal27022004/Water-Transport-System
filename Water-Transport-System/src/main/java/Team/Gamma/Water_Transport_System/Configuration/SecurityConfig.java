@@ -23,6 +23,7 @@ public class SecurityConfig {
                                 "/api/v1/user/ask",
                                 "/api/v1/shipdetails",
                                 "/api/v1/admindetails",
+                                "/usermanagement",
                                 "/shipdetails/search",
                                 "/api/admindetails/Shipadd",
                                 "/api/v1/bookings",
