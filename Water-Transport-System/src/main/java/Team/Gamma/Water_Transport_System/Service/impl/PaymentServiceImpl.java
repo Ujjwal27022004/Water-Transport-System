@@ -35,7 +35,7 @@ public class PaymentServiceImpl implements PaymentService {
             Bookings bookings = booking.get();
             bookings.setBookingStatus(BookingStatus.BOOKED);
             Payment payment = new Payment();
-            payment.setBookingID(bookingId);
+            payment.setBookingID(bookings.getBookingId());
             payment.setPaymentMethod(PaymentMethod.NETBANKING);
             payment.setAmount(amount);
             payment.setDate(new java.util.Date());
