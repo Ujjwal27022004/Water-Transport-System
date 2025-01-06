@@ -25,6 +25,7 @@ public class UserController {
     private AdminService adminService;
 
     //Signup User and admin
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping(path = "/signup")
     public ResponseEntity<?> signup(@RequestBody UserDTO userDTO) {
         LoginMessage loginResponse = userService.addUser(userDTO);
