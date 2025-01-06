@@ -9,7 +9,7 @@ import Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
-import Team.Gamma.Water_Transport_System.Service.Bookingservice;
+import Team.Gamma.Water_Transport_System.Service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
-public class Bookingserviceimpl implements Bookingservice {
+public class Bookingserviceimpl implements BookingService {
 
     @Autowired
     private BookingRepository bookingRepository;
