@@ -5,15 +5,18 @@ import Team.Gamma.Water_Transport_System.Entity.Admin;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Exception.AdminNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/admindetails")
+@RequestMapping("api/admindetails")
 public class AdminController {
-    @Autowired
+
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
+    }
+
     private AdminService adminService;
 
     // function for fetching details of admin from DB

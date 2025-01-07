@@ -23,6 +23,7 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private ShipDetailsRepository shipRepository;
 
+
     public AdminServiceImpl(AdminRepository adminRepository) {
         this.adminRepository = adminRepository;
     }
