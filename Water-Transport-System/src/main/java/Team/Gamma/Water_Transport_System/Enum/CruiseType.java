@@ -1,5 +1,7 @@
 package Team.Gamma.Water_Transport_System.Enum;
 
+import Team.Gamma.Water_Transport_System.Exception.ShipDetailNotFoundException;
+
 public enum CruiseType {
     FAMILY("Family Cruise"),
     DELUXE("Deluxe Cruise"),
@@ -16,3 +18,4 @@ public enum CruiseType {
         return description;
     }
 }
+
