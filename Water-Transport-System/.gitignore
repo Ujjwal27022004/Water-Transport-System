@@ -16,6 +16,9 @@ target/
 ### IntelliJ IDEA ###
 .idea
 ./idea/
+# Ignore IntelliJ IDEA configuration files
+.idea/dataSources.local.xml
+.idea/misc.xml
 *.iws
 *.iml
 *.ipr
