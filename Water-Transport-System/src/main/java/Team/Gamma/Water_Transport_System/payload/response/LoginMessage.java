@@ -19,4 +19,8 @@ public class LoginMessage {
         this.message = message;
         this.status = status;
     }
+
+    public boolean isStatus() {
+        return status;
+    }
 }
