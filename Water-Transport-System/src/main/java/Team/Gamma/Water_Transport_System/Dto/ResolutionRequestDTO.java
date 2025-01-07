@@ -5,7 +5,9 @@ public class ResolutionRequestDTO {
         private String status;
 
 
-        // Getters and Setters
+
+
+    // Getters and Setters
         public String getResolutionDetails() {
             return resolutionDetails;
         }
