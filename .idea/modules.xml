@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Water-Transport-System/Auth.iml" filepath="$PROJECT_DIR$/Water-Transport-System/Auth.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Water-Transport-System.iml" filepath="$PROJECT_DIR$/.idea/Water-Transport-System.iml" />
     </modules>
   </component>
