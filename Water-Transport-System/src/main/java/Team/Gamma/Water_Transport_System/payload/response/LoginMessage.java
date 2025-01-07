@@ -20,8 +20,7 @@ public class LoginMessage {
         this.status = status;
     }
 
-    // New method added for consistency with the test
-    public boolean isSuccess() {
-        return status != null && status;
+    public boolean isStatus() {
+        return status;
     }
 }

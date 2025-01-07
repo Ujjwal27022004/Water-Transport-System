@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/shipdetails")
 public class ShipDetailController {
+
     private ShipDetailsService shipService;
     @Autowired
     public ShipDetailController(ShipDetailsService shipService) {

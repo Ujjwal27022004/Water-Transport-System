@@ -6,3 +6,5 @@ public abstract class Vehicle {
     private String destination;
     private int capacity;
 }
+
+
