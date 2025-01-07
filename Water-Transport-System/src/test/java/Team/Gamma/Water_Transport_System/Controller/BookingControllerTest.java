@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
@@ -44,7 +43,7 @@ class BookingControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "admin", roles = "ADMIN")
+//    @WithMockUser(username = "admin", roles = "ADMIN")
     void testCancelBooking() throws Exception {
         // Simulate service behavior
         when(bookingService.cancelBooking(1L)).thenReturn(true);
