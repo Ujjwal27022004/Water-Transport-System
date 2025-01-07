@@ -4,7 +4,9 @@ public class ResolutionRequestDTO {
         private String resolutionDetails;
         private String status;
 
+    public ResolutionRequestDTO(String resolutionDetails, String resolved) {
 
+    }
 
 
     // Getters and Setters

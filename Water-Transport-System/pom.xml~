@@ -16,8 +16,6 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<argLine>-XX:+EnableDynamicAgentLoading</argLine>
-
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.projectName>Aqualure</sonar.projectName>
 	</properties>
@@ -65,13 +63,6 @@
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>4.0.0</version>
-			<scope>test</scope>
-		</dependency>
-
 
 	</dependencies>
 
