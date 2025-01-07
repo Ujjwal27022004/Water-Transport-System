@@ -1,0 +1,172 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > QueryImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">Team.Gamma.Water_Transport_System.Service.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: QueryImpl (Team.Gamma.Water_Transport_System.Service.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">QueryImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    4.8%
+  </span>
+  <span class="absValue">
+    (1/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service.impl;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.QueryDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Query;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.User;
+&nbsp;import Team.Gamma.Water_Transport_System.Repository.QueryRepository;
+&nbsp;import Team.Gamma.Water_Transport_System.Repository.UserRepository;
+&nbsp;import Team.Gamma.Water_Transport_System.Service.QueryService;
+&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.Date;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;public class QueryImpl implements QueryService {</b>
+&nbsp;    @Autowired
+&nbsp;    private QueryRepository queryRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private UserRepository userRepository;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {
+&nbsp;        try {
+<b class="nc">&nbsp;            User user = userRepository.findById(userid)</b>
+<b class="nc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;User not found with ID: &quot; + userid));</b>
+&nbsp;
+<b class="nc">&nbsp;            Query query = new Query();</b>
+<b class="nc">&nbsp;            query.setUser(user);</b>
+<b class="nc">&nbsp;            query.setQueryDetails(queryDTO.getQueryDetails());</b>
+<b class="nc">&nbsp;            query.setStatus(&quot;Pending&quot;);</b>
+<b class="nc">&nbsp;            query.setCreatedDate(new Date());</b>
+&nbsp;
+<b class="nc">&nbsp;            queryRepository.save(query);</b>
+&nbsp;
+<b class="nc">&nbsp;            return new LoginMessage(&quot;Query successfully Submitted!&quot;, true);</b>
+&nbsp;        } catch (RuntimeException e) {
+<b class="nc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            return new LoginMessage(&quot;Error while submitting the query: &quot; + e.getMessage(), false);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LoginMessage resolveQuery(Long queryId, String resolutionDetails, String status) {
+&nbsp;
+&nbsp;        try {
+<b class="nc">&nbsp;            Query query = queryRepository.findById(queryId)</b>
+<b class="nc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;Query not found with ID: &quot; + queryId));</b>
+&nbsp;
+<b class="nc">&nbsp;        query.setQueryResolution(resolutionDetails);</b>
+<b class="nc">&nbsp;        query.setResolvedDate(new Date());</b>
+<b class="nc">&nbsp;        query.setStatus(status);</b>
+&nbsp;
+<b class="nc">&nbsp;        queryRepository.save(query);</b>
+<b class="nc">&nbsp;            return new LoginMessage(&quot;Query resolved successfully!&quot;, true);</b>
+&nbsp;        } catch (RuntimeException e) {
+<b class="nc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
+&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;            return new LoginMessage(&quot;Error while resolving the query: &quot; + e.getMessage(), false);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-07 14:47</div>
+</div>
+</body>
+</html>
