@@ -28,7 +28,10 @@ public class SecurityConfig {
                                 "/api/admindetails/Shipadd",
                                 "/api/v1/bookings",
                                 "/api/v1/payments",
-                                "/api/v1/receipts","/usermanagement","/usermanagement/{userid}").permitAll()
+                                "/api/v1/receipts",
+                                "/usermanagement",
+                                "/usermanagement/{userid}",
+                                "/passengerDetails").permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(basic -> {});

@@ -26,6 +26,7 @@ public class PassengerDetailsController {
         if (passengerDetails == null) {
             throw new PassengerDetailsNotFoundException("Passenger with ID " + PassengerId + " not found.");
         }
+        System.out.print("call");
         return passengerDetails;
     }
 
@@ -33,6 +34,7 @@ public class PassengerDetailsController {
     @PostMapping
     public String createPassengerDetails(@RequestBody PassengerDetails passengerDetails) {
         passengerDetailsService.createpassengerdetails(passengerDetails);
+        System.out.print("call");
         return "Passenger has been created successfully.";
     }
 
@@ -44,6 +46,7 @@ public class PassengerDetailsController {
         if (!isUpdated) {
             throw new PassengerDetailsNotFoundException("Passenger with ID " + passengerDetails.getPassengerId() + " not found for update.");
         }
+        System.out.print("call");
         return "The passenger has been updated successfully.";
     }
 
@@ -54,6 +57,7 @@ public class PassengerDetailsController {
         if (!isDeleted) {
             throw new PassengerDetailsNotFoundException("Passenger with ID " + PassengerId + " not found for deletion.");
         }
+        System.out.print("call");
         return "Passenger details have been deleted successfully.";
     }
 
@@ -64,6 +68,7 @@ public class PassengerDetailsController {
         if (passengers == null || passengers.isEmpty()) {
             throw new PassengerDetailsNotFoundException("No passenger details found.");
         }
+        System.out.print("call");
         return passengers;
     }
 }
