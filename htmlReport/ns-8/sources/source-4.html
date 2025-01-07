@@ -1,0 +1,192 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > PaymentServiceImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">Team.Gamma.Water_Transport_System.Service.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: PaymentServiceImpl (Team.Gamma.Water_Transport_System.Service.impl)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PaymentServiceImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    3.8%
+  </span>
+  <span class="absValue">
+    (1/26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service.impl;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Bookings;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Payment;
+&nbsp;import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
+&nbsp;import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
+&nbsp;import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
+&nbsp;import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
+&nbsp;import Team.Gamma.Water_Transport_System.Repository.PassengerDetailsRepository;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.PaymentDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Service.PaymentService;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@Service
+<b class="fc">&nbsp;public class PaymentServiceImpl implements PaymentService {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private BookingRepository bookingRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private PaymentRepository paymentRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private PassengerDetailsRepository passengerDetailsRepository;
+&nbsp;
+&nbsp;    // Function to initiate payment
+&nbsp;    public Payment initiatePayment(Long bookingId,double amount) {
+<b class="nc">&nbsp;        Optional&lt;Bookings&gt; booking = Optional.ofNullable(bookingRepository.findByBookingId(bookingId));</b>
+&nbsp;
+<b class="nc">&nbsp;        if (booking.isPresent()) {</b>
+&nbsp;            // Create a new Payment with &quot;pending&quot; status
+<b class="nc">&nbsp;            Bookings bookings = booking.get();</b>
+<b class="nc">&nbsp;            bookings.setBookingStatus(BookingStatus.BOOKED);</b>
+<b class="nc">&nbsp;            Payment payment = new Payment();</b>
+<b class="nc">&nbsp;            payment.setBookingID(bookings.getBookingId());</b>
+<b class="nc">&nbsp;            payment.setPaymentMethod(PaymentMethod.NETBANKING);</b>
+<b class="nc">&nbsp;            payment.setAmount(amount);</b>
+<b class="nc">&nbsp;            payment.setDate(new java.util.Date());</b>
+<b class="nc">&nbsp;            payment.setPaymentStatus(&quot;PENDING&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;            paymentRepository.save(payment);</b>
+&nbsp;
+<b class="nc">&nbsp;            return payment;</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return null;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    // Function to confirm payment
+&nbsp;    public PaymentDTO confirmPayment(Long paymentId) {
+<b class="nc">&nbsp;        Optional&lt;Payment&gt; payment = paymentRepository.findById(paymentId);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (payment.isPresent() &amp;&amp; payment.get().getPaymentStatus() .equals(&quot;PENDING&quot;) ) {</b>
+&nbsp;            // Update payment status to &quot;Success&quot;
+<b class="nc">&nbsp;            Payment confirmedPayment = payment.get();</b>
+<b class="nc">&nbsp;            confirmedPayment.setPaymentStatus(&quot;SUCCESS&quot;);</b>
+<b class="nc">&nbsp;            paymentRepository.save(confirmedPayment);</b>
+&nbsp;
+&nbsp;            // Update passenger count in the PassengerDetails table
+<b class="nc">&nbsp;            long passengerCount = passengerDetailsRepository.countByBookingId(confirmedPayment.getBookingID());</b>
+&nbsp;            // Assuming the method exists in Booking to update total passengers
+<b class="nc">&nbsp;            Bookings booking = bookingRepository.findByBookingId(confirmedPayment.getBookingID());</b>
+<b class="nc">&nbsp;            if (booking != null) {</b>
+<b class="nc">&nbsp;                booking.setSeatsBooked(booking.getSeatsBooked() + (int) passengerCount);</b>
+<b class="nc">&nbsp;                bookingRepository.save(booking);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            return new PaymentDTO(&quot;Payment is successful.&quot;, true);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            return new PaymentDTO(&quot;Payment not found or already processed.&quot;, false);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-07 14:47</div>
+</div>
+</body>
+</html>

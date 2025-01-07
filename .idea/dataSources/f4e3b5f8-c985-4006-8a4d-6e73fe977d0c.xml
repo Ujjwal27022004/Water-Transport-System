@@ -1025,494 +1025,471 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <collation id="287" parent="1" name="utf8mb4_zh_0900_as_cs">
       <Charset>utf8mb4</Charset>
     </collation>
-    <schema id="288" parent="1" name="Aqualure">
+    <schema id="288" parent="1" name="ATM">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="289" parent="1" name="Aqualure">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-12-31.06:43:55</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-07.09:06:02</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="289" parent="1" name="defaultdb">
+    <schema id="290" parent="1" name="defaultdb">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="290" parent="1" name="information_schema">
+    <schema id="291" parent="1" name="information_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="291" parent="1" name="mysql">
+    <schema id="292" parent="1" name="mysql">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="292" parent="1" name="performance_schema">
+    <schema id="293" parent="1" name="performance_schema">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="293" parent="1" name="ship_detail">
+    <schema id="294" parent="1" name="ship_detail">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="294" parent="1" name="sys">
+    <schema id="295" parent="1" name="sys">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <user id="295" parent="1" name="avnadmin">
+    <user id="296" parent="1" name="avnadmin">
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="296" parent="1" name="metrics_user_datadog">
+    <user id="297" parent="1" name="metrics_user_datadog">
       <Host>::1</Host>
       <MaxUserConnections>5</MaxUserConnections>
     </user>
-    <user id="297" parent="1" name="metrics_user_telegraf">
+    <user id="298" parent="1" name="metrics_user_telegraf">
       <Host>::1</Host>
       <MaxUserConnections>5</MaxUserConnections>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="298" parent="1" name="mysql.infoschema">
+    <user id="299" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="299" parent="1" name="mysql.session">
+    <user id="300" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="300" parent="1" name="mysql.sys">
+    <user id="301" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="301" parent="1" name="repluser">
+    <user id="302" parent="1" name="repluser">
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="302" parent="1" name="root">
+    <user id="303" parent="1" name="root">
       <Host>fda7:a938:5bfe:5fa6:%</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="303" parent="288" name="admindata">
+    <table id="304" parent="289" name="admindata">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="304" parent="288" name="bookings_info">
+    <table id="305" parent="289" name="bookings_info">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="305" parent="288" name="passengerddetail">
+    <table id="306" parent="289" name="passengerddetail">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="306" parent="288" name="payment">
+    <table id="307" parent="289" name="payment">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="307" parent="288" name="query">
+    <table id="308" parent="289" name="query">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="308" parent="288" name="receipt">
+    <table id="309" parent="289" name="receipt">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="309" parent="288" name="ship_detail">
+    <table id="310" parent="289" name="ship_detail">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="310" parent="288" name="users">
+    <table id="311" parent="289" name="users">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="311" parent="303" name="admin_id">
+    <column id="312" parent="304" name="admin_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="312" parent="303" name="password">
+    <column id="313" parent="304" name="email">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="313" parent="303" name="PRIMARY">
+    <column id="314" parent="304" name="password">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <index id="315" parent="304" name="PRIMARY">
       <ColNames>admin_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="314" parent="303" name="PRIMARY">
+    <key id="316" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="315" parent="304" name="booking_id">
-      <AutoIncrement>8</AutoIncrement>
+    <column id="317" parent="305" name="booking_id">
+      <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="316" parent="304" name="local_date">
+    <column id="318" parent="305" name="booking_status">
       <Position>2</Position>
+      <StoredType>enum(&apos;BOOKED&apos;, &apos;CANCELLED&apos;, &apos;PENDING&apos;)|0e</StoredType>
+    </column>
+    <column id="319" parent="305" name="local_date">
+      <Position>3</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <column id="317" parent="304" name="seats_booked">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="318" parent="304" name="total_price">
+    <column id="320" parent="305" name="seats_booked">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="319" parent="304" name="ship_id">
+    <column id="321" parent="305" name="total_price">
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StoredType>bigint|0s</StoredType>
+      <StoredType>int|0s</StoredType>
     </column>
-    <column id="320" parent="304" name="user_id">
+    <column id="322" parent="305" name="ship_id">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="321" parent="304" name="payment_payment_id">
+    <column id="323" parent="305" name="user_id">
+      <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <foreign-key id="322" parent="304" name="FKidmwenycg92x8x2xql36vu4vm">
+    <foreign-key id="324" parent="305" name="FKidmwenycg92x8x2xql36vu4vm">
       <ColNames>ship_id</ColNames>
       <RefColNames>ship_id</RefColNames>
       <RefTableName>ship_detail</RefTableName>
     </foreign-key>
-    <foreign-key id="323" parent="304" name="FK978v0umjb566923eq60t7twvm">
+    <foreign-key id="325" parent="305" name="FK978v0umjb566923eq60t7twvm">
       <ColNames>user_id</ColNames>
       <RefColNames>user_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="324" parent="304" name="FKrqwwvqhdcy0l7o9w4sh4kdiry">
-      <ColNames>payment_payment_id</ColNames>
-      <RefColNames>payment_id</RefColNames>
-      <RefTableName>payment</RefTableName>
-    </foreign-key>
-    <index id="325" parent="304" name="PRIMARY">
+    <index id="326" parent="305" name="PRIMARY">
       <ColNames>booking_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="326" parent="304" name="UK_lj1wnw4av2ngqk3fjamypp2mn">
-      <ColNames>payment_payment_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="327" parent="304" name="FKidmwenycg92x8x2xql36vu4vm">
+    <index id="327" parent="305" name="FKidmwenycg92x8x2xql36vu4vm">
       <ColNames>ship_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="328" parent="304" name="FK978v0umjb566923eq60t7twvm">
+    <index id="328" parent="305" name="FK978v0umjb566923eq60t7twvm">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="329" parent="304" name="PRIMARY">
+    <key id="329" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="330" parent="304" name="UK_lj1wnw4av2ngqk3fjamypp2mn">
-      <UnderlyingIndexName>UK_lj1wnw4av2ngqk3fjamypp2mn</UnderlyingIndexName>
-    </key>
-    <column id="331" parent="305" name="passenger_id">
+    <column id="330" parent="306" name="passenger_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="332" parent="305" name="age">
+    <column id="331" parent="306" name="age">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="333" parent="305" name="booking_id">
+    <column id="332" parent="306" name="booking_id">
       <Position>3</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="334" parent="305" name="gender">
+    <column id="333" parent="306" name="gender">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="335" parent="305" name="name">
+    <column id="334" parent="306" name="name">
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="336" parent="305" name="PRIMARY">
+    <foreign-key id="335" parent="306" name="FK2whb60komuuhw134douxqfawi">
+      <ColNames>booking_id</ColNames>
+      <RefColNames>booking_id</RefColNames>
+      <RefTableName>bookings_info</RefTableName>
+    </foreign-key>
+    <index id="336" parent="306" name="PRIMARY">
       <ColNames>passenger_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="337" parent="305" name="PRIMARY">
+    <index id="337" parent="306" name="FK2whb60komuuhw134douxqfawi">
+      <ColNames>booking_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="338" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="338" parent="306" name="payment_id">
-      <AutoIncrement>3</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="339" parent="306" name="amount">
-      <Position>2</Position>
-      <StoredType>double|0s</StoredType>
-    </column>
-    <column id="340" parent="306" name="booking_id">
-      <Position>3</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="341" parent="306" name="date">
-      <Position>4</Position>
-      <StoredType>datetime(6)|0s</StoredType>
-    </column>
-    <column id="342" parent="306" name="payment_method">
-      <Position>5</Position>
-      <StoredType>enum(&apos;CREDIT_DEBIT_CARD&apos;, &apos;NETBANKING&apos;, &apos;PAYPAL&apos;, &apos;UPI&apos;)|0e</StoredType>
-    </column>
-    <column id="343" parent="306" name="payment_status">
-      <Position>6</Position>
-      <StoredType>varchar(255)|0s</StoredType>
-    </column>
-    <column id="344" parent="306" name="booking">
-      <Position>7</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <foreign-key id="345" parent="306" name="FKgyfy4dg8qtjw3oxca78510mhp">
-      <ColNames>booking_id</ColNames>
-      <RefColNames>booking_id</RefColNames>
-      <RefTableName>bookings_info</RefTableName>
-    </foreign-key>
-    <foreign-key id="346" parent="306" name="FKsbnrnrp8y8o697suwxbg0o5be">
-      <ColNames>booking</ColNames>
-      <RefColNames>booking_id</RefColNames>
-      <RefTableName>bookings_info</RefTableName>
-    </foreign-key>
-    <index id="347" parent="306" name="PRIMARY">
-      <ColNames>payment_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="348" parent="306" name="FKgyfy4dg8qtjw3oxca78510mhp">
-      <ColNames>booking_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="349" parent="306" name="FKsbnrnrp8y8o697suwxbg0o5be">
-      <ColNames>booking</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="350" parent="306" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="351" parent="307" name="query_id">
+    <column id="339" parent="307" name="payment_id">
       <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="352" parent="307" name="created_date">
+    <column id="340" parent="307" name="amount">
+      <Position>2</Position>
+      <StoredType>double|0s</StoredType>
+    </column>
+    <column id="341" parent="307" name="booking_id">
+      <Position>3</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="342" parent="307" name="date">
+      <Position>4</Position>
+      <StoredType>datetime(6)|0s</StoredType>
+    </column>
+    <column id="343" parent="307" name="payment_method">
+      <Position>5</Position>
+      <StoredType>enum(&apos;CREDIT_DEBIT_CARD&apos;, &apos;NETBANKING&apos;, &apos;PAYPAL&apos;, &apos;UPI&apos;)|0e</StoredType>
+    </column>
+    <column id="344" parent="307" name="payment_status">
+      <Position>6</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <foreign-key id="345" parent="307" name="FKgyfy4dg8qtjw3oxca78510mhp">
+      <ColNames>booking_id</ColNames>
+      <RefColNames>booking_id</RefColNames>
+      <RefTableName>bookings_info</RefTableName>
+    </foreign-key>
+    <index id="346" parent="307" name="PRIMARY">
+      <ColNames>payment_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="347" parent="307" name="FKgyfy4dg8qtjw3oxca78510mhp">
+      <ColNames>booking_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="348" parent="307" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="349" parent="308" name="query_id">
+      <AutoIncrement>1</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>bigint|0s</StoredType>
+    </column>
+    <column id="350" parent="308" name="created_date">
       <Position>2</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="353" parent="307" name="query_details">
+    <column id="351" parent="308" name="query_details">
       <Position>3</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="354" parent="307" name="query_resolution">
+    <column id="352" parent="308" name="query_resolution">
       <Position>4</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="355" parent="307" name="resolved_date">
+    <column id="353" parent="308" name="resolved_date">
       <Position>5</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="356" parent="307" name="status">
+    <column id="354" parent="308" name="status">
       <Position>6</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="357" parent="307" name="user_id">
+    <column id="355" parent="308" name="user_id">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <foreign-key id="358" parent="307" name="FKa928r40h8ls6x1jsepu9cugm7">
+    <foreign-key id="356" parent="308" name="FKa928r40h8ls6x1jsepu9cugm7">
       <ColNames>user_id</ColNames>
       <RefColNames>user_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="359" parent="307" name="PRIMARY">
+    <index id="357" parent="308" name="PRIMARY">
       <ColNames>query_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="360" parent="307" name="FKa928r40h8ls6x1jsepu9cugm7">
+    <index id="358" parent="308" name="FKa928r40h8ls6x1jsepu9cugm7">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="307" name="PRIMARY">
+    <key id="359" parent="308" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="362" parent="308" name="receipt_id">
+    <column id="360" parent="309" name="receipt_id">
+      <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="363" parent="308" name="amount">
+    <column id="361" parent="309" name="amount">
+      <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>double|0s</StoredType>
+      <StoredType>int|0s</StoredType>
     </column>
-    <column id="364" parent="308" name="date">
+    <column id="362" parent="309" name="date">
       <Position>3</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <column id="365" parent="308" name="paymentid">
-      <NotNull>1</NotNull>
+    <column id="363" parent="309" name="ship_id">
       <Position>4</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="366" parent="308" name="shipid">
-      <NotNull>1</NotNull>
+    <column id="364" parent="309" name="user_id">
       <Position>5</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="367" parent="308" name="userid">
-      <NotNull>1</NotNull>
+    <column id="365" parent="309" name="payment_id">
       <Position>6</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="368" parent="308" name="payment_id">
-      <Position>7</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="369" parent="308" name="ship_id">
-      <Position>8</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <column id="370" parent="308" name="transaction_type">
-      <Position>9</Position>
-      <StoredType>enum(&apos;CREDIT_DEBIT_CARD&apos;, &apos;NETBANKING&apos;, &apos;PAYPAL&apos;, &apos;UPI&apos;)|0e</StoredType>
-    </column>
-    <column id="371" parent="308" name="user_id">
-      <Position>10</Position>
-      <StoredType>bigint|0s</StoredType>
-    </column>
-    <foreign-key id="372" parent="308" name="FKol02cxv1xmyc8j9o2npop6bs5">
-      <ColNames>payment_id</ColNames>
-      <RefColNames>payment_id</RefColNames>
-      <RefTableName>payment</RefTableName>
-    </foreign-key>
-    <foreign-key id="373" parent="308" name="FK97i6is94kuktia6lbwxl0mfy9">
+    <foreign-key id="366" parent="309" name="FK97i6is94kuktia6lbwxl0mfy9">
       <ColNames>ship_id</ColNames>
       <RefColNames>ship_id</RefColNames>
       <RefTableName>ship_detail</RefTableName>
     </foreign-key>
-    <foreign-key id="374" parent="308" name="FK9llbb4mj9qe5l0krj2ro35u51">
+    <foreign-key id="367" parent="309" name="FK9llbb4mj9qe5l0krj2ro35u51">
       <ColNames>user_id</ColNames>
       <RefColNames>user_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="375" parent="308" name="PRIMARY">
+    <foreign-key id="368" parent="309" name="FKol02cxv1xmyc8j9o2npop6bs5">
+      <ColNames>payment_id</ColNames>
+      <RefColNames>payment_id</RefColNames>
+      <RefTableName>payment</RefTableName>
+    </foreign-key>
+    <index id="369" parent="309" name="PRIMARY">
       <ColNames>receipt_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="376" parent="308" name="FKol02cxv1xmyc8j9o2npop6bs5">
+    <index id="370" parent="309" name="UK_kcnr2bq3p17a3ur8d6h9dfl6t">
       <ColNames>payment_id</ColNames>
       <Type>btree</Type>
+      <Unique>1</Unique>
     </index>
-    <index id="377" parent="308" name="FK97i6is94kuktia6lbwxl0mfy9">
+    <index id="371" parent="309" name="FK97i6is94kuktia6lbwxl0mfy9">
       <ColNames>ship_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="378" parent="308" name="FK9llbb4mj9qe5l0krj2ro35u51">
+    <index id="372" parent="309" name="FK9llbb4mj9qe5l0krj2ro35u51">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="379" parent="308" name="PRIMARY">
+    <key id="373" parent="309" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="380" parent="309" name="ship_id">
+    <key id="374" parent="309" name="UK_kcnr2bq3p17a3ur8d6h9dfl6t">
+      <UnderlyingIndexName>UK_kcnr2bq3p17a3ur8d6h9dfl6t</UnderlyingIndexName>
+    </key>
+    <column id="375" parent="310" name="ship_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="381" parent="309" name="availability">
+    <column id="376" parent="310" name="availability">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bit(1)|0s</StoredType>
     </column>
-    <column id="382" parent="309" name="capacity">
+    <column id="377" parent="310" name="capacity">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="383" parent="309" name="cruise_length">
+    <column id="378" parent="310" name="cruise_length">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="384" parent="309" name="cruise_type">
+    <column id="379" parent="310" name="cruise_type">
       <Position>5</Position>
-      <StoredType>varchar(255)|0s</StoredType>
+      <StoredType>enum(&apos;DELUXE&apos;, &apos;FAMILY&apos;, &apos;LUXURY&apos;, &apos;PREMIUM&apos;)|0e</StoredType>
     </column>
-    <column id="385" parent="309" name="date">
+    <column id="380" parent="310" name="date">
       <Position>6</Position>
       <StoredType>datetime(6)|0s</StoredType>
     </column>
-    <column id="386" parent="309" name="destination">
+    <column id="381" parent="310" name="destination">
       <Position>7</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="387" parent="309" name="name">
+    <column id="382" parent="310" name="name">
       <Position>8</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="388" parent="309" name="price">
+    <column id="383" parent="310" name="price">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="389" parent="309" name="rating">
+    <column id="384" parent="310" name="rating">
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StoredType>float|0s</StoredType>
     </column>
-    <column id="390" parent="309" name="source">
+    <column id="385" parent="310" name="source">
       <Position>11</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="391" parent="309" name="PRIMARY">
+    <index id="386" parent="310" name="PRIMARY">
       <ColNames>ship_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="392" parent="309" name="PRIMARY">
+    <key id="387" parent="310" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="393" parent="310" name="user_id">
-      <AutoIncrement>7</AutoIncrement>
+    <column id="388" parent="311" name="user_id">
+      <AutoIncrement>16</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="394" parent="310" name="email">
+    <column id="389" parent="311" name="email">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="395" parent="310" name="password">
+    <column id="390" parent="311" name="password">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="396" parent="310" name="username">
+    <column id="391" parent="311" name="username">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="397" parent="310" name="PRIMARY">
+    <index id="392" parent="311" name="PRIMARY">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="398" parent="310" name="PRIMARY">
+    <key id="393" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
