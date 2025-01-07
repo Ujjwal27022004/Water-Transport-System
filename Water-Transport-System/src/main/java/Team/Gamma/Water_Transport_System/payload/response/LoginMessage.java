@@ -19,4 +19,9 @@ public class LoginMessage {
         this.message = message;
         this.status = status;
     }
+
+    // New method added for consistency with the test
+    public boolean isSuccess() {
+        return status != null && status;
+    }
 }
