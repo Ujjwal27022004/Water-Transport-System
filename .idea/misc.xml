@@ -11,6 +11,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
 =======
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
@@ -21,7 +22,11 @@
     <output url="file://$PROJECT_DIR$/../" />
 >>>>>>> f2cbfeeec3ce2ff81ac9223275ef84c6ad566ee7
 =======
+=======
+
+>>>>>>> dc15dcf5eb8b587d1bc033c627ac12471f0145f7
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+
     <output url="file://$PROJECT_DIR$/.." />
 >>>>>>> 1e8536c71fcfaf1331e8237e0959334b350f8982
   </component>

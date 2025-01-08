@@ -10,6 +10,5 @@ public interface UserService {
     LoginMessage loginUser(LoginDTO loginDTO);
     LoginMessage updateProfile(Long userid, UserDTO request);
     User getUserDetails(Long userid);
-
 }
 
