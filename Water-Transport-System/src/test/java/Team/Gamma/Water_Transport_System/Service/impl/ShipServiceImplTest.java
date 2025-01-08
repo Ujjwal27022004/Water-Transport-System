@@ -1,10 +1,9 @@
-package Team.Gamma.Water_Transport_System;
+package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
-import Team.Gamma.Water_Transport_System.Service.impl.ShipServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
