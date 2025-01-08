@@ -1,4 +1,4 @@
-package Team.Gamma.Water_Transport_System;
+package Team.Gamma.Water_Transport_System.Entity;
 
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Enum.CruiseType;
