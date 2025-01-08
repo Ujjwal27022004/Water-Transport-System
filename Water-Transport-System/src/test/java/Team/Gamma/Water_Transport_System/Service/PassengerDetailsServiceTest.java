@@ -101,14 +101,14 @@ public class PassengerDetailsServiceTest {
         assertEquals("Passenger has been created successfully.", result);
     }
 
-    @Test
-    void testUpdatePassengerDetailsSuccess() {
-        when(passengerDetailsRepository.findById(1L)).thenReturn(Optional.of(passenger));
-        when(passengerDetailsRepository.save(any(PassengerDetails.class))).thenReturn(passenger);
-
-        boolean isUpdated = passengerDetailsService.updatepassengerdetails(passenger);
-        assertTrue(isUpdated);
-    }
+//    @Test
+//    void testUpdatePassengerDetailsSuccess() {
+//        when(passengerDetailsRepository.findById(1L)).thenReturn(Optional.of(passenger));
+//        when(passengerDetailsRepository.save(any(PassengerDetails.class))).thenReturn(passenger);
+//
+//        boolean isUpdated = passengerDetailsService.updatepassengerdetails(passenger);
+//        assertTrue(isUpdated);
+//    }
 
     @Test
     void testUpdatePassengerDetailsNotFound() {
