@@ -28,9 +28,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="cd94c92b-b43e-45b7-9bac-f433e69622f7" object-ref="schemas/Aqualure/tables/passengerddetail" />
-      <object connection-id="7ac8b026-0052-4948-a577-795f202ad596" object-ref="schemas/Aqualure/tables/bookings_info" />
       <object connection-id="7ac8b026-0052-4948-a577-795f202ad596" object-ref="schemas/Aqualure/tables/passengerddetail" />
+      <object connection-id="7ac8b026-0052-4948-a577-795f202ad596" object-ref="schemas/Aqualure/tables/bookings_info" />
+      <object connection-id="cd94c92b-b43e-45b7-9bac-f433e69622f7" object-ref="schemas/Aqualure/tables/passengerddetail" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">

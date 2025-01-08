@@ -29,8 +29,11 @@ public class SecurityConfig {
                                 "/api/v1/bookings",
                                 "/api/v1/payments",
                                 "/api/v1/receipts",
+<<<<<<< HEAD
                                 "/usermanagement",
                                 "/usermanagement/{userid}",
+=======
+>>>>>>> 81565b8512320b029084556741125083e8b4f61b
                                 "/passengerDetails").permitAll()
                         .anyRequest().authenticated()
                 )

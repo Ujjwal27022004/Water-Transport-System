@@ -25,6 +25,7 @@ public class UserController {
     private AdminService adminService;
 
     //Signup User and admin
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping(path = "/signup")
     public ResponseEntity<?> signup(@RequestBody UserDTO userDTO) {
         LoginMessage loginResponse = userService.addUser(userDTO);
@@ -32,24 +33,12 @@ public class UserController {
     }
 //    Login User and admin
 
-@PostMapping(path = "/login")
+    @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
-        System.out.println("Received login request: " + loginDTO);
-        LoginMessage loginResponse = adminService.loginAdmin(loginDTO);
-        if (loginResponse != null && loginResponse.getStatus()) {
-            System.out.println("Admin login successful");
-            return ResponseEntity.ok(loginResponse);
-        }
-
-        loginResponse = userService.loginUser(loginDTO);
-        if (loginResponse != null && loginResponse.getStatus()) {
-            System.out.println("User login successful");
-            return ResponseEntity.ok(loginResponse);
-        }
-
-        System.out.println("Invalid credentials for both admin and user");
-        return ResponseEntity.badRequest().body(new LoginMessage("Invalid credentials for both admin and user.", false));
+        LoginMessage loginResponse = userService.loginUser(loginDTO);
+        return ResponseEntity.ok(loginResponse);
     }
+
     //profile of User and admin
 
     @PutMapping("/profile")
