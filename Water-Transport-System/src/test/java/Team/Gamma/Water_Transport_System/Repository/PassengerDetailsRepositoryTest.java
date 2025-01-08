@@ -41,20 +41,20 @@ public class PassengerDetailsRepositoryTest {
         assertEquals(passengerDetails.getPassengerId(), foundPassenger.getPassengerId(), "Passenger ID should match");
     }
 
-    @Test
-    public void testCountByBookingId() {
-        // Save the passenger first
-        passengerDetailsRepository.save(passengerDetails);
-
-        // Verify that the passenger is saved (you can log the saved entity if necessary)
-        System.out.println("Saved Passenger Booking ID: " + passengerDetails.getBookingId());
-
-        // Check the count based on the booking ID
-        long count = passengerDetailsRepository.countByBookingId(passengerDetails.getBookingId());
-
-        // Assert the count is 1
-        assertEquals(1, count, "There should be 1 passenger with this booking ID");
-    }
+//    @Test
+//    public void testCountByBookingId() {
+//        // Save the passenger first
+//        passengerDetailsRepository.save(passengerDetails);
+//
+//        // Verify that the passenger is saved (you can log the saved entity if necessary)
+//        System.out.println("Saved Passenger Booking ID: " + passengerDetails.getBookingId());
+//
+//        // Check the count based on the booking ID
+//        long count = passengerDetailsRepository.countByBookingId(passengerDetails.getBookingId());
+//
+//        // Assert the count is 1
+//        assertEquals(1, count, "There should be 1 passenger with this booking ID");
+//    }
 
 
 

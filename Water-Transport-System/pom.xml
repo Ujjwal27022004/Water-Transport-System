@@ -21,7 +21,7 @@
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.projectName>Aqualure</sonar.projectName>
 
-		<sonar.login>squ_a994a3555e620c411b90cb2145e4c4499cc304fc</sonar.login>
+		<sonar.login>squ_621d4948f1a0138077db6f0fc6eb60e9fae0a657</sonar.login>
 
 	</properties>
 
@@ -68,35 +68,35 @@
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>4.0.0</version>
-			<scope>test</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.mockito</groupId>-->
+<!--			<artifactId>mockito-junit-jupiter</artifactId>-->
+<!--			<version>4.0.0</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
 
 
-			<!-- JUnit 5 -->
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-api</artifactId>
-				<version>5.8.2</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-engine</artifactId>
-				<version>5.8.2</version>
-				<scope>test</scope>
-			</dependency>
+<!--			&lt;!&ndash; JUnit 5 &ndash;&gt;-->
+<!--			<dependency>-->
+<!--				<groupId>org.junit.jupiter</groupId>-->
+<!--				<artifactId>junit-jupiter-api</artifactId>-->
+<!--				<version>5.8.2</version>-->
+<!--				<scope>test</scope>-->
+<!--			</dependency>-->
+<!--			<dependency>-->
+<!--				<groupId>org.junit.jupiter</groupId>-->
+<!--				<artifactId>junit-jupiter-engine</artifactId>-->
+<!--				<version>5.8.2</version>-->
+<!--				<scope>test</scope>-->
+<!--			</dependency>-->
 
-			<!-- Mockito -->
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-core</artifactId>
-				<version>4.5.1</version>
-				<scope>test</scope>
-			</dependency>
+<!--			&lt;!&ndash; Mockito &ndash;&gt;-->
+<!--			<dependency>-->
+<!--				<groupId>org.mockito</groupId>-->
+<!--				<artifactId>mockito-core</artifactId>-->
+<!--				<version>4.5.1</version>-->
+<!--				<scope>test</scope>-->
+<!--			</dependency>-->
 
 			<!-- Mockito JUnit 5 Extension -->
 			<dependency>
@@ -134,6 +134,25 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.10</version> <!-- Use the latest version -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
