@@ -39,6 +39,14 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
+    @PostMapping(path = "/Adminlogin")
+    public ResponseEntity<?> Adminlogin(@RequestBody LoginDTO loginDTO) {
+        LoginMessage loginResponse = adminService.loginAdmin(loginDTO);
+        return ResponseEntity.ok(loginResponse);
+    }
+
+
+
     //profile of User and admin
 
     @PutMapping("/profile")
