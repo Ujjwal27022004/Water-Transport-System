@@ -1,11 +1,5 @@
 package Team.Gamma.Water_Transport_System.Dto;
-
-
 import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Transient;
-
 import java.time.LocalDateTime;
 
 public class BookingDTO {

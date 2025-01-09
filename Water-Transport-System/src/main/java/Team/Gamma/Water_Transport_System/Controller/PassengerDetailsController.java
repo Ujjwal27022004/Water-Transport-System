@@ -13,9 +13,9 @@ import java.util.List;
 @RequestMapping("/passengerDetails")
 public class PassengerDetailsController {
 
-    @Autowired
-    private PassengerDetailsService passengerDetailsService;
 
+    private final PassengerDetailsService passengerDetailsService;
+    @Autowired
     public PassengerDetailsController(PassengerDetailsService passengerDetailsService) {
         this.passengerDetailsService = passengerDetailsService;
     }

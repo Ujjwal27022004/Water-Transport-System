@@ -1,38 +1,38 @@
-package Team.Gamma.Water_Transport_System.Service;
-
-import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
-import Team.Gamma.Water_Transport_System.Entity.Bookings;
-import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
-import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
-import Team.Gamma.Water_Transport_System.Service.impl.Bookingserviceimpl;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
-
+//package Team.Gamma.Water_Transport_System.Service;
+//
+//import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
+//import Team.Gamma.Water_Transport_System.Entity.Bookings;
+//import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
+//import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
+//import Team.Gamma.Water_Transport_System.Service.impl.Bookingserviceimpl;
+//import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.extension.ExtendWith;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.mockito.MockitoAnnotations;
+//import org.mockito.junit.jupiter.MockitoExtension;
+//
+//import static org.mockito.Mockito.*;
+//import static org.junit.jupiter.api.Assertions.*;
+//
 //@ExtendWith(MockitoExtension.class)
-public class BookingServiceTest {
-
-    @Mock
-    private BookingRepository bookingRepository;
-
-    @InjectMocks
-    private Bookingserviceimpl bookingserviceimpl; // Inject the service for testing
-
-    @Mock
-    private BookingDTO bookingDTO;
-
-    @BeforeEach
-    public void setup() {
-        MockitoAnnotations.openMocks(this);  // Initialize mocks
-    }
-
+//public class BookingServiceTest {
+//
+//    @Mock
+//    private BookingRepository bookingRepository;
+//
+//    @InjectMocks
+//    private Bookingserviceimpl bookingserviceimpl; // Inject the service for testing
+//
+//    @Mock
+//    private BookingDTO bookingDTO;
+//
+//    @BeforeEach
+//    public void setup() {
+//        MockitoAnnotations.openMocks(this);  // Initialize mocks
+//    }
+//
 //    @Test
 //    void makeBooking() {
 //        // Prepare the BookingDTO object
@@ -70,4 +70,4 @@ public class BookingServiceTest {
 //        assertTrue(result);
 //        verify(bookingRepository, times(1)).save(existingBooking);
 //    }
-}
+//}

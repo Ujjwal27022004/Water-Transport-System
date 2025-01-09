@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > ReceiptService</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > BookingService</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,14 +22,14 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
 </div>
 
-<h1>Coverage Summary for Class: ReceiptService (Team.Gamma.Water_Transport_System.Service)</h1>
+<h1>Coverage Summary for Class: BookingService (Team.Gamma.Water_Transport_System.Service)</h1>
 
 <table class="coverageStats">
 <tr>
   <th class="name">Class</th>
 </tr>
 <tr>
-  <td class="name">ReceiptService</td>
+  <td class="name">BookingService</td>
 </tr>
 
 </table>
@@ -41,10 +41,15 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.Receipt;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Bookings;
 &nbsp;
-&nbsp;public interface ReceiptService {
-&nbsp;    public Receipt generateReceipt(Long userId);
+&nbsp;public interface BookingService {
+&nbsp;
+&nbsp;    //booking services
+&nbsp;    void makeBooking(BookingDTO bookings);
+&nbsp;    boolean cancelBooking(Long bookingId);
+&nbsp;    Bookings getLatestBookingByUserId(Long userId);
 &nbsp;}
 </code>
 </pre>
@@ -69,7 +74,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>

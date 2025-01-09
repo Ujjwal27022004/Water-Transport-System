@@ -153,7 +153,7 @@ import static org.mockito.Mockito.when;
         assertEquals(0, receiptDTO.getAmount(), "Amount should be zero");
     }
 
-//     Boundary Test: Generate Receipt with Future Date
+    // Boundary Test: Generate Receipt with Future Date
 //    @Test
 //    public void testGenerateReceiptWithFutureDate() {
 //        Long userId = 1L;

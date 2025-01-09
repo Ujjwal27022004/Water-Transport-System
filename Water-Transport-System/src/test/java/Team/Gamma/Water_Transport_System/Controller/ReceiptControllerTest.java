@@ -63,18 +63,18 @@ public class ReceiptControllerTest {
 //                .andExpect(jsonPath("$.receiptId").value(1)); // Validate receipt ID
 //    }
 
-//    @Test
-//    public void testGenerateReceipt_ReceiptException() throws Exception {
-//        // Simulate an exception in the service
-//        when(receiptService.generateReceipt(2L)).thenThrow(new ReceiptException("User not found"));
-//
-//        // Perform POST request and validate exception handling
-//        mockMvc.perform(post("/receipts/generate")
-//                        .param("userId", "2") // Pass userId that triggers exception
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isForbidden()) // Expect HTTP 400 Bad Request
-//                .andExpect(content().string("")); // Validate exception message
-//    }
+    @Test
+    public void testGenerateReceipt_ReceiptException() throws Exception {
+        // Simulate an exception in the service
+        when(receiptService.generateReceipt(2L)).thenThrow(new ReceiptException("User not found"));
+
+        // Perform POST request and validate exception handling
+        mockMvc.perform(post("/receipts/generate")
+                        .param("userId", "2") // Pass userId that triggers exception
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isForbidden()) // Expect HTTP 400 Bad Request
+                .andExpect(content().string("")); // Validate exception message
+    }
 }
 
 @Configuration

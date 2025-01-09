@@ -6,20 +6,14 @@ import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
 import Team.Gamma.Water_Transport_System.Exception.AdminNotFoundException;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -31,14 +25,6 @@ class AdminControllerTest {
 
     @InjectMocks
     private AdminController adminController;
-
-    private MockMvc mockMvc;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(adminController).build();
-    }
 
     // Test: Fetching details of an admin by ID (Success)
     @Test
@@ -59,9 +45,8 @@ class AdminControllerTest {
         Long adminId = 1L;
         when(adminService.getAdmin(adminId)).thenReturn(null);
 
-        AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () -> {
-            adminController.getAdminDetails(adminId);
-        });
+        AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () ->
+            adminController.getAdminDetails(adminId));
         assertEquals("Admin with ID 1 not found.", exception.getMessage());
     }
 
@@ -83,9 +68,8 @@ class AdminControllerTest {
     void getAllAdminDetails_NoAdminsFound() {
         when(adminService.getAllAdmin()).thenReturn(new ArrayList<>());
 
-        AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () -> {
-            adminController.getAllAdminDetails();
-        });
+        AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () -> adminController.getAllAdminDetails());
+
         assertEquals("No admins found.", exception.getMessage());
     }
 
@@ -105,9 +89,9 @@ class AdminControllerTest {
         AdminDTO adminDTO = new AdminDTO( );
         when(adminService.updateAdmin(adminDTO)).thenReturn(false);
 
-        AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () -> {
-            adminController.updateAdminDetails(adminDTO);
-        });
+        AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () ->
+            adminController.updateAdminDetails(adminDTO));
+
         assertEquals("Admin with ID "+adminDTO.getAdminId()+" not found for update.", exception.getMessage());
     }
 
