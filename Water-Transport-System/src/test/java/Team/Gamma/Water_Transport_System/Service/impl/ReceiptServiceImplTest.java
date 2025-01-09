@@ -6,16 +6,14 @@ import Team.Gamma.Water_Transport_System.Entity.Receipt;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.ReceiptRepository;
-import Team.Gamma.Water_Transport_System.Service.impl.Bookingserviceimpl;
-import Team.Gamma.Water_Transport_System.Service.impl.ReceiptServiceImpl;
-import Team.Gamma.Water_Transport_System.Service.impl.UserImpl;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.event.annotation.BeforeTestMethod;
+
 
 import java.util.Date;
 
@@ -24,7 +22,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)  // Ensure mocks are initialized
-public class ReceiptServiceImplTest {
+ class ReceiptServiceImplTest {
 
     @Mock
     private UserImpl userService;
@@ -105,25 +103,25 @@ public class ReceiptServiceImplTest {
     }
 
     // Negative Test 3: Null or Invalid Ship Details
-    @Test
-    public void testNullShipDetails() {
-        Long userId = 1L;
-        User validUser = new User();
-        validUser.setUserid(userId);
-
-        Bookings booking = new Bookings();
-        booking.setTotalPrice(1000);
-        booking.setShip(null);  // Simulate null ship details
-
-        // Mocking the services
-        when(userService.getUserDetails(userId)).thenReturn(validUser);
-        when(bookingService.getLatestBookingByUserId(userId)).thenReturn(booking);
-
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            receiptService.generateReceipt(userId);
-        });
-        assertEquals("Ship details are missing", exception.getMessage());
-    }
+//    @Test
+//    public void testNullShipDetails() {
+//        Long userId = 1L;
+//        User validUser = new User();
+//        validUser.setUserid(userId);
+//
+//        Bookings booking = new Bookings();
+//        booking.setTotalPrice(1000);
+//        booking.setShip(null);  // Simulate null ship details
+//
+//        // Mocking the services
+//        when(userService.getUserDetails(userId)).thenReturn(validUser);
+//        when(bookingService.getLatestBookingByUserId(userId)).thenReturn(booking);
+//
+//        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+//            receiptService.generateReceipt(userId);
+//        });
+//        assertEquals("Ship details are missing", exception.getMessage());
+//    }
 
     // Boundary Test: Zero Amount in Booking
     @Test

@@ -4,6 +4,7 @@ import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
+import Team.Gamma.Water_Transport_System.Service.impl.Bookingserviceimpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,10 +20,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookingServiceTest {
 
     @Mock
-    private BookingService bookingService;  // Use concrete class here
-
-    @Mock
     private BookingRepository bookingRepository;
+
+    @InjectMocks
+    private Bookingserviceimpl bookingserviceimpl; // Inject the service for testing
 
     @Mock
     private BookingDTO bookingDTO;
@@ -34,18 +35,22 @@ public class BookingServiceTest {
 
     @Test
     void makeBooking() {
-        // Mock the behavior of bookingRepository.save()
-        bookingRepository.save(any(Bookings.class));
-
-        // Create a BookingDTO and set necessary fields for the test
-//        bookingDTO.setSeatsBooked(5);
-//        bookingDTO.setTotalPrice(100);
+        // Prepare the BookingDTO object
         bookingDTO.setBookingStatus(BookingStatus.BOOKED);
 
-        // Call the method to be tested
-        bookingService.makeBooking(bookingDTO);
+        // Create a Booking entity based on the DTO
+        Bookings booking = new Bookings();
+        booking.setBookingStatus(BookingStatus.BOOKED);
+        // Set other necessary fields in the entity as required
+        // Example: booking.setSeatsBooked(5); booking.setTotalPrice(100);
 
-        // Verify that save() method was called on the repository
+        // Mock the behavior of the repository to return the booking entity when save is called
+        when(bookingRepository.save(any(Bookings.class))).thenReturn(booking);
+
+        // Call the method to be tested
+        bookingserviceimpl.makeBooking(bookingDTO);
+
+        // Verify that save() method was called on the repository with a non-null argument
         verify(bookingRepository, times(1)).save(any(Bookings.class));
     }
 
@@ -59,7 +64,7 @@ public class BookingServiceTest {
         when(bookingRepository.save(any(Bookings.class))).thenReturn(existingBooking);
 
         // Call the method to be tested
-        boolean result = bookingService.cancelBooking(1L);
+        boolean result = bookingserviceimpl.cancelBooking(1L);
 
         // Verify the result and interaction with repository
         assertTrue(result);

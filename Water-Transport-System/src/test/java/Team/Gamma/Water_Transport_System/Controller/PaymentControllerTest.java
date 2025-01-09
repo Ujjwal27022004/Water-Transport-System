@@ -2,18 +2,15 @@ package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.PaymentDTO;
 import Team.Gamma.Water_Transport_System.Entity.Payment;
-import Team.Gamma.Water_Transport_System.Exception.PaymentException;
 import Team.Gamma.Water_Transport_System.Service.impl.PaymentServiceImpl;
+import Team.Gamma.Water_Transport_System.Exception.PaymentException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.*;
@@ -21,6 +18,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(PaymentController.class)
+@AutoConfigureMockMvc(addFilters = false) //
 public class PaymentControllerTest {
 
     @Autowired
@@ -31,39 +29,34 @@ public class PaymentControllerTest {
 
     @Test
     public void testInitiatePayment_Success() throws Exception {
-        // Mocking a Payment object
         Payment mockPayment = new Payment();
         mockPayment.setPaymentID(1L);
         mockPayment.setAmount(1000.0);
         mockPayment.setPaymentStatus("INITIATED");
 
-        // Mocking the service method
         when(paymentService.initiatePayment(1L, 1000.0)).thenReturn(mockPayment);
 
-        // Performing the POST request
         mockMvc.perform(post("/payments/initiate")
                         .param("bookingId", "1")
                         .param("amount", "1000.0")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.paymentId").value(1))
+                .andExpect(status().isOk())  // Updated to 200 OK
+                .andExpect(jsonPath("$.paymentID").value(1))
                 .andExpect(jsonPath("$.amount").value(1000.0))
-                .andExpect(jsonPath("$.status").value("INITIATED"));
+                .andExpect(jsonPath("$.paymentStatus").value("INITIATED"));
 
         verify(paymentService, times(1)).initiatePayment(1L, 1000.0);
     }
 
     @Test
     public void testInitiatePayment_Failure() throws Exception {
-        // Simulating an exception
         when(paymentService.initiatePayment(1L, 1000.0)).thenThrow(new IllegalArgumentException("Invalid booking ID"));
 
-        // Performing the POST request
         mockMvc.perform(post("/payments/initiate")
                         .param("bookingId", "1")
                         .param("amount", "1000.0")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
                 .andExpect(content().string("Failed to initiate payment: Invalid booking ID"));
 
         verify(paymentService, times(1)).initiatePayment(1L, 1000.0);
@@ -71,40 +64,57 @@ public class PaymentControllerTest {
 
     @Test
     public void testConfirmPayment_Success() throws Exception {
-        // Create a PaymentDTO object to return from the mock
         PaymentDTO paymentDTO = new PaymentDTO();
-        paymentDTO.setPaymentId(1L); // Set any necessary fields on the paymentDTO
+        paymentDTO.setPaymentId(1L);
 
-        // Mock the confirmPayment method to return the paymentDTO
         doReturn(paymentDTO).when(paymentService).confirmPayment(1L);
 
-        // Perform the POST request
         mockMvc.perform(post("/payments/confirm")
                         .param("paymentId", "1")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isOk())  // Updated to 200 OK
                 .andExpect(content().string("Payment confirmed successfully"));
 
-        // Verify if the method was called once
         verify(paymentService, times(1)).confirmPayment(1L);
     }
 
     @Test
     public void testConfirmPayment_Failure() throws Exception {
-        // Correct usage of doThrow() for a void method
         doThrow(new IllegalArgumentException("Invalid payment ID")).when(paymentService).confirmPayment(1L);
 
-        // Perform the POST request
         mockMvc.perform(post("/payments/confirm")
                         .param("paymentId", "1")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
                 .andExpect(content().string("Failed to confirm payment: Invalid payment ID"));
 
-        // Verify if the method was called once
         verify(paymentService, times(1)).confirmPayment(1L);
     }
 
+    @Test
+    public void testPaymentExceptionHandler_Success() throws Exception {
+        when(paymentService.initiatePayment(1L, 1000.0)).thenThrow(new PaymentException("Payment initiation failed"));
+
+        mockMvc.perform(post("/payments/initiate")
+                        .param("bookingId", "1")
+                        .param("amount", "1000.0")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
+                .andExpect(content().string("Payment initiation failed"));
+
+        verify(paymentService, times(1)).initiatePayment(1L, 1000.0);
+    }
+
+    @Test
+    public void testPaymentExceptionHandler_Failure() throws Exception {
+        doThrow(new PaymentException("Payment confirmation failed")).when(paymentService).confirmPayment(1L);
+
+        mockMvc.perform(post("/payments/confirm")
+                        .param("paymentId", "1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
+                .andExpect(content().string("Payment confirmation failed"));
+
+        verify(paymentService, times(1)).confirmPayment(1L);
+    }
 }
-
-

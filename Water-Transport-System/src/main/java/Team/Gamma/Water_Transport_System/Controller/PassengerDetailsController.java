@@ -22,6 +22,7 @@ public class PassengerDetailsController {
 
     //This function is for fetching passenger details
     @GetMapping("/{PassengerId}")
+    @CrossOrigin(origins = "http://localhost:5173")
     public PassengerDetails fetchPassengerDetails(@PathVariable Long PassengerId) {
         PassengerDetails passengerDetails = passengerDetailsService.getpassengerdetails(PassengerId);
         if (passengerDetails == null) {
@@ -32,6 +33,7 @@ public class PassengerDetailsController {
 
     //This method is for creating new entry of passenger
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:5173")
     public String createPassengerDetails(@RequestBody PassengerDetails passengerDetails) {
         passengerDetailsService.createpassengerdetails(passengerDetails);
         return "Passenger has been created successfully.";
@@ -40,6 +42,7 @@ public class PassengerDetailsController {
     //This method is for updating passenger details
 
     @PutMapping
+    @CrossOrigin(origins = "http://localhost:5173")
     public String updatePassengerDetails(@RequestBody PassengerDetails passengerDetails) {
         boolean isUpdated = passengerDetailsService.updatepassengerdetails(passengerDetails);
         if (!isUpdated) {
@@ -50,6 +53,7 @@ public class PassengerDetailsController {
 
     //This method is for deleting entry of passenger
     @DeleteMapping("/{PassengerId}")
+    @CrossOrigin(origins = "http://localhost:5173")
     public String deletePassengerDetails(@PathVariable Long PassengerId) {
         boolean isDeleted = passengerDetailsService.deletepassengerdetails(PassengerId);
         if (!isDeleted) {
@@ -60,6 +64,7 @@ public class PassengerDetailsController {
 
     //This method is for fetcging all passenger details
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:5173")
     public List<PassengerDetails> getAllPassengerDetails() {
         List<PassengerDetails> passengers = passengerDetailsService.getAllPassengerdetails();
         if (passengers == null || passengers.isEmpty()) {

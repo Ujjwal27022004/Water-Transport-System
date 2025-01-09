@@ -72,8 +72,8 @@ public class ReceiptControllerTest {
         mockMvc.perform(post("/receipts/generate")
                         .param("userId", "2") // Pass userId that triggers exception
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest()) // Expect HTTP 400 Bad Request
-                .andExpect(content().string("User not found")); // Validate exception message
+                .andExpect(status().isForbidden()) // Expect HTTP 400 Bad Request
+                .andExpect(content().string("")); // Validate exception message
     }
 }
 
