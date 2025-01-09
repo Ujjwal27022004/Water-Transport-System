@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/revenue")
 public class RevenueController {
-    @Autowired
+
     private RevenueService revenueService;
+
+    public RevenueController(RevenueService revenueService) {
+        this.revenueService = revenueService;
+    }
 
     //This method is for admin to see details of revenue of the ship
     @GetMapping("/{shipId}")
