@@ -17,13 +17,18 @@ import java.util.Optional;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
-    @Autowired
+
     private BookingRepository bookingRepository;
 
-    @Autowired
+    public PaymentServiceImpl(BookingRepository bookingRepository, PaymentRepository paymentRepository, PassengerDetailsRepository passengerDetailsRepository) {
+        this.bookingRepository = bookingRepository;
+        this.paymentRepository = paymentRepository;
+        this.passengerDetailsRepository = passengerDetailsRepository;
+    }
+
     private PaymentRepository paymentRepository;
 
-    @Autowired
+
     private PassengerDetailsRepository passengerDetailsRepository;
 
     // Function to initiate payment

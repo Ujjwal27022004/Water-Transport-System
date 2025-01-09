@@ -14,13 +14,18 @@ import java.util.Date;
 
 @Service
 public class QueryImpl implements QueryService {
-    @Autowired
-    private QueryRepository queryRepository;
 
-    @Autowired
+    private QueryRepository queryRepository;
     private UserRepository userRepository;
 
-    @Override
+    public QueryImpl(QueryRepository queryRepository, UserRepository userRepository) {
+        this.queryRepository = queryRepository;
+        this.userRepository = userRepository;
+    }
+
+
+
+
     public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {
         try {
             User user = userRepository.findById(userid)
