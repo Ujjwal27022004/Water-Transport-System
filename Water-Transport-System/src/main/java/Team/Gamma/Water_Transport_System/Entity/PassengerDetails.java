@@ -59,7 +59,5 @@ public class PassengerDetails {
         this.gender = gender;
     }
 
-    //Constructor
-    public PassengerDetails() {
-    }
+
 }

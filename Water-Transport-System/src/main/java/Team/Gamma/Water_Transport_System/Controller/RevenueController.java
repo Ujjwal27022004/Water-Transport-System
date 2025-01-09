@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/revenue")
 public class RevenueController {
 
-    private RevenueService revenueService;
-
+    private final RevenueService revenueService;
+    @Autowired
     public RevenueController(RevenueService revenueService) {
         this.revenueService = revenueService;
     }
