@@ -17,12 +17,10 @@
 	<properties>
 		<java.version>17</java.version>
 		<argLine>-XX:+EnableDynamicAgentLoading</argLine>
-
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.projectName>Aqualure</sonar.projectName>
-
-		<sonar.login>squ_621d4948f1a0138077db6f0fc6eb60e9fae0a657</sonar.login>
-
+		<sonar.login>squ_44640c5bdf6b4ebe43c7e25e6b8176f591d1c5c0</sonar.login>
+		<!--		<sonar.login>squ_621d4948f1a0138077db6f0fc6eb60e9fae0a657</sonar.login>-->
 	</properties>
 
 	<dependencies>
@@ -58,26 +56,20 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- JUnit 5 and Mockito -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.8.2</version> <!-- Ensure a specific version is used -->
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
+			<version>4.7.0</version> <!-- Ensure a specific version is used -->
 			<scope>test</scope>
 		</dependency>
-
-
-
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-engine</artifactId>
-				<version>5.8.2</version>
-				<scope>test</scope>
-			</dependency>
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
@@ -85,45 +77,27 @@
 		</dependency>
 
 		<!-- Mockito JUnit 5 Extension -->
-			<dependency>
-				<groupId>org.mockito</groupId>
-				<artifactId>mockito-junit-jupiter</artifactId>
-				<version>4.5.1</version>
-				<scope>test</scope>
-			</dependency>
-
-
-		<!-- In pom.xml -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>4.5.1</version>
+			<scope>test</scope>
+		</dependency>
 
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+		<!-- H2 Database (for testing purposes) -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>4.7.0</version>  <!-- Update to the latest version -->
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.8.2</version> <!-- Ensure a specific version is used -->
+			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
+
 
 	<build>
 		<plugins>

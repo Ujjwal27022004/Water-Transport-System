@@ -19,5 +19,10 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="Aqualure@mysql-2df90954-aqualure.d.aivencloud.com" uuid="e9161602-300d-41f7-889a-72383bc6da4d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <user-name>avnadmin</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

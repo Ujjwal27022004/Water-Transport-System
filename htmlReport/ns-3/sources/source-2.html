@@ -19,10 +19,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">Team.Gamma.Water_Transport_System.Controller</a>
+    <a href="../index.html">Team.Gamma.watertransportsystem.Controller</a>
 </div>
 
-<h1>Coverage Summary for Class: BookingController (Team.Gamma.Water_Transport_System.Controller)</h1>
+<h1>Coverage Summary for Class: BookingController (Team.Gamma.watertransportsystem.Controller)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -87,10 +87,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Controller;
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.watertransportsystem.Controller;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
-&nbsp;import Team.Gamma.Water_Transport_System.Service.BookingService;
+&nbsp;import Dto.team.gamma.watertransportsystem.BookingDTO;
+&nbsp;import Service.team.gamma.watertransportsystem.BookingService;
 &nbsp;import org.springframework.beans.factory.annotation.Autowired;
 &nbsp;import org.springframework.web.bind.annotation.*;
 &nbsp;
@@ -113,7 +113,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    public String cancelBooking(@PathVariable Long bookingId) {
 <b class="nc">&nbsp;        boolean isCanceled = bookingservice.cancelBooking(bookingId);</b>
 <b class="nc">&nbsp;        if (!isCanceled) {</b>
-<b class="nc">&nbsp;            throw new Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException(&quot;Booking not found with ID: &quot; + bookingId);</b>
+<b class="nc">&nbsp;            throw new Exception.team.gamma.watertransportsystem.BookingNotFoundException(&quot;Booking not found with ID: &quot; + bookingId);</b>
 &nbsp;        }
 <b class="nc">&nbsp;        return &quot;Your booking has been successfully canceled&quot;;</b>
 &nbsp;    }
