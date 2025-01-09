@@ -52,18 +52,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    33.3%
+    100%
   </span>
   <span class="absValue">
-    (1/3)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    4.8%
+    85.7%
   </span>
   <span class="absValue">
-    (1/21)
+    (18/21)
   </span>
 </td>
 </tr>
@@ -100,18 +100,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    @Override
 &nbsp;    public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {
 &nbsp;        try {
-<b class="nc">&nbsp;            User user = userRepository.findById(userid)</b>
-<b class="nc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;User not found with ID: &quot; + userid));</b>
+<b class="fc">&nbsp;            User user = userRepository.findById(userid)</b>
+<b class="fc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;User not found with ID: &quot; + userid));</b>
 &nbsp;
-<b class="nc">&nbsp;            Query query = new Query();</b>
-<b class="nc">&nbsp;            query.setUser(user);</b>
-<b class="nc">&nbsp;            query.setQueryDetails(queryDTO.getQueryDetails());</b>
-<b class="nc">&nbsp;            query.setStatus(&quot;Pending&quot;);</b>
-<b class="nc">&nbsp;            query.setCreatedDate(new Date());</b>
+<b class="fc">&nbsp;            Query query = new Query();</b>
+<b class="fc">&nbsp;            query.setUser(user);</b>
+<b class="fc">&nbsp;            query.setQueryDetails(queryDTO.getQueryDetails());</b>
+<b class="fc">&nbsp;            query.setStatus(&quot;Pending&quot;);</b>
+<b class="fc">&nbsp;            query.setCreatedDate(new Date());</b>
 &nbsp;
-<b class="nc">&nbsp;            queryRepository.save(query);</b>
+<b class="fc">&nbsp;            queryRepository.save(query);</b>
 &nbsp;
-<b class="nc">&nbsp;            return new LoginMessage(&quot;Query successfully Submitted!&quot;, true);</b>
+<b class="fc">&nbsp;            return new LoginMessage(&quot;Query successfully Submitted!&quot;, true);</b>
 &nbsp;        } catch (RuntimeException e) {
 <b class="nc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
 &nbsp;        } catch (Exception e) {
@@ -123,17 +123,17 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    public LoginMessage resolveQuery(Long queryId, String resolutionDetails, String status) {
 &nbsp;
 &nbsp;        try {
-<b class="nc">&nbsp;            Query query = queryRepository.findById(queryId)</b>
-<b class="nc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;Query not found with ID: &quot; + queryId));</b>
+<b class="fc">&nbsp;            Query query = queryRepository.findById(queryId)</b>
+<b class="fc">&nbsp;                    .orElseThrow(() -&gt; new RuntimeException(&quot;Query not found with ID: &quot; + queryId));</b>
 &nbsp;
-<b class="nc">&nbsp;        query.setQueryResolution(resolutionDetails);</b>
-<b class="nc">&nbsp;        query.setResolvedDate(new Date());</b>
-<b class="nc">&nbsp;        query.setStatus(status);</b>
+<b class="fc">&nbsp;        query.setQueryResolution(resolutionDetails);</b>
+<b class="fc">&nbsp;        query.setResolvedDate(new Date());</b>
+<b class="fc">&nbsp;        query.setStatus(status);</b>
 &nbsp;
-<b class="nc">&nbsp;        queryRepository.save(query);</b>
-<b class="nc">&nbsp;            return new LoginMessage(&quot;Query resolved successfully!&quot;, true);</b>
+<b class="fc">&nbsp;        queryRepository.save(query);</b>
+<b class="fc">&nbsp;            return new LoginMessage(&quot;Query resolved successfully!&quot;, true);</b>
 &nbsp;        } catch (RuntimeException e) {
-<b class="nc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
+<b class="fc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
 &nbsp;        } catch (Exception e) {
 <b class="nc">&nbsp;            return new LoginMessage(&quot;Error while resolving the query: &quot; + e.getMessage(), false);</b>
 &nbsp;        }
@@ -166,7 +166,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>

@@ -56,26 +56,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    33.3%
+    66.7%
   </span>
   <span class="absValue">
-    (1/3)
+    (2/3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    25%
   </span>
   <span class="absValue">
-    (0/8)
+    (2/8)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    3.8%
+    53.8%
   </span>
   <span class="absValue">
-    (1/26)
+    (14/26)
   </span>
 </td>
 </tr>
@@ -117,24 +117,24 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    // Function to initiate payment
 &nbsp;    public Payment initiatePayment(Long bookingId,double amount) {
-<b class="nc">&nbsp;        Optional&lt;Bookings&gt; booking = Optional.ofNullable(bookingRepository.findByBookingId(bookingId));</b>
+<b class="fc">&nbsp;        Optional&lt;Bookings&gt; booking = Optional.ofNullable(bookingRepository.findByBookingId(bookingId));</b>
 &nbsp;
-<b class="nc">&nbsp;        if (booking.isPresent()) {</b>
+<b class="fc">&nbsp;        if (booking.isPresent()) {</b>
 &nbsp;            // Create a new Payment with &quot;pending&quot; status
-<b class="nc">&nbsp;            Bookings bookings = booking.get();</b>
-<b class="nc">&nbsp;            bookings.setBookingStatus(BookingStatus.BOOKED);</b>
-<b class="nc">&nbsp;            Payment payment = new Payment();</b>
-<b class="nc">&nbsp;            payment.setBookingID(bookings.getBookingId());</b>
-<b class="nc">&nbsp;            payment.setPaymentMethod(PaymentMethod.NETBANKING);</b>
-<b class="nc">&nbsp;            payment.setAmount(amount);</b>
-<b class="nc">&nbsp;            payment.setDate(new java.util.Date());</b>
-<b class="nc">&nbsp;            payment.setPaymentStatus(&quot;PENDING&quot;);</b>
+<b class="fc">&nbsp;            Bookings bookings = booking.get();</b>
+<b class="fc">&nbsp;            bookings.setBookingStatus(BookingStatus.BOOKED);</b>
+<b class="fc">&nbsp;            Payment payment = new Payment();</b>
+<b class="fc">&nbsp;            payment.setBookingID(bookings.getBookingId());</b>
+<b class="fc">&nbsp;            payment.setPaymentMethod(PaymentMethod.NETBANKING);</b>
+<b class="fc">&nbsp;            payment.setAmount(amount);</b>
+<b class="fc">&nbsp;            payment.setDate(new java.util.Date());</b>
+<b class="fc">&nbsp;            payment.setPaymentStatus(&quot;PENDING&quot;);</b>
 &nbsp;
-<b class="nc">&nbsp;            paymentRepository.save(payment);</b>
+<b class="fc">&nbsp;            paymentRepository.save(payment);</b>
 &nbsp;
-<b class="nc">&nbsp;            return payment;</b>
+<b class="fc">&nbsp;            return payment;</b>
 &nbsp;        } else {
-<b class="nc">&nbsp;            return null;</b>
+<b class="fc">&nbsp;            return null;</b>
 &nbsp;        }
 &nbsp;    }
 &nbsp;
@@ -186,7 +186,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>

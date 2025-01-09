@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > PaymentRepository</title>
+  <title>Coverage Report > ReceiptRepository</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,16 +22,25 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Repository</a>
 </div>
 
-<h1>Coverage Summary for Class: PaymentRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
+<h1>Coverage Summary for Class: ReceiptRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 </tr>
+  <tr>
+    <td class="name">ReceiptRepository$MockitoMock$hWPB6QGQ</td>
+  </tr>
+  <tr>
+    <td class="name">ReceiptRepository$MockitoMock$hWPB6QGQ$auxiliary$2DmDIVpK</td>
+  </tr>
+  <tr>
+    <td class="name">ReceiptRepository$MockitoMock$hWPB6QGQ$auxiliary$F0LeIvrn</td>
+  </tr>
 <tr>
-  <td class="name">PaymentRepository</td>
+  <td class="name"><strong>Total</strong></td>
 </tr>
-
 </table>
 
 <br/>
@@ -40,14 +49,13 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Repository;
-&nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.Payment;
+&nbsp;import  Team.Gamma.Water_Transport_System.Entity.Receipt;
 &nbsp;import org.springframework.data.jpa.repository.JpaRepository;
 &nbsp;import org.springframework.stereotype.Repository;
 &nbsp;
 &nbsp;@Repository
-&nbsp;public interface PaymentRepository extends JpaRepository&lt;Payment, Long&gt; {
-&nbsp;    Payment findByBookingId(Long bookingId);
+&nbsp;public interface ReceiptRepository extends JpaRepository&lt;Receipt, Long&gt; {
+&nbsp;    Receipt findByUserId(Long userId);
 &nbsp;}
 </code>
 </pre>
@@ -72,7 +80,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>
