@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > QueryService</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > PassengerDetailsService</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,7 +22,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
 </div>
 
-<h1>Coverage Summary for Class: QueryService (Team.Gamma.Water_Transport_System.Service)</h1>
+<h1>Coverage Summary for Class: PassengerDetailsService (Team.Gamma.Water_Transport_System.Service)</h1>
 
 <table class="coverageStats">
 
@@ -30,13 +30,13 @@ Current scope:     <a href="../../index.html">all classes</a>
   <th class="name">Class</th>
 </tr>
   <tr>
-    <td class="name">QueryService$MockitoMock$sQlrsuQi</td>
+    <td class="name">PassengerDetailsService$MockitoMock$vySw19T1</td>
   </tr>
   <tr>
-    <td class="name">QueryService$MockitoMock$sQlrsuQi$auxiliary$HzpnWskb</td>
+    <td class="name">PassengerDetailsService$MockitoMock$vySw19T1$auxiliary$AQCF4jig</td>
   </tr>
   <tr>
-    <td class="name">QueryService$MockitoMock$sQlrsuQi$auxiliary$LrTNCoih</td>
+    <td class="name">PassengerDetailsService$MockitoMock$vySw19T1$auxiliary$ubZUrH3y</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
@@ -50,13 +50,20 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
 &nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.PassengerDetails;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Dto.QueryDTO;
-&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
+&nbsp;import java.util.List;
 &nbsp;
-&nbsp;public interface QueryService {
-&nbsp;    LoginMessage askQuery(Long userid , QueryDTO queryDTO);
-&nbsp;    LoginMessage resolveQuery(Long queryId, String resolutionDetails, String status);
+&nbsp;public interface PassengerDetailsService {
+&nbsp; PassengerDetails getpassengerdetails(Long passengerId);
+&nbsp;
+&nbsp; String createpassengerdetails(PassengerDetails passengerDetails);
+&nbsp;
+&nbsp; boolean updatepassengerdetails(PassengerDetails passengerDetails);
+&nbsp;
+&nbsp; boolean deletepassengerdetails(Long passengerId);
+&nbsp;
+&nbsp; List&lt;PassengerDetails&gt; getAllPassengerdetails();
 &nbsp;}
 </code>
 </pre>
@@ -81,7 +88,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>

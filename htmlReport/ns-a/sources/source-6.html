@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > AdminService</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > RevenueCalc</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,25 +22,16 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
 </div>
 
-<h1>Coverage Summary for Class: AdminService (Team.Gamma.Water_Transport_System.Service)</h1>
+<h1>Coverage Summary for Class: RevenueCalc (Team.Gamma.Water_Transport_System.Service)</h1>
 
 <table class="coverageStats">
-
 <tr>
   <th class="name">Class</th>
 </tr>
-  <tr>
-    <td class="name">AdminService$MockitoMock$T04ka2oM</td>
-  </tr>
-  <tr>
-    <td class="name">AdminService$MockitoMock$T04ka2oM$auxiliary$3kEinePA</td>
-  </tr>
-  <tr>
-    <td class="name">AdminService$MockitoMock$T04ka2oM$auxiliary$YbPtyS3u</td>
-  </tr>
 <tr>
-  <td class="name"><strong>Total</strong></td>
+  <td class="name">RevenueCalc</td>
 </tr>
+
 </table>
 
 <br/>
@@ -50,23 +41,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
-&nbsp;import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.Admin;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
-&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
-&nbsp;
-&nbsp;import java.util.List;
-&nbsp;
-&nbsp;public interface AdminService {
-&nbsp;    // Admin Actions
-&nbsp;    public String addShip(ShipDetail ship);
-&nbsp;    public String editShip(ShipDetail ship);
-&nbsp;    public String deleteShip(Long shipId);
-&nbsp;    boolean updateAdmin(AdminDTO admin);
-&nbsp;    public Admin getAdmin(Long adminId);
-&nbsp;    public List&lt;Admin&gt; getAllAdmin();
-&nbsp;    public LoginMessage loginAdmin(LoginDTO loginDTO);
+&nbsp;public interface RevenueCalc {
+&nbsp;    public int calculateTotalprice(int shipId);
 &nbsp;
 &nbsp;}
 </code>
@@ -92,7 +68,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>
