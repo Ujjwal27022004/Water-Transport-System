@@ -1,15 +1,10 @@
 package Team.Gamma.Water_Transport_System.Dto;
-
-import Team.Gamma.Water_Transport_System.Entity.Receipt;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
-import Team.Gamma.Water_Transport_System.Enum.TransactionType;
-
 import java.util.Date;
 
 public class ReceiptDTO {
     private Long receiptId;
-//    private TransactionType transactionType;
     private int amount;
     private Date date;
     private User user;
@@ -41,38 +36,6 @@ public class ReceiptDTO {
     public void setReceiptId(Long receiptId) {
         this.receiptId = receiptId;
     }
-
-//    public Long getPaymentId() {
-//        return paymentID;
-//    }
-
-//    public void setPaymentId(Long paymentID) {
-//        this.paymentID = paymentID;
-//    }
-
-//    public Long getUserId() {
-//        return userid;
-//    }
-
-//    public void setUserId(Long userID) {
-//        this.userid = userID;
-//    }
-
-//    public Long getShipId() {
-//        return shipID;
-//    }
-
-//    public void setShipId(Long shipID) {
-//        this.shipID = shipID;
-//    }
-//    public void setTransactionType(TransactionType transactionType) {
-//        this.transactionType = transactionType;
-//    }
-
-
-//    public TransactionType getTransactionType() {
-//        return transactionType;
-//    }
 
     public int getAmount() {
         return amount;
