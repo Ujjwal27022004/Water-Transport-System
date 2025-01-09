@@ -6,16 +6,14 @@ import Team.Gamma.Water_Transport_System.Entity.Receipt;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Repository.ReceiptRepository;
-import Team.Gamma.Water_Transport_System.Service.impl.Bookingserviceimpl;
-import Team.Gamma.Water_Transport_System.Service.impl.ReceiptServiceImpl;
-import Team.Gamma.Water_Transport_System.Service.impl.UserImpl;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.event.annotation.BeforeTestMethod;
+
 
 import java.util.Date;
 
@@ -24,7 +22,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)  // Ensure mocks are initialized
-public class ReceiptServiceImplTest {
+ class ReceiptServiceImplTest {
 
     @Mock
     private UserImpl userService;
@@ -156,34 +154,34 @@ public class ReceiptServiceImplTest {
     }
 
     // Boundary Test: Generate Receipt with Future Date
-//    @Test
-//    public void testGenerateReceiptWithFutureDate() {
-//        Long userId = 1L;
-//        User validUser = new User();
-//        validUser.setUserid(userId);
-//
-//        Bookings booking = new Bookings();
-//        booking.setTotalPrice(1000);
-//        booking.setShip(new ShipDetail());
-//
-//        // Mocking the services
-//        when(userService.getUserDetails(userId)).thenReturn(validUser);
-//        when(bookingService.getLatestBookingByUserId(userId)).thenReturn(booking);
-//
-//        // Mocking the save() method of the receiptRepository to return a valid receipt
-//        Receipt mockReceipt = new Receipt();
-//        mockReceipt.setReceiptId(1L);  // Set a valid receiptId
-//        mockReceipt.setDate(new Date());  // Set the current date or any valid date
-//
-//        when(receiptRepository.save(any())).thenReturn(mockReceipt);  // Ensure the save method returns this mock
-//
-//        // Generate receipt
-//        ReceiptDTO receiptDTO = receiptService.generateReceipt(userId);
-//
-//        // Validate the receipt
-//        assertNotNull(receiptDTO, "Generated ReceiptDTO should not be null");
-//        assertNotNull(receiptDTO.getDate(), "Date should not be null");
-//        assertTrue(receiptDTO.getDate().before(new Date()), "Receipt date should not be in the future");
-//    }
+    @Test
+    public void testGenerateReceiptWithFutureDate() {
+        Long userId = 1L;
+        User validUser = new User();
+        validUser.setUserid(userId);
+
+        Bookings booking = new Bookings();
+        booking.setTotalPrice(1000);
+        booking.setShip(new ShipDetail());
+
+        // Mocking the services
+        when(userService.getUserDetails(userId)).thenReturn(validUser);
+        when(bookingService.getLatestBookingByUserId(userId)).thenReturn(booking);
+
+        // Mocking the save() method of the receiptRepository to return a valid receipt
+        Receipt mockReceipt = new Receipt();
+        mockReceipt.setReceiptId(1L);  // Set a valid receiptId
+        mockReceipt.setDate(new Date());  // Set the current date or any valid date
+
+        when(receiptRepository.save(any())).thenReturn(mockReceipt);  // Ensure the save method returns this mock
+
+        // Generate receipt
+        ReceiptDTO receiptDTO = receiptService.generateReceipt(userId);
+
+        // Validate the receipt
+        assertNotNull(receiptDTO, "Generated ReceiptDTO should not be null");
+        assertNotNull(receiptDTO.getDate(), "Date should not be null");
+        assertTrue(receiptDTO.getDate().before(new Date()), "Receipt date should not be in the future");
+    }
 
 }

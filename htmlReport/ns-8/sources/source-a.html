@@ -52,18 +52,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    20%
+    100%
   </span>
   <span class="absValue">
-    (1/5)
+    (5/5)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    25%
+    100%
   </span>
   <span class="absValue">
-    (2/8)
+    (8/8)
   </span>
 </td>
 </tr>
@@ -95,23 +95,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    @Override
 &nbsp;    public User searchUser(Long userId) {
-<b class="nc">&nbsp;       return userRepository.searchUser(userId);</b>
+<b class="fc">&nbsp;       return userRepository.searchUser(userId);</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    @Override
 &nbsp;    public String removeUser(Long userId) {
-<b class="nc">&nbsp;        userRepository.deleteById(userId);</b>
-<b class="nc">&nbsp;        return &quot;User Removed Successfully!&quot;;</b>
+<b class="fc">&nbsp;        userRepository.deleteById(userId);</b>
+<b class="fc">&nbsp;        return &quot;User Removed Successfully!&quot;;</b>
 &nbsp;    }
 &nbsp;    @Override
 &nbsp;    public String updateUser(User user) {
-<b class="nc">&nbsp;        userRepository.save(user);</b>
-<b class="nc">&nbsp;        return &quot;User updated Successfully!&quot;;</b>
+<b class="fc">&nbsp;        userRepository.save(user);</b>
+<b class="fc">&nbsp;        return &quot;User updated Successfully!&quot;;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    @Override
 &nbsp;    public List&lt;User&gt; getAllUsers() {
-<b class="nc">&nbsp;        return userRepository.findAll();</b>
+<b class="fc">&nbsp;        return userRepository.findAll();</b>
 &nbsp;    }
 &nbsp;}
 </code>
@@ -137,7 +137,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>

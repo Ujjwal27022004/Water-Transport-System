@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > ReceiptService</title>
+  <title>Coverage Report > QueryService</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,16 +22,25 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
 </div>
 
-<h1>Coverage Summary for Class: ReceiptService (Team.Gamma.Water_Transport_System.Service)</h1>
+<h1>Coverage Summary for Class: QueryService (Team.Gamma.Water_Transport_System.Service)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 </tr>
+  <tr>
+    <td class="name">QueryService$MockitoMock$sQlrsuQi</td>
+  </tr>
+  <tr>
+    <td class="name">QueryService$MockitoMock$sQlrsuQi$auxiliary$HzpnWskb</td>
+  </tr>
+  <tr>
+    <td class="name">QueryService$MockitoMock$sQlrsuQi$auxiliary$LrTNCoih</td>
+  </tr>
 <tr>
-  <td class="name">ReceiptService</td>
+  <td class="name"><strong>Total</strong></td>
 </tr>
-
 </table>
 
 <br/>
@@ -41,10 +50,13 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.Receipt;
 &nbsp;
-&nbsp;public interface ReceiptService {
-&nbsp;    public Receipt generateReceipt(Long userId);
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.QueryDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
+&nbsp;
+&nbsp;public interface QueryService {
+&nbsp;    LoginMessage askQuery(Long userid , QueryDTO queryDTO);
+&nbsp;    LoginMessage resolveQuery(Long queryId, String resolutionDetails, String status);
 &nbsp;}
 </code>
 </pre>
@@ -69,7 +81,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>
