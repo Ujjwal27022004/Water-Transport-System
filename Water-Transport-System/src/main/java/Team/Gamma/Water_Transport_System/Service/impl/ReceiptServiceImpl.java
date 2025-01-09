@@ -15,15 +15,23 @@ import java.util.Optional;
 @Service
 public class ReceiptServiceImpl {
 
-    @Autowired
+
     private ReceiptRepository receiptRepository;
-    @Autowired
+
     private UserImpl userService;
-    @Autowired
+
+    public ReceiptServiceImpl(ReceiptRepository receiptRepository, UserImpl userService, ShipServiceImpl shipService, PaymentServiceImpl paymentService, Bookingserviceimpl bookingserviceimpl) {
+        this.receiptRepository = receiptRepository;
+        this.userService = userService;
+        this.shipService = shipService;
+        this.paymentService = paymentService;
+        this.bookingserviceimpl = bookingserviceimpl;
+    }
+
     private ShipServiceImpl shipService;
-    @Autowired
+
     private PaymentServiceImpl paymentService;
-    @Autowired
+
     private Bookingserviceimpl bookingserviceimpl;
 
 

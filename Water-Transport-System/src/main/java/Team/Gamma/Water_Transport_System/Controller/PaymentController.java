@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/payments")
 public class PaymentController {
-    @Autowired
+
     private PaymentServiceImpl paymentService;
+
+    public PaymentController(PaymentServiceImpl paymentService) {
+        this.paymentService = paymentService;
+    }
 
     //This method is for initiating a payment of a user
     @PostMapping("/initiate")
