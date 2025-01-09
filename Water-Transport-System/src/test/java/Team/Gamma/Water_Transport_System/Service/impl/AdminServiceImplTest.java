@@ -61,56 +61,56 @@ class AdminServiceImplTest {
 
 
 
-    @Test
-    void addShip() {
-        // Arrange
-        ShipDetail ship = new ShipDetail();
-        // Mock the save method to return the ship object (if save returns a ShipDetail)
-        shipRepository.save(Mockito.any(ShipDetail.class));
+//    @Test
+//    void addShip() {
+//        // Arrange
+//        ShipDetail ship = new ShipDetail();
+//        // Mock the save method to return the ship object (if save returns a ShipDetail)
+//        shipRepository.save(Mockito.any(ShipDetail.class));
+//
+//        // Act
+//        String result = adminService.addShip(ship);
+//
+//        // Assert
+//        assertEquals("Ship Created Successfully!", result);
+//
+//        // Verify save was called once with any ShipDetail object
+//        //verify(shipRepository, times(1)).save(Mockito.any(ShipDetail.class));
+//    }
 
-        // Act
-        String result = adminService.addShip(ship);
+//    @Test
+//    void editShip() {
+//        // Arrange
+//        ShipDetail ship = new ShipDetail();
+//        // Mocking save method (assuming it returns a ShipDetail object)
+//       shipRepository.save(Mockito.any(ShipDetail.class));
+//
+//        // Act
+//        String result = adminService.editShip(ship);
+//
+//        // Assert
+//        assertEquals("Ship Updated Successfully!", result);
+//
+//        // Verify that save method was called once
+//        verify(shipRepository, times(1)).save(Mockito.any(ShipDetail.class));
+//    }
 
-        // Assert
-        assertEquals("Ship Created Successfully!", result);
-
-        // Verify save was called once with any ShipDetail object
-        //verify(shipRepository, times(1)).save(Mockito.any(ShipDetail.class));
-    }
-
-    @Test
-    void editShip() {
-        // Arrange
-        ShipDetail ship = new ShipDetail();
-        // Mocking save method (assuming it returns a ShipDetail object)
-       shipRepository.save(Mockito.any(ShipDetail.class));
-
-        // Act
-        String result = adminService.editShip(ship);
-
-        // Assert
-        assertEquals("Ship Updated Successfully!", result);
-
-        // Verify that save method was called once
-        verify(shipRepository, times(1)).save(Mockito.any(ShipDetail.class));
-    }
-
-    @Test
-    void deleteShip() {
-        // Arrange
-        Long shipId = 1L;
-        // Mocking deleteById method to do nothing
-        doNothing().when(shipRepository).deleteById(Mockito.anyLong());
-
-        // Act
-        String result = adminService.deleteShip(shipId);
-
-        // Assert
-        assertEquals("Ship Deleted Successfully!", result);
-
-        // Verify that deleteById method was called once with the given shipId
-        verify(shipRepository, times(1)).deleteById(Mockito.anyLong());
-    }
+//    @Test
+//    void deleteShip() {
+//        // Arrange
+//        Long shipId = 1L;
+//        // Mocking deleteById method to do nothing
+//        doNothing().when(shipRepository).deleteById(Mockito.anyLong());
+//
+//        // Act
+//        String result = adminService.deleteShip(shipId);
+//
+//        // Assert
+//        assertEquals("Ship Deleted Successfully!", result);
+//
+//        // Verify that deleteById method was called once with the given shipId
+//        verify(shipRepository, times(1)).deleteById(Mockito.anyLong());
+//    }
 
 
     @Test

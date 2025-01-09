@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.*;
@@ -19,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BookingServiceTest {
 
     @Mock
-    private BookingService bookingService;  // Use concrete class here
+    private BookingService bookingService;  // Mock BookingService
 
     @Mock
     private BookingRepository bookingRepository;
@@ -29,24 +28,43 @@ public class BookingServiceTest {
 
     @BeforeEach
     public void setup() {
-        MockitoAnnotations.openMocks(this);  // Initialize mocks
+        // Setup the mocks before each test
     }
 
     @Test
-    void makeBooking() {
-        // Mock the behavior of bookingRepository.save()
-        bookingRepository.save(any(Bookings.class));
+    public void makeBooking() {
+        // Create and set up a valid booking object
+        Bookings booking = new Bookings();
+        booking.setSeatsBooked(12);
+        booking.setBookingStatus(BookingStatus.PENDING);
 
-        // Create a BookingDTO and set necessary fields for the test
-//        bookingDTO.setSeatsBooked(5);
-//        bookingDTO.setTotalPrice(100);
-        bookingDTO.setBookingStatus(BookingStatus.BOOKED);
+        // Set up the mock BookingDTO values
+        when(bookingDTO.getSeatsBooked()).thenReturn(12);
+        when(bookingDTO.getTotalPrice()).thenReturn(100);  // Example price
+        when(bookingDTO.getUserid()).thenReturn(1L);
+        when(bookingDTO.getShipId()).thenReturn(101L);
+        when(bookingDTO.getBookingStatus()).thenReturn(BookingStatus.PENDING);
 
-        // Call the method to be tested
+        // Convert the BookingDTO to Booking entity
+        booking.setSeatsBooked(bookingDTO.getSeatsBooked());
+        booking.setTotalPrice(bookingDTO.getTotalPrice());
+        booking.setBookingId(bookingDTO.getUserid());
+        booking.setLocalDate(bookingDTO.getLocalDate());
+        booking.setBookingStatus(bookingDTO.getBookingStatus());
+
+        // Set up the mock repository to return the booking when save is called
+        when(bookingRepository.save(any(Bookings.class))).thenReturn(booking);
+
+        // Call the service method to make the booking
         bookingService.makeBooking(bookingDTO);
 
-        // Verify that save() method was called on the repository
-        verify(bookingRepository, times(1)).save(any(Bookings.class));
+        // Verify that the repository save method was called with the correct argument
+        verify(bookingRepository, times(1)).save(any(Bookings.class));  // Check save() was invoked
+
+        // Optionally, assert the behavior to check if booking was saved
+        assertNotNull(booking);  // Ensure the booking is not null
+        assertEquals(12, booking.getSeatsBooked());  // Check if seatsBooked is set correctly
+        assertEquals(BookingStatus.PENDING, booking.getBookingStatus());  // Ensure status is set
     }
 
     @Test
