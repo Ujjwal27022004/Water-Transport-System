@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/user")
 public class QueryController {
 
-    private QueryService queryService;
+    private final QueryService queryService;
+    @Autowired
     public QueryController(QueryService queryService) {
         this.queryService = queryService;
     }

@@ -91,7 +91,7 @@ class AdminControllerTest {
 
         AdminNotFoundException exception = assertThrows(AdminNotFoundException.class, () ->
             adminController.updateAdminDetails(adminDTO));
-
+        
         assertEquals("Admin with ID "+adminDTO.getAdminId()+" not found for update.", exception.getMessage());
     }
 
