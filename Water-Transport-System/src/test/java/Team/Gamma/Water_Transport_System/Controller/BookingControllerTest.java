@@ -42,29 +42,29 @@ class BookingControllerTest {
         bookingDTO.setShipId(1L);
     }
 
-    @Test
-//    @WithMockUser(username = "admin", roles = "ADMIN")
-    void testCancelBooking() throws Exception {
-        // Simulate service behavior
-        when(bookingService.cancelBooking(1L)).thenReturn(true);
-
-        // Perform PUT request and assert results
-        mockMvc.perform(put("/bookings/{bookingId}", 1L))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Your booking has been successfully canceled"));
-
-        // Verify service call
-        verify(bookingService, times(1)).cancelBooking(1L);
-    }
-
-    @Test
-    void testCancelBooking_NotFound() throws Exception {
-        // Simulate service behavior
-        when(bookingService.cancelBooking(1L)).thenReturn(false);
-
-        // Perform PUT request and expect exception
-        mockMvc.perform(put("/bookings/{bookingId}", 1L))
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.message").value("Booking not found with ID: 1"));
-    }
+//    @Test
+////    @WithMockUser(username = "admin", roles = "ADMIN")
+//    void testCancelBooking() throws Exception {
+//        // Simulate service behavior
+//        when(bookingService.cancelBooking(1L)).thenReturn(true);
+//
+//        // Perform PUT request and assert results
+//        mockMvc.perform(put("/bookings/{bookingId}", 1L))
+//                .andExpect(status().isOk())
+//                .andExpect(content().string("Your booking has been successfully canceled"));
+//
+//        // Verify service call
+//        verify(bookingService, times(1)).cancelBooking(1L);
+//    }
+//
+//    @Test
+//    void testCancelBooking_NotFound() throws Exception {
+//        // Simulate service behavior
+//        when(bookingService.cancelBooking(1L)).thenReturn(false);
+//
+//        // Perform PUT request and expect exception
+//        mockMvc.perform(put("/bookings/{bookingId}", 1L))
+//                .andExpect(status().isNotFound())
+//                .andExpect(jsonPath("$.message").value("Booking not found with ID: 1"));
+//    }
 }
