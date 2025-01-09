@@ -4,7 +4,6 @@ package Team.Gamma.Water_Transport_System.Entity;
 import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "bookings_info")

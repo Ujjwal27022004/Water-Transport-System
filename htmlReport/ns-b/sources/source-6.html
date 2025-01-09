@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > ShipDetailsRepository</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > PassengerDetailsRepository</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,7 +22,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Repository</a>
 </div>
 
-<h1>Coverage Summary for Class: ShipDetailsRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
+<h1>Coverage Summary for Class: PassengerDetailsRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
 
 <table class="coverageStats">
 
@@ -30,13 +30,13 @@ Current scope:     <a href="../../index.html">all classes</a>
   <th class="name">Class</th>
 </tr>
   <tr>
-    <td class="name">ShipDetailsRepository$MockitoMock$Bm4RecPC</td>
+    <td class="name">PassengerDetailsRepository$MockitoMock$FMVO9r4n</td>
   </tr>
   <tr>
-    <td class="name">ShipDetailsRepository$MockitoMock$Bm4RecPC$auxiliary$6VWChxYk</td>
+    <td class="name">PassengerDetailsRepository$MockitoMock$FMVO9r4n$auxiliary$UE12yh53</td>
   </tr>
   <tr>
-    <td class="name">ShipDetailsRepository$MockitoMock$Bm4RecPC$auxiliary$xPF0c6HH</td>
+    <td class="name">PassengerDetailsRepository$MockitoMock$FMVO9r4n$auxiliary$zQaWAm05</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
@@ -49,20 +49,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Repository;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.PassengerDetails;
 &nbsp;import org.springframework.data.jpa.repository.JpaRepository;
-&nbsp;import org.springframework.data.jpa.repository.Query;
-&nbsp;import org.springframework.data.repository.query.Param;
 &nbsp;
-&nbsp;import java.util.List;
-&nbsp;import java.util.Optional;
-&nbsp;
-&nbsp;public interface ShipDetailsRepository extends JpaRepository&lt;ShipDetail, Long&gt; {
-&nbsp;
-&nbsp;    @Query(&quot;SELECT s FROM ShipDetail s WHERE s.source = :source AND s.destination = :destination&quot;)
-&nbsp;    List&lt;ShipDetail&gt; searchCruise(@Param(&quot;source&quot;) String source, @Param(&quot;destination&quot;) String destination);
-&nbsp;    Optional&lt;ShipDetail&gt; findById(Long id);
-&nbsp;    Optional&lt;ShipDetail&gt; findByName(String name);
+&nbsp;public interface PassengerDetailsRepository extends JpaRepository&lt;PassengerDetails, Long&gt; {
+&nbsp;    long countByBookingId(Long bookingId);
 &nbsp;
 &nbsp;}
 </code>
@@ -88,7 +80,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>

@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > RevenueRepository</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > QueryRepository</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,16 +22,25 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Repository</a>
 </div>
 
-<h1>Coverage Summary for Class: RevenueRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
+<h1>Coverage Summary for Class: QueryRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 </tr>
+  <tr>
+    <td class="name">QueryRepository$MockitoMock$isBlfrKg</td>
+  </tr>
+  <tr>
+    <td class="name">QueryRepository$MockitoMock$isBlfrKg$auxiliary$dDALvcBU</td>
+  </tr>
+  <tr>
+    <td class="name">QueryRepository$MockitoMock$isBlfrKg$auxiliary$iNZOTahW</td>
+  </tr>
 <tr>
-  <td class="name">RevenueRepository</td>
+  <td class="name"><strong>Total</strong></td>
 </tr>
-
 </table>
 
 <br/>
@@ -39,24 +48,15 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<code class="sourceCode" id="sourceCode">&nbsp;    package Team.Gamma.Water_Transport_System.Repository;
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Repository;
 &nbsp;
-&nbsp;    import Team.Gamma.Water_Transport_System.Entity.Bookings;
-&nbsp;    import org.springframework.data.jpa.repository.JpaRepository;
-&nbsp;    import org.springframework.data.jpa.repository.Query;
-&nbsp;    import org.springframework.data.repository.query.Param;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Query;
+&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+&nbsp;import org.springframework.stereotype.Repository;
 &nbsp;
-&nbsp;    public interface RevenueRepository extends JpaRepository&lt;Bookings,Long&gt; {
-&nbsp;
-&nbsp;            @Query(&quot;SELECT COUNT(b) FROM Bookings b WHERE b.ship.shipId = :shipId&quot;)
-&nbsp;            int countByShipId(@Param(&quot;shipId&quot;) int shipId);
-&nbsp;
-&nbsp;            @Query(&quot;SELECT SUM(b.totalPrice) FROM Bookings b WHERE b.ship.shipId = :shipId&quot;)
-&nbsp;            Integer sumTotalPriceByShipId(@Param(&quot;shipId&quot;) int shipId);
-&nbsp;        }
-&nbsp;
-&nbsp;
-&nbsp;
+&nbsp;@Repository
+&nbsp;public interface QueryRepository extends JpaRepository&lt;Query, Long&gt; {
+&nbsp;}
 </code>
 </pre>
 </div>
@@ -80,7 +80,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>

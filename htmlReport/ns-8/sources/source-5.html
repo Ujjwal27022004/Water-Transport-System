@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
   <title>Coverage Report > QueryImpl</title>
   <style type="text/css">
     @import "../../css/coverage.css";
@@ -60,10 +60,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    85.7%
+    76%
   </span>
   <span class="absValue">
-    (18/21)
+    (19/25)
   </span>
 </td>
 </tr>
@@ -112,9 +112,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;            queryRepository.save(query);</b>
 &nbsp;
 <b class="fc">&nbsp;            return new LoginMessage(&quot;Query successfully Submitted!&quot;, true);</b>
-&nbsp;        } catch (RuntimeException e) {
+<b class="nc">&nbsp;        } catch (RuntimeException e) {</b>
 <b class="nc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
-&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;        } catch (Exception e) {</b>
 <b class="nc">&nbsp;            return new LoginMessage(&quot;Error while submitting the query: &quot; + e.getMessage(), false);</b>
 &nbsp;        }
 &nbsp;    }
@@ -132,9 +132,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 <b class="fc">&nbsp;        queryRepository.save(query);</b>
 <b class="fc">&nbsp;            return new LoginMessage(&quot;Query resolved successfully!&quot;, true);</b>
-&nbsp;        } catch (RuntimeException e) {
+<b class="fc">&nbsp;        } catch (RuntimeException e) {</b>
 <b class="fc">&nbsp;            return new LoginMessage(e.getMessage(), false);</b>
-&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;        } catch (Exception e) {</b>
 <b class="nc">&nbsp;            return new LoginMessage(&quot;Error while resolving the query: &quot; + e.getMessage(), false);</b>
 &nbsp;        }
 &nbsp;    }
@@ -166,7 +166,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>
