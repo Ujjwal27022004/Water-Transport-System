@@ -44,26 +44,26 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">LoginMessage</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    50%
   </span>
   <span class="absValue">
-    (0/5)
+    (3/6)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    62.5%
   </span>
   <span class="absValue">
-    (0/7)
+    (5/8)
   </span>
 </td>
 </tr>
@@ -81,7 +81,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    String message;
 &nbsp;    Boolean status;
 &nbsp;    public String getMessage() {
-<b class="nc">&nbsp;        return message;</b>
+<b class="fc">&nbsp;        return message;</b>
 &nbsp;    }
 &nbsp;    public void setMessage(String message) {
 <b class="nc">&nbsp;        this.message = message;</b>
@@ -92,9 +92,13 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    public void setStatus(Boolean status) {
 <b class="nc">&nbsp;        this.status = status;</b>
 &nbsp;    }
-<b class="nc">&nbsp;    public LoginMessage(String message, Boolean status) {</b>
-<b class="nc">&nbsp;        this.message = message;</b>
-<b class="nc">&nbsp;        this.status = status;</b>
+<b class="fc">&nbsp;    public LoginMessage(String message, Boolean status) {</b>
+<b class="fc">&nbsp;        this.message = message;</b>
+<b class="fc">&nbsp;        this.status = status;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean isStatus() {
+<b class="fc">&nbsp;        return status;</b>
 &nbsp;    }
 &nbsp;}
 </code>
@@ -120,7 +124,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>

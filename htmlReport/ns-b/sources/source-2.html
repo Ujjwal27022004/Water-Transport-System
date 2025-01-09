@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > ShipDetailsRepository</title>
+  <title>Coverage Report > BookingRepository</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,16 +22,25 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Repository</a>
 </div>
 
-<h1>Coverage Summary for Class: ShipDetailsRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
+<h1>Coverage Summary for Class: BookingRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 </tr>
+  <tr>
+    <td class="name">BookingRepository$MockitoMock$Q2DRZQwX</td>
+  </tr>
+  <tr>
+    <td class="name">BookingRepository$MockitoMock$Q2DRZQwX$auxiliary$FuSIB9A8</td>
+  </tr>
+  <tr>
+    <td class="name">BookingRepository$MockitoMock$Q2DRZQwX$auxiliary$INlw2Rr7</td>
+  </tr>
 <tr>
-  <td class="name">ShipDetailsRepository</td>
+  <td class="name"><strong>Total</strong></td>
 </tr>
-
 </table>
 
 <br/>
@@ -40,22 +49,23 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Repository;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Bookings;
 &nbsp;import org.springframework.data.jpa.repository.JpaRepository;
 &nbsp;import org.springframework.data.jpa.repository.Query;
 &nbsp;import org.springframework.data.repository.query.Param;
+&nbsp;import org.springframework.stereotype.Repository;
 &nbsp;
-&nbsp;import java.util.List;
-&nbsp;import java.util.Optional;
+&nbsp;@Repository
+&nbsp;public interface BookingRepository extends  JpaRepository&lt;Bookings, Long&gt; {
+&nbsp;    Bookings findByBookingId(Long bookingId);
 &nbsp;
-&nbsp;public interface ShipDetailsRepository extends JpaRepository&lt;ShipDetail, Long&gt; {
-&nbsp;
-&nbsp;    @Query(&quot;SELECT s FROM ShipDetail s WHERE s.source = :source AND s.destination = :destination&quot;)
-&nbsp;    List&lt;ShipDetail&gt; searchCruise(@Param(&quot;source&quot;) String source, @Param(&quot;destination&quot;) String destination);
-&nbsp;    Optional&lt;ShipDetail&gt; findById(Long id);
-&nbsp;    Optional&lt;ShipDetail&gt; findByName(String name);
+&nbsp;    Bookings findByUser_userid(Long userId);
+&nbsp;    @Query(&quot;SELECT COALESCE(SUM(b.seatsBooked), 0) FROM Bookings b WHERE b.ship.shipId = :shipId&quot;)
+&nbsp;    int countBookedSeatsForShip(@Param(&quot;shipId&quot;) Long shipId);
 &nbsp;
 &nbsp;}
+&nbsp;
 </code>
 </pre>
 </div>
@@ -79,7 +89,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>
