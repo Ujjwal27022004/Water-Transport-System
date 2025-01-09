@@ -21,7 +21,7 @@
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.projectName>Aqualure</sonar.projectName>
 
-		<sonar.login>squ_621d4948f1a0138077db6f0fc6eb60e9fae0a657</sonar.login>
+		<sonar.login>squ_ee0c033f26d4ab143aa759ca20549d0b679903c9</sonar.login>
 
 	</properties>
 

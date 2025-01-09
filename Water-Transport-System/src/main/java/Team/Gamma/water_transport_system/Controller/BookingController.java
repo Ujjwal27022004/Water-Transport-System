@@ -1,0 +1,31 @@
+package Team.Gamma.water_transport_system.Controller;
+
+import Team.Gamma.water_transport_system.Dto.BookingDTO;
+import Team.Gamma.water_transport_system.Service.BookingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/bookings")
+public class BookingController {
+
+    @Autowired
+    private BookingService bookingservice;
+
+    //Create booking for user
+    @PostMapping
+    public String createBookingDetails(@RequestBody BookingDTO bookings) {
+        bookingservice.makeBooking(bookings);
+        return "Booking created successfully";
+    }
+
+    //cancel booking of user
+    @PutMapping("{bookingId}")
+    public String cancelBooking(@PathVariable Long bookingId) {
+        boolean isCanceled = bookingservice.cancelBooking(bookingId);
+        if (!isCanceled) {
+            throw new Team.Gamma.water_transport_system.Exception.BookingNotFoundException("Booking not found with ID: " + bookingId);
+        }
+        return "Your booking has been successfully canceled";
+    }
+}
