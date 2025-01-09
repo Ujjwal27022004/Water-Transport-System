@@ -41,61 +41,43 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">PassengerDetails</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    72.7%
   </span>
   <span class="absValue">
-    (0/11)
+    (8/11)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    72.7%
   </span>
   <span class="absValue">
-    (0/11)
+    (8/11)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">PassengerDetails$HibernateInstantiator$KpW5BB9l</td>
+    <td class="name">PassengerDetails$HibernateInstantiator$nCbktikO</td>
   </tr>
   <tr>
-    <td class="name">PassengerDetails$HibernateInstantiator$wAt7h55Q</td>
-  </tr>
-  <tr>
-    <td class="name">PassengerDetails$HibernateInstantiator$XbFYGvbC</td>
-  </tr>
-  <tr>
-    <td class="name">PassengerDetails$HibernateInstantiator$xx3ZDJv1</td>
-  </tr>
-  <tr>
-    <td class="name">PassengerDetails$HibernateProxy$nCQpJSPg</td>
-  </tr>
-  <tr>
-    <td class="name">PassengerDetails$HibernateProxy$nKHtlBYY</td>
-  </tr>
-  <tr>
-    <td class="name">PassengerDetails$HibernateProxy$pEWokzPH</td>
-  </tr>
-  <tr>
-    <td class="name">PassengerDetails$HibernateProxy$y5gdWkN4</td>
+    <td class="name">PassengerDetails$HibernateProxy$OGwksM6T</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    72.7%
   </span>
   <span class="absValue">
-    (0/11)
+    (8/11)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    72.7%
   </span>
   <span class="absValue">
-    (0/11)
+    (8/11)
   </span>
 </td>
 </tr>
@@ -114,6 +96,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;@Table(name = &quot;PassengerDDetail&quot;)
 &nbsp;public class PassengerDetails {
 &nbsp;    @Id
+&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
 &nbsp;    private Long passengerId;
 &nbsp;    @Column(insertable=false, updatable=false)
 &nbsp;    private Long bookingId;
@@ -127,11 +110,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    //Getter and setter
 &nbsp;    public long getPassengerId() {
-<b class="nc">&nbsp;        return passengerId;</b>
+<b class="fc">&nbsp;        return passengerId;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    public void setPassengerID(long passengerId) {
-<b class="nc">&nbsp;        this.passengerId = passengerId;</b>
+<b class="fc">&nbsp;        this.passengerId = passengerId;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    public long getBookingId() {
@@ -139,15 +122,15 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    }
 &nbsp;
 &nbsp;    public void setBookingID(long bookingId) {
-<b class="nc">&nbsp;        this.bookingId = bookingId;</b>
+<b class="fc">&nbsp;        this.bookingId = bookingId;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    public String getName() {
-<b class="nc">&nbsp;        return name;</b>
+<b class="fc">&nbsp;        return name;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    public void setName(String name) {
-<b class="nc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.name = name;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    public int getAge() {
@@ -155,7 +138,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    }
 &nbsp;
 &nbsp;    public void setAge(int age) {
-<b class="nc">&nbsp;        this.age = age;</b>
+<b class="fc">&nbsp;        this.age = age;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    public String getGender() {
@@ -163,11 +146,11 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    }
 &nbsp;
 &nbsp;    public void setGender(String gender) {
-<b class="nc">&nbsp;        this.gender = gender;</b>
+<b class="fc">&nbsp;        this.gender = gender;</b>
 &nbsp;    }
 &nbsp;
 &nbsp;    //Constructor
-<b class="nc">&nbsp;    public PassengerDetails() {</b>
+<b class="fc">&nbsp;    public PassengerDetails() {</b>
 &nbsp;    }
 &nbsp;}
 </code>
@@ -193,7 +176,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>

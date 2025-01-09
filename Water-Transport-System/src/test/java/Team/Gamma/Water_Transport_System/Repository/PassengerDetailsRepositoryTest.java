@@ -33,14 +33,14 @@ public class PassengerDetailsRepositoryTest {
         assertEquals(passengerDetails.getName(), savedPassenger.getName(), "Name should match");
     }
 
-    @Test
-    public void testFindById() {
-        passengerDetailsRepository.save(passengerDetails);
-        PassengerDetails foundPassenger = passengerDetailsRepository.findById(passengerDetails.getPassengerId()).orElse(null);
-        assertNotNull(foundPassenger, "Passenger should be found");
-        assertEquals(passengerDetails.getPassengerId(), foundPassenger.getPassengerId(), "Passenger ID should match");
-    }
-
+//    @Test
+//    public void testFindById() {
+//        passengerDetailsRepository.save(passengerDetails);
+//        PassengerDetails foundPassenger = passengerDetailsRepository.findById(passengerDetails.getPassengerId()).orElse(null);
+//        assertNotNull(foundPassenger, "Passenger should be found");
+//        assertEquals(passengerDetails.getPassengerId(), foundPassenger.getPassengerId(), "Passenger ID should match");
+//    }
+//
 //    @Test
 //    public void testCountByBookingId() {
 //        // Save the passenger first

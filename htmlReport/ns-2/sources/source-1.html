@@ -110,6 +110,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc">&nbsp;                .authorizeHttpRequests(auth -&gt; auth</b>
 <b class="fc">&nbsp;                        .requestMatchers(&quot;/api/v1/user/signup&quot;,</b>
 &nbsp;                                &quot;/api/v1/user/login&quot;,
+&nbsp;                                &quot;/api/v1/user/Adminlogin&quot;,
 &nbsp;                                &quot;/api/v1/user/logout&quot; ,
 &nbsp;                                &quot;/api/v1/user/details&quot;,
 &nbsp;                                &quot;/api/v1/user/profile&quot;,
@@ -121,7 +122,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;                                &quot;/api/admindetails/Shipadd&quot;,
 &nbsp;                                &quot;/api/v1/bookings&quot;,
 &nbsp;                                &quot;/api/v1/payments&quot;,
-<b class="fc">&nbsp;                                &quot;/api/v1/receipts&quot;).permitAll()</b>
+&nbsp;                                &quot;/api/v1/receipts&quot;,
+<b class="fc">&nbsp;                                &quot;/passengerDetails&quot;).permitAll()</b>
 <b class="fc">&nbsp;                        .anyRequest().authenticated()</b>
 &nbsp;                )
 <b class="fc">&nbsp;                .httpBasic(basic -&gt; {});</b>
@@ -151,7 +153,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>
