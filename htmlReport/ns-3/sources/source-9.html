@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
   <title>Coverage Report > ShipDetailController</title>
   <style type="text/css">
     @import "../../css/coverage.css";
@@ -72,10 +72,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    80%
+    74.1%
   </span>
   <span class="absValue">
-    (20/25)
+    (20/27)
   </span>
 </td>
 </tr>
@@ -168,9 +168,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc">&nbsp;                remainingSeats = 0;</b>
 &nbsp;            }
 <b class="fc">&nbsp;            return ResponseEntity.ok(&quot;Remaining seats: &quot; + remainingSeats);</b>
-&nbsp;        } catch (RuntimeException e) {
+<b class="nc">&nbsp;        } catch (RuntimeException e) {</b>
 <b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());</b>
-&nbsp;        } catch (Exception e) {
+<b class="nc">&nbsp;        } catch (Exception e) {</b>
 <b class="nc">&nbsp;            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(&quot;Error fetching remaining seats&quot;);</b>
 &nbsp;        }
 &nbsp;    }
@@ -198,7 +198,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-09 12:06</div>
+    <div style="float:right;">generated on 2025-01-09 12:21</div>
 </div>
 </body>
 </html>
