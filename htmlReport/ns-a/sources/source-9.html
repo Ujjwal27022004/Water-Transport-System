@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > RevenueCalc</title>
+  <title>Coverage Report > UserService</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,16 +22,25 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
 </div>
 
-<h1>Coverage Summary for Class: RevenueCalc (Team.Gamma.Water_Transport_System.Service)</h1>
+<h1>Coverage Summary for Class: UserService (Team.Gamma.Water_Transport_System.Service)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$vElMAb8e</td>
+  </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$vElMAb8e$auxiliary$mwRjehND</td>
+  </tr>
+  <tr>
+    <td class="name">UserService$MockitoMock$vElMAb8e$auxiliary$NPFGm8WV</td>
+  </tr>
 <tr>
-  <td class="name">RevenueCalc</td>
+  <td class="name"><strong>Total</strong></td>
 </tr>
-
 </table>
 
 <br/>
@@ -41,10 +50,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
 &nbsp;
-&nbsp;public interface RevenueCalc {
-&nbsp;    public int calculateTotalprice(int shipId);
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.UserDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.User;
+&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 &nbsp;
+&nbsp;public interface UserService {
+&nbsp;    LoginMessage  addUser(UserDTO userDTO);
+&nbsp;    LoginMessage loginUser(LoginDTO loginDTO);
+&nbsp;    LoginMessage updateProfile(Long userid, UserDTO request);
+&nbsp;    User getUserDetails(Long userid);
 &nbsp;}
+&nbsp;
 </code>
 </pre>
 </div>
@@ -68,7 +85,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>

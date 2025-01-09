@@ -5,7 +5,7 @@
 <html id="htmlId">
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
-  <title>Coverage Report > PassengerDetailsService</title>
+  <title>Coverage Report > UserManagementService</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/idea.min.css";
@@ -22,16 +22,25 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
 </div>
 
-<h1>Coverage Summary for Class: PassengerDetailsService (Team.Gamma.Water_Transport_System.Service)</h1>
+<h1>Coverage Summary for Class: UserManagementService (Team.Gamma.Water_Transport_System.Service)</h1>
 
 <table class="coverageStats">
+
 <tr>
   <th class="name">Class</th>
 </tr>
+  <tr>
+    <td class="name">UserManagementService$MockitoMock$HTaDmEId</td>
+  </tr>
+  <tr>
+    <td class="name">UserManagementService$MockitoMock$HTaDmEId$auxiliary$8CybtkFF</td>
+  </tr>
+  <tr>
+    <td class="name">UserManagementService$MockitoMock$HTaDmEId$auxiliary$JSSINCmr</td>
+  </tr>
 <tr>
-  <td class="name">PassengerDetailsService</td>
+  <td class="name"><strong>Total</strong></td>
 </tr>
-
 </table>
 
 <br/>
@@ -41,20 +50,16 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Entity.PassengerDetails;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.User;
 &nbsp;
 &nbsp;import java.util.List;
 &nbsp;
-&nbsp;public interface PassengerDetailsService {
-&nbsp; PassengerDetails getpassengerdetails(Long passengerId);
-&nbsp;
-&nbsp; String createpassengerdetails(PassengerDetails passengerDetails);
-&nbsp;
-&nbsp; boolean updatepassengerdetails(PassengerDetails passengerDetails);
-&nbsp;
-&nbsp; boolean deletepassengerdetails(Long passengerId);
-&nbsp;
-&nbsp; List&lt;PassengerDetails&gt; getAllPassengerdetails();
+&nbsp;public interface UserManagementService {
+&nbsp;    public User searchUser(Long userId);
+&nbsp;    public String removeUser(Long userId);
+&nbsp;    public String updateUser(User user);
+&nbsp;    public List&lt;User&gt; getAllUsers();
 &nbsp;}
 </code>
 </pre>
@@ -79,7 +84,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2025-01-07 14:47</div>
+    <div style="float:right;">generated on 2025-01-09 12:06</div>
 </div>
 </body>
 </html>
