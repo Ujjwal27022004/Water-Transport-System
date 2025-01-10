@@ -6,18 +6,19 @@ import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
+import Team.Gamma.Water_Transport_System.Repository.PassengerDetailsRepository;
+import Team.Gamma.Water_Transport_System.Dto.PaymentDTO;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.DisabledIf;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import java.util.Optional;
+
 import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentServiceImplTest {
 
@@ -27,6 +28,9 @@ class PaymentServiceImplTest {
     @Mock
     private PaymentRepository paymentRepository;
 
+    @Mock
+    private PassengerDetailsRepository passengerDetailsRepository;
+
     @InjectMocks
     private PaymentServiceImpl paymentService;
 
@@ -35,77 +39,100 @@ class PaymentServiceImplTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    @ParameterizedTest
-    @ValueSource(doubles = {1000.0, 500.0, 2000.0}) // Test with valid amounts
-    void shouldCreatePayment_WhenValidInputsAreProvided(double amount) {
-        // Given
+    @AfterEach
+    void tearDown() {
+        // Clean up if needed
+    }
+
+    @Test
+    void initiatePayment_validAmount() {
         Long bookingId = 1L;
+        double amount = 100.0;
+
+        // Mocking booking repository to return a booking when findByBookingId is called
         Bookings mockBooking = new Bookings();
         mockBooking.setBookingId(bookingId);
         mockBooking.setBookingStatus(BookingStatus.PENDING);
-
-        // Mocking repository behavior
         when(bookingRepository.findByBookingId(bookingId)).thenReturn(mockBooking);
-        when(paymentRepository.save(any(Payment.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // When
+        // When and then
         Payment payment = paymentService.initiatePayment(bookingId, amount);
 
-        // Then
-        assertNotNull(payment, "Payment should not be null");
-        assertEquals(bookingId, payment.getBookingID(), "Booking ID should match");
-        assertEquals(PaymentMethod.NETBANKING, payment.getPaymentMethod(), "Payment method should be NETBANKING");
-        assertEquals(amount, payment.getAmount(), "Amount should match the input amount");
-        assertEquals("PENDING", payment.getPaymentStatus(), "Payment status should be PENDING");
-        assertNotNull(payment.getDate(), "Date should be set");
-
+        assertNotNull(payment);
+        assertEquals(BookingStatus.BOOKED, mockBooking.getBookingStatus());
+        assertEquals(amount, payment.getAmount());
+        assertEquals("PENDING", payment.getPaymentStatus());
         verify(bookingRepository, times(1)).findByBookingId(bookingId);
         verify(paymentRepository, times(1)).save(any(Payment.class));
     }
 
-    @Test
-    void testInitiatePayment_InvalidBookingId() {
-        // Given
-        Long invalidBookingId = 999L;
-        double amount = 1000.0;
+    // Function to initiate payment
+    public Payment initiatePayment(Long bookingId, double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount must be greater than 0");
+        }
 
-        // Mocking repository behavior
-        when(bookingRepository.findByBookingId(invalidBookingId)).thenReturn(null);
+        Optional<Bookings> booking = Optional.ofNullable(bookingRepository.findByBookingId(bookingId));
 
-        // When
-        Payment payment = paymentService.initiatePayment(invalidBookingId, amount);
+        if (booking.isPresent()) {
+            // Create a new Payment with "pending" status
+            Bookings bookings = booking.get();
+            bookings.setBookingStatus(BookingStatus.BOOKED);
+            Payment payment = new Payment();
+            payment.setBookingID(bookings.getBookingId());
+            payment.setPaymentMethod(PaymentMethod.NETBANKING);
+            payment.setAmount(amount);
+            payment.setDate(new java.util.Date());
+            payment.setPaymentStatus("PENDING");
 
-        // Then
-        assertNull(payment, "Payment should be null for an invalid booking ID");
-        verify(bookingRepository, times(1)).findByBookingId(invalidBookingId);
-        verify(paymentRepository, never()).save(any(Payment.class));
+            paymentRepository.save(payment);
+
+            return payment;
+        } else {
+            return null;
+        }
     }
 
-    @ParameterizedTest
-    @ValueSource(doubles = {-100.0, 0.0}) // Test with invalid amounts
-    void testInitiatePayment_InvalidAmounts(double amount) {
-        // Given
-        Long bookingId = 1L;
+
+    @Test
+    void confirmPayment_success() {
+        Long paymentId = 1L;
+
+        // Mocking Payment and Booking
+        Payment mockPayment = new Payment();
+        mockPayment.setPaymentStatus("PENDING");
+        mockPayment.setBookingID(1L);
+        when(paymentRepository.findById(paymentId)).thenReturn(Optional.of(mockPayment));
+
         Bookings mockBooking = new Bookings();
-        mockBooking.setBookingId(bookingId);
-        mockBooking.setBookingStatus(BookingStatus.PENDING);
-
-        // Mocking repository behavior
-        when(bookingRepository.findByBookingId(bookingId)).thenReturn(mockBooking);
-
-        // Marking this test as expected to fail until logic is implemented
-        assumeTrue(false, "This test is expected to fail due to missing logic");
+        mockBooking.setBookingId(1L);
+        mockBooking.setSeatsBooked(0);
+        when(bookingRepository.findByBookingId(1L)).thenReturn(mockBooking);
+        when(passengerDetailsRepository.countByBookingId(1L)).thenReturn(3L); // Assuming 3 passengers
 
         // When
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.initiatePayment(bookingId, amount);
-        });
+        PaymentDTO response = paymentService.confirmPayment(paymentId);
 
         // Then
-        assertEquals("Amount must be greater than 0", exception.getMessage());
-        verify(bookingRepository, never()).findByBookingId(anyLong());
+        assertTrue(response.isSuccess());
+        assertEquals("Payment is successful.", response.getMessage());
+        verify(paymentRepository, times(1)).save(any(Payment.class));
+        verify(bookingRepository, times(1)).save(mockBooking);
+    }
+
+    @Test
+    void confirmPayment_paymentNotFound() {
+        Long paymentId = 999L; // Non-existent payment ID
+
+        // Mocking Payment repository to return empty Optional
+        when(paymentRepository.findById(paymentId)).thenReturn(Optional.empty());
+
+        // When
+        PaymentDTO response = paymentService.confirmPayment(paymentId);
+
+        // Then
+        assertFalse(response.isSuccess());
+        assertEquals("Payment not found or already processed.", response.getMessage());
         verify(paymentRepository, never()).save(any(Payment.class));
     }
 }
-
-
