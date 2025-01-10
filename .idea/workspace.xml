@@ -106,7 +106,20 @@
       <command value="mvn ./mvnw clean install sonar:sonar compile" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WaterTransportSystemApplication">
+  <component name="RunManager" selected="Application.WaterTransportSystemApplication">
+    <configuration name="WaterTransportSystemApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.WaterTransportSystemApplication" />
+      <module name="Auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Team.Gamma.Water_Transport_System.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PaymentControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Auth" />
       <extension name="coverage">
@@ -117,21 +130,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="Team.Gamma.Water_Transport_System.Controller" />
       <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.Controller.PaymentControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QueryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Auth" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Team.Gamma.Water_Transport_System.Service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Team.Gamma.Water_Transport_System.Service.impl" />
-      <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.Service.impl.QueryImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,6 +166,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Auth" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Auth" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WaterTransportSystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Auth" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="Team.Gamma.Water_Transport_System.WaterTransportSystemApplication" />
@@ -177,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WaterTransportSystemApplication" />
         <item itemvalue="JUnit.java in Auth" />
         <item itemvalue="JUnit.Water_Transport_System in Auth" />
         <item itemvalue="JUnit.ReceiptControllerTest" />
         <item itemvalue="JUnit.PaymentControllerTest" />
-        <item itemvalue="JUnit.QueryImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -255,18 +266,22 @@
     <SUITE FILE_PATH="coverage/Water_Transport_System$PaymentControllerTest.ic" NAME="PaymentControllerTest Coverage Results" MODIFIED="1736331916915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Water_Transport_System$ReceiptControllerTest.ic" NAME="ReceiptControllerTest Coverage Results" MODIFIED="1736332027123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Water_Transport_System$UserImplTest.ic" NAME="UserImplTest Coverage Results" MODIFIED="1736331761930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Service.impl.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Water_Transport_System$java_in_Auth.ic" NAME="java in Auth Coverage Results" MODIFIED="1736406197468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Water_Transport_System$All_in_Auth.ic" NAME="All in Auth Coverage Results" MODIFIED="1736422216223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Water_Transport_System$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1736331665121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Water_Transport_System$QueryImplTest.ic" NAME="QueryImplTest Coverage Results" MODIFIED="1736331787919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Service.impl.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Water_Transport_System$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1736331665121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Water_Transport_System$ReceiptControllerTest.ic" NAME="ReceiptControllerTest Coverage Results" MODIFIED="1736332027123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Water_Transport_System$WaterTransportSystemApplication.ic" NAME="WaterTransportSystemApplication Coverage Results" MODIFIED="1736508855607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Team.Gamma.Water_Transport_System.*</FILTER>
     </SUITE>
   </component>
 </project>
