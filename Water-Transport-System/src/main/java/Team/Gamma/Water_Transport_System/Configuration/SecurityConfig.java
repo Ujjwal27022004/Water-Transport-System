@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -14,12 +13,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/user/signup",
+                        .requestMatchers(
+                                "/api/v1/user/signup",
                                 "/api/v1/user/login",
                                 "/api/v1/user/Adminlogin",
-                                "/api/v1/user/logout" ,
+                                "/api/v1/user/logout",
                                 "/api/v1/user/details",
                                 "/api/v1/user/profile",
                                 "/api/v1/user/ask",
@@ -31,10 +30,22 @@ public class SecurityConfig {
                                 "/api/v1/bookings",
                                 "/api/v1/payments",
                                 "/api/v1/receipts",
-                                "/passengerDetails").permitAll()
-                        .anyRequest().authenticated()
+                                "/passengerDetails"
+                        ).permitAll() // Allow public access to these endpoints
+                        .anyRequest().authenticated() // All other requests require authentication
                 )
-                .httpBasic(basic -> {});
+                // Configure form-based authentication
+                .formLogin(form -> form
+                        .loginPage("/login") // Define your custom login page
+                        .permitAll()
+                )
+                // Optionally configure logout functionality
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll()
+                );
+
         return http.build();
     }
 }
