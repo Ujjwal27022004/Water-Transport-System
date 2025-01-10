@@ -27,9 +27,9 @@ public class UserImpl implements UserService {
                     userDTO.getPassword()
             );
             userRepo.save(user);
-            return new LoginMessage("Signup Successfully", true);
+            return new LoginMessage("Signup Successfully", true, "user");
         } catch (Exception e) {
-            return new LoginMessage("Error during signup: " + e.getMessage(), false);
+            return new LoginMessage("Error during signup: " + e.getMessage(), false, "user");
         }
     }
 
@@ -47,18 +47,18 @@ public class UserImpl implements UserService {
                 if (password.equals(encodedPassword)) {
                     Optional<User> employee = userRepo.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);
                     if (employee.isPresent()) {
-                        return new LoginMessage("Login Success", true);
+                        return new LoginMessage("Login Success", true, "user");
                     } else {
-                        return new LoginMessage("Login Failed", false);
+                        return new LoginMessage("Login Failed", false, "user");
                     }
                 } else {
-                    return new LoginMessage("Password does not match", false);
+                    return new LoginMessage("Password does not match", false, "user");
                 }
             } else {
-                return new LoginMessage("Email does not exist", false);
+                return new LoginMessage("Email does not exist", false, "user");
             }
         } catch (Exception e) {
-            return new LoginMessage("Error during login: " + e.getMessage(), false);
+            return new LoginMessage("Error during login: " + e.getMessage(), false, "user");
         }
     }
 
@@ -79,11 +79,11 @@ public class UserImpl implements UserService {
             }
 
             userRepo.save(user);
-            return new LoginMessage("Profile Updated Successfully", true);
+            return new LoginMessage("Profile Updated Successfully", true, "user");
         } catch (RuntimeException e) {
-            return new LoginMessage(e.getMessage(), false);
+            return new LoginMessage(e.getMessage(), false, "user");
         } catch (Exception e) {
-            return new LoginMessage("Error during profile update: " + e.getMessage(), false);
+            return new LoginMessage("Error during profile update: " + e.getMessage(), false, "user");
         }
     }
 

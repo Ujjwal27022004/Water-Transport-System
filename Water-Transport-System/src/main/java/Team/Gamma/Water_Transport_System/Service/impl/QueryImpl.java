@@ -39,11 +39,11 @@ public class QueryImpl implements QueryService {
 
             queryRepository.save(query);
 
-            return new LoginMessage("Query successfully Submitted!", true);
+            return new LoginMessage("Query successfully Submitted!", true, "user");
         } catch (RuntimeException e) {
-            return new LoginMessage(e.getMessage(), false);
+            return new LoginMessage(e.getMessage(), false, "user");
         } catch (Exception e) {
-            return new LoginMessage("Error while submitting the query: " + e.getMessage(), false);
+            return new LoginMessage("Error while submitting the query: " + e.getMessage(), false, "user");
         }
     }
 
@@ -59,15 +59,12 @@ public class QueryImpl implements QueryService {
         query.setStatus(status);
 
         queryRepository.save(query);
-            return new LoginMessage("Query resolved successfully!", true);
+            return new LoginMessage("Query resolved successfully!", true, "user");
         } catch (RuntimeException e) {
-            return new LoginMessage(e.getMessage(), false);
+            return new LoginMessage(e.getMessage(), false, "user");
         } catch (Exception e) {
-            return new LoginMessage("Error while resolving the query: " + e.getMessage(), false);
+            return new LoginMessage("Error while resolving the query: " + e.getMessage(), false, "user");
         }
     }
-
-
-
 
 }

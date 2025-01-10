@@ -83,18 +83,18 @@ public class AdminServiceImpl implements AdminService {
                 if (password.equals(encodedPassword)) {
                     Optional<Admin> employee = adminRepository.findOneByEmailAndPassword(loginDTO.getEmail(), encodedPassword);
                     if (employee.isPresent()) {
-                        return new LoginMessage("Login Success", true);
+                        return new LoginMessage("Login Success", true, "admin");
                     } else {
-                        return new LoginMessage("Login Failed", false);
+                        return new LoginMessage("Login Failed", false, "admin");
                     }
                 } else {
-                    return new LoginMessage("Password does not match", false);
+                    return new LoginMessage("Password does not match", false, "admin");
                 }
             } else {
-                return new LoginMessage("Email does not exist", false);
+                return new LoginMessage("Email does not exist", false, "admin");
             }
         } catch (Exception e) {
-            return new LoginMessage("Error during login: " + e.getMessage(), false);
+            return new LoginMessage("Error during login: " + e.getMessage(), false, "admin");
         }
     }
 }
