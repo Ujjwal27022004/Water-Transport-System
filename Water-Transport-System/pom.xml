@@ -23,7 +23,7 @@
 
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.projectName>Aqualure</sonar.projectName>
-		<sonar.login>squ_992bc4694e70a6390501a015e6e11544610fc2f0</sonar.login>
+		<sonar.login>squ_846d9d79dd4fb2ae4f514ea3bfa9addf2855a346</sonar.login>
 	</properties>
 
 	<dependencies>
