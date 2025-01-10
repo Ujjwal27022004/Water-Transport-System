@@ -39,7 +39,7 @@ public class UserController {
         return ResponseEntity.ok(loginResponse);
     }
 
-    @PostMapping(path = "/Admin login")
+    @PostMapping(path = "/Adminlogin")
     public ResponseEntity<Object> adminLogin(@RequestBody LoginDTO loginDTO) {
         LoginMessage loginResponse = adminService.loginAdmin(loginDTO);
         return ResponseEntity.ok(loginResponse);
