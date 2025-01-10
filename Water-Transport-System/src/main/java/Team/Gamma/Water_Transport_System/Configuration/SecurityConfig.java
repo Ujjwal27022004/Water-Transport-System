@@ -16,7 +16,23 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity (adjust based on your app's needs)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/user/signup", "/api/v1/user/**", "/api/v1/user/logout" , "/api/v1/user/details" , "/api/v1/user/ask" ).permitAll() // Allow public access
+                        .requestMatchers("/api/v1/user/signup",
+                                "/api/v1/user/login",
+                                "/api/v1/user/Adminlogin",
+                                "/api/v1/user/logout",
+                                "/api/v1/user/details",
+                                "/api/v1/user/profile",
+                                "/api/v1/user/ask",
+                                "/api/v1/shipdetails",
+                                "/admindetails",
+                                "/api/admindetails",
+                                "/usermanagement",
+                                "/shipdetails/search",
+                                "/admindetails/Shipadd",
+                                "/api/v1/bookings",
+                                "/api/v1/payments",
+                                "/api/v1/receipts",
+                                "/passengerDetails" ).permitAll() // Allow public access
                         .anyRequest().authenticated() // Secure all other endpoints
                 )
                 .httpBasic(basic -> {}); // Enable Basic Authentication
