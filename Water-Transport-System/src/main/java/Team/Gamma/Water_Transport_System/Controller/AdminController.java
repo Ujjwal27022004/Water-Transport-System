@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("api/admindetails")
 public class AdminController {
 
@@ -42,8 +43,8 @@ public class AdminController {
     }
 
     // function for updating details of admin in DB
-    @PutMapping
     @CrossOrigin(origins = "http://localhost:5173")
+    @PutMapping("/adminedit")
     public String updateAdminDetails(@RequestBody AdminDTO admin) {
         boolean isUpdated = adminService.updateAdmin(admin); // Expecting a boolean return type
         if (!isUpdated) {
