@@ -95,7 +95,7 @@
       <command value="mvn ./mvnw clean install sonar:sonar compile" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.WaterTransportSystemApplication">
+  <component name="RunManager" selected="JUnit.java in Auth">
     <configuration name="WaterTransportSystemApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.WaterTransportSystemApplication" />
       <module name="Auth" />
@@ -155,12 +155,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Auth" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="Auth" />
       <option name="filePath" />
@@ -177,8 +171,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WaterTransportSystemApplication" />
         <item itemvalue="JUnit.java in Auth" />
+        <item itemvalue="Application.WaterTransportSystemApplication" />
         <item itemvalue="JUnit.Water_Transport_System in Auth" />
         <item itemvalue="JUnit.ReceiptControllerTest" />
         <item itemvalue="JUnit.PaymentControllerTest" />
@@ -233,7 +227,7 @@
       <workItem from="1736488506481" duration="71000" />
       <workItem from="1736492142180" duration="2157000" />
       <workItem from="1736500909544" duration="673000" />
-      <workItem from="1736501841946" duration="3701000" />
+      <workItem from="1736501841946" duration="5992000" />
     </task>
     <servers />
   </component>

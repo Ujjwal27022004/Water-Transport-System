@@ -25,7 +25,7 @@ class QueryResolvenceControllerTest {
         Long queryId = 1L;
         ResolutionRequestDTO resolutionRequest = new ResolutionRequestDTO();
 
-        LoginMessage loginMessage = new LoginMessage("Query resolved successfully!", true);
+        LoginMessage loginMessage = new LoginMessage("Query resolved successfully!", true,"admin");
         when(queryService.resolveQuery(queryId, resolutionRequest.getResolutionDetails(), resolutionRequest.getStatus()))
                 .thenReturn(loginMessage);
 

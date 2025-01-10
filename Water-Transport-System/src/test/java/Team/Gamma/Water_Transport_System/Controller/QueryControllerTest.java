@@ -27,7 +27,7 @@ class QueryControllerTest {
         Long userId = 1L;
         QueryDTO queryDTO = new QueryDTO("Test Query");
 
-        LoginMessage loginMessage = new LoginMessage("Query successfully submitted!", true);
+        LoginMessage loginMessage = new LoginMessage("Query successfully submitted!", true,"user");
         when(queryService.askQuery(userId, queryDTO)).thenReturn(loginMessage);
 
         ResponseEntity<?> response = queryController.askQuery(userId, queryDTO);

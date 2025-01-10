@@ -44,7 +44,7 @@ class UserControllerTest {
         userDTO.setEmail("testuser@example.com");
         userDTO.setPassword("password");
 
-        LoginMessage expectedResponse = new LoginMessage("Signup Successfully", true);
+        LoginMessage expectedResponse = new LoginMessage("Signup Successfully", true,"user");
         when(userService.addUser(userDTO)).thenReturn(expectedResponse);
 
         ResponseEntity<?> response = userController.signup(userDTO);
@@ -59,7 +59,7 @@ class UserControllerTest {
         loginDTO.setEmail("testuser@example.com");
         loginDTO.setPassword("password");
 
-        LoginMessage expectedResponse = new LoginMessage("Login Success", true);
+        LoginMessage expectedResponse = new LoginMessage("Login Success", true,"user");
         when(userService.loginUser(loginDTO)).thenReturn(expectedResponse);
 
         ResponseEntity<?> response = userController.login(loginDTO);
@@ -76,7 +76,7 @@ class UserControllerTest {
         userDTO.setEmail("updateduser@example.com");
         userDTO.setPassword("newpassword");
 
-        LoginMessage expectedResponse = new LoginMessage("Profile Updated Successfully", true);
+        LoginMessage expectedResponse = new LoginMessage("Profile Updated Successfully", true,"user");
         when(userService.updateProfile(userId, userDTO)).thenReturn(expectedResponse);
 
         ResponseEntity<?> response = userController.updateProfile(userId, userDTO);
