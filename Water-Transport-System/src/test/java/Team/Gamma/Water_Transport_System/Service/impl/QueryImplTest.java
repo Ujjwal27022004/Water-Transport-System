@@ -37,7 +37,7 @@ class QueryImplTest {
         QueryDTO queryDTO = new QueryDTO("Test Query");
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
 
-        LoginMessage expectedMessage = new LoginMessage("Query successfully Submitted!", true);
+        LoginMessage expectedMessage = new LoginMessage("Query successfully Submitted!", true,"user");
         LoginMessage actualMessage = queryImpl.askQuery(userId, queryDTO);
 
         assertEquals(expectedMessage.getMessage(), actualMessage.getMessage());
@@ -53,7 +53,7 @@ class QueryImplTest {
 
         when(queryRepository.findById(queryId)).thenReturn(Optional.of(query));
 
-        LoginMessage expectedMessage = new LoginMessage("Query resolved successfully!", true);
+        LoginMessage expectedMessage = new LoginMessage("Query resolved successfully!", true,"admin");
         LoginMessage actualMessage = queryImpl.resolveQuery(queryId, "Resolution details", "Resolved");
 
         assertEquals(expectedMessage.getMessage(), actualMessage.getMessage());
