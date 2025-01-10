@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/shipdetails")
 public class ShipDetailController {
 
-    private ShipDetailsService shipService;
+    private final ShipDetailsService shipService;
     @Autowired
     public ShipDetailController(ShipDetailsService shipService) {
         this.shipService = shipService;

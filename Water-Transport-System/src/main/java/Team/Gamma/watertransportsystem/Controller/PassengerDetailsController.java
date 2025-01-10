@@ -13,8 +13,8 @@ import java.util.List;
 public class PassengerDetailsController {
 
 
-    private PassengerDetailsService passengerDetailsService;
-
+    private final PassengerDetailsService passengerDetailsService;
+    @Autowired
     public PassengerDetailsController(PassengerDetailsService passengerDetailsService) {
         this.passengerDetailsService = passengerDetailsService;
     }

@@ -13,9 +13,6 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "receiptId")
     private Long receiptId;
-//    @Column(name = "paymentId",insertable = false, updatable = false)
-//    private Long paymentId;
-
     private int amount;
     @Column(name = "userId", insertable = false, updatable = false)
     private Long userId;
@@ -66,15 +63,6 @@ public class Receipt {
     public void setReceiptId(Long receiptId) {
         this.receiptId = receiptId;
     }
-
-//    public long getPaymentID() {
-//        return paymentId;
-//    }
-
-//    public void setPaymentID(Long paymentID) {
-//        this.paymentId = paymentID;
-//    }
-
     public long getShipID() {
         return shipId;
     }

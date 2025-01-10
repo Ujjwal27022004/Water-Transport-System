@@ -17,7 +17,7 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    private AdminService adminService;
+    private final AdminService adminService;
 
     // function for fetching details of admin from DB
     @GetMapping("/{adminId}")

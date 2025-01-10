@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/query-resolution")
 public class QueryResolvenceController {
 
-    private QueryService queryService;
+    private final QueryService queryService;
+    @Autowired
     public QueryResolvenceController(QueryService queryService) {
         this.queryService = queryService;
     }

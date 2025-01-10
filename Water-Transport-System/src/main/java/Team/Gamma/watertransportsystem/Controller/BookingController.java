@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/bookings")
 public class BookingController {
 
+
+    private final BookingService bookingservice;
     @Autowired
-    private BookingService bookingservice;
+    public BookingController(BookingService bookingservice) {
+        this.bookingservice = bookingservice;
+    }
 
     //Create booking for user
     @PostMapping

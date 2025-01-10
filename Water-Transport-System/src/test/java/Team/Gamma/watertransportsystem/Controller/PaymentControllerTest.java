@@ -11,14 +11,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(PaymentController.class)
-@AutoConfigureMockMvc(addFilters = false) //
-public class PaymentControllerTest {
+@AutoConfigureMockMvc(addFilters = false)
+ class PaymentControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -27,7 +26,7 @@ public class PaymentControllerTest {
     private PaymentServiceImpl paymentService;
 
     @Test
-    public void testInitiatePayment_Success() throws Exception {
+     void testInitiatePayment_Success() throws Exception {
         Payment mockPayment = new Payment();
         mockPayment.setPaymentID(1L);
         mockPayment.setAmount(1000.0);
@@ -48,7 +47,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void testInitiatePayment_Failure() throws Exception {
+    void testInitiatePayment_Failure() throws Exception {
         when(paymentService.initiatePayment(1L, 1000.0)).thenThrow(new IllegalArgumentException("Invalid booking ID"));
 
         mockMvc.perform(post("/payments/initiate")
@@ -62,7 +61,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void testConfirmPayment_Success() throws Exception {
+    void testConfirmPayment_Success() throws Exception {
         PaymentDTO paymentDTO = new PaymentDTO();
         paymentDTO.setPaymentId(1L);
 
@@ -78,7 +77,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void testConfirmPayment_Failure() throws Exception {
+    void testConfirmPayment_Failure() throws Exception {
         doThrow(new IllegalArgumentException("Invalid payment ID")).when(paymentService).confirmPayment(1L);
 
         mockMvc.perform(post("/payments/confirm")
@@ -91,7 +90,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void testPaymentExceptionHandler_Success() throws Exception {
+    void testPaymentExceptionHandler_Success() throws Exception {
         when(paymentService.initiatePayment(1L, 1000.0)).thenThrow(new PaymentException("Payment initiation failed"));
 
         mockMvc.perform(post("/payments/initiate")
@@ -105,7 +104,7 @@ public class PaymentControllerTest {
     }
 
     @Test
-    public void testPaymentExceptionHandler_Failure() throws Exception {
+    void testPaymentExceptionHandler_Failure() throws Exception {
         doThrow(new PaymentException("Payment confirmation failed")).when(paymentService).confirmPayment(1L);
 
         mockMvc.perform(post("/payments/confirm")

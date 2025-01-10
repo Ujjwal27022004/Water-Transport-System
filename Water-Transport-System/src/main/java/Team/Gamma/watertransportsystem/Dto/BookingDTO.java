@@ -1,8 +1,5 @@
-package Team.Gamma.watertransportsystem.Dto;
-
-
-import Team.Gamma.watertransportsystem.Enum.BookingStatus;
-
+package Team.Gamma.Water_Transport_System.Dto;
+import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import java.time.LocalDateTime;
 
 public class BookingDTO {

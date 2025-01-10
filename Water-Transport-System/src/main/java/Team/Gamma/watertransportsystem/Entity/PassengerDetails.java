@@ -1,4 +1,4 @@
-package Team.Gamma.watertransportsystem.Entity;
+package Team.Gamma.Water_Transport_System.Entity;
 
 import jakarta.persistence.*;
 
@@ -59,8 +59,5 @@ public class PassengerDetails {
         this.gender = gender;
     }
 
-    //Constructor
-    public PassengerDetails() {
-    // necessary to make object reference
-    }
+
 }

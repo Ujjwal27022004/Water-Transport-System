@@ -1,6 +1,5 @@
-package Team.Gamma.watertransportsystem.Dto;
-
-import Team.Gamma.watertransportsystem.Enum.PaymentMethod;
+package Team.Gamma.Water_Transport_System.Dto;
+import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
 
 import java.util.Date;
 

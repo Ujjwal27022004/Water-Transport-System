@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class ReceiptController {
 
 
-    private ReceiptServiceImpl receiptService;
-
+    private final ReceiptServiceImpl receiptService;
+    @Autowired
     public ReceiptController(ReceiptServiceImpl receiptService) {
         this.receiptService = receiptService;
     }

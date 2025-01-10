@@ -8,7 +8,7 @@ import java.util.*;
 @Entity
 @Table(name = "ship_detail")
 
-public class ShipDetail extends  PassengerVehicle{
+public class ShipDetail {
     @Id
     private Long shipId;
     private  String name;
