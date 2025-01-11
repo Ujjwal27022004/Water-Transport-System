@@ -30,7 +30,7 @@ public class Bookingserviceimpl implements BookingService {
     private static final int PRICE_PER_SEAT = 1000;
 
     @Override
-    public void makeBooking(BookingDTO bookings) {
+    public Bookings makeBooking(BookingDTO bookings) {
         Optional<User> optionalUser = userRepository.findById(bookings.getUserid());
         if (!optionalUser.isPresent()) {
             throw new BookingNotFoundException("User not found with ID: " + bookings.getUserid());
@@ -59,7 +59,7 @@ public class Bookingserviceimpl implements BookingService {
         saveBooking.setLocalDate(bookings.getLocalDate() != null ? bookings.getLocalDate() : LocalDateTime.now());
         saveBooking.setTotalPrice(totalPrice);
 
-        bookingRepository.save(saveBooking);
+        return bookingRepository.save(saveBooking);
     }
 
     @Override
