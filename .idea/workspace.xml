@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd4801c1-b5fe-482e-8801-e2653b74625d" name="Changes" comment="" />
+    <list default="true" id="dd4801c1-b5fe-482e-8801-e2653b74625d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/ShipDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/ShipDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Service/impl/UserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/payload/response/LoginMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/payload/response/LoginMessage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +45,9 @@
     &quot;accountId&quot;: &quot;14e6814b-184e-4b47-92c3-665d2d8375c3&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -64,6 +74,7 @@
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -151,13 +162,6 @@
       <module name="Auth" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/Water-Transport-System/src/test/java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Auth" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

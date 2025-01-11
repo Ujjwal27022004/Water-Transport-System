@@ -3,6 +3,7 @@ package Team.Gamma.Water_Transport_System.Controller;
 import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
 import Team.Gamma.Water_Transport_System.Service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,10 +19,18 @@ public class BookingController {
 
     //Create booking for user
     @PostMapping
-    public String createBookingDetails(@RequestBody BookingDTO bookings) {
+    public ResponseEntity<String> createBookingDetails(@RequestBody BookingDTO bookings) {
+        System.out.print("userid"+bookings.getUserid());
+        System.out.print("shipid"+bookings.getShipId());
+
+        if (bookings.getUserid() == null || bookings.getShipId() == null) {
+            return ResponseEntity.badRequest().body("User ID and Ship ID cannot be null");
+        }
         bookingservice.makeBooking(bookings);
-        return "Booking created successfully";
+        return ResponseEntity.ok("Booking created successfully");
     }
+
+
 
     //cancel booking of user
     @PutMapping("{bookingId}")

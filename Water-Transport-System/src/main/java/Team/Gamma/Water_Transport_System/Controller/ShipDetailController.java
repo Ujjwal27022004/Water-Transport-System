@@ -14,6 +14,8 @@ import org.springframework.http.HttpHeaders;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
+
 @RequestMapping("/shipdetails")
 public class ShipDetailController {
 
@@ -24,8 +26,8 @@ public class ShipDetailController {
     }
 
     //This method is for fetching details of ship
-    @GetMapping("/{shipId}")
     @CrossOrigin(origins = "http://localhost:5173")
+    @GetMapping("/{shipId}")
     public  ResponseEntity<ShipDetail> getShipDetails(@PathVariable("shipId") Long shipId) {
         ShipDetail shipDetail = shipService.getShip(shipId);
         if (shipDetail == null) {
