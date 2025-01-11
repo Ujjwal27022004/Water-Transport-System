@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd4801c1-b5fe-482e-8801-e2653b74625d" name="Changes" comment="" />
+    <list default="true" id="dd4801c1-b5fe-482e-8801-e2653b74625d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Configuration/SecurityConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +98,7 @@
       <command value="mvn ./mvnw clean install sonar:sonar compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in Auth">
+  <component name="RunManager" selected="Spring Boot.WaterTransportSystemApplication">
     <configuration name="WaterTransportSystemApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.WaterTransportSystemApplication" />
       <module name="Auth" />
@@ -227,7 +230,9 @@
       <workItem from="1736488506481" duration="71000" />
       <workItem from="1736492142180" duration="2157000" />
       <workItem from="1736500909544" duration="673000" />
-      <workItem from="1736501841946" duration="5992000" />
+      <workItem from="1736501841946" duration="6294000" />
+      <workItem from="1736582216827" duration="4898000" />
+      <workItem from="1736601684927" duration="682000" />
     </task>
     <servers />
   </component>
