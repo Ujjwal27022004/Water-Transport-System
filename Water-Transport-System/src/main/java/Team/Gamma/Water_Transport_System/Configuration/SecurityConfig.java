@@ -35,8 +35,7 @@ public class SecurityConfig {
                                 "/api/admindetails/Shipadd",
                                 "/api/v1/bookings",
                                 "/payments/**",
-                                "/api/v1/receipts",
-                                "/passengerDetails","/revenue/**").permitAll() // Allow public access
+                                "/passengerDetails","/revenue/**","/receipts/generate/**").permitAll() // Allow public access
                         .anyRequest().authenticated() // Secure all other endpoints
                 )
                 .httpBasic(basic -> {}); // Enable Basic Authentication

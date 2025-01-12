@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
+
 @RequestMapping("/receipts")
 public class ReceiptController {
 
@@ -23,6 +25,8 @@ public class ReceiptController {
 
 
     // Endpoint to generate a receipt
+    @CrossOrigin(origins = "http://localhost:5173")
+
     @PostMapping("/generate")
     public ResponseEntity<ReceiptDTO> generateReceipt(@RequestParam Long userId) {
         ReceiptDTO receiptDTO = receiptService.generateReceipt(userId);
