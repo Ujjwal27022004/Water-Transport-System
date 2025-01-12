@@ -6,7 +6,7 @@ import Team.Gamma.Water_Transport_System.Entity.Bookings;
 public interface BookingService {
 
     //booking services
-    void makeBooking(BookingDTO bookings);
+    Bookings makeBooking(BookingDTO bookings);
     boolean cancelBooking(Long bookingId);
     Bookings getLatestBookingByUserId(Long userId);
 }

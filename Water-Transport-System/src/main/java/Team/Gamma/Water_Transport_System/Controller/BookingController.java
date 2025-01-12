@@ -1,6 +1,7 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
+import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +27,8 @@ public class BookingController {
         if (bookings.getUserid() == null || bookings.getShipId() == null) {
             return ResponseEntity.badRequest().body("User ID and Ship ID cannot be null");
         }
-        bookingservice.makeBooking(bookings);
-        return ResponseEntity.ok("Booking created successfully");
+        Bookings newBooking = bookingservice.makeBooking(bookings);
+        return ResponseEntity.ok(newBooking.getBookingId().toString());
     }
 
 
