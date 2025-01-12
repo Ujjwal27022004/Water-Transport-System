@@ -71,7 +71,7 @@ public class ShipDetailController {
     }
 
     // //This method is for getting remaining seats of ship
-    @GetMapping("/{shipId}/remaining-seats")
+    @GetMapping("/remaining-seats/{shipId}")
     @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<?> getRemainingSeats(@PathVariable Long shipId) {
         try {
