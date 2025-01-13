@@ -18,12 +18,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // NOSONAR: CSRF is disabled due to stateless API with token-based authentication.
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/user/signup",
+                                "api/v1/user/**",
                                 "/api/v1/user/login",
                                 "/api/v1/user/Adminlogin",
                                 "/api/v1/user/logout",
                                 "/api/v1/user/details",
                                 "/api/v1/user/profile",
                                 "/api/v1/user/ask",
+                                "api/v1/user/getQueries",
                                 "/shipdetails/**",
                                 "/admindetails/**",
                                 "/api/v1/shipdetails",
@@ -36,9 +38,13 @@ public class SecurityConfig {
                                 "/api/admindetails/Shipadd",
                                 "/api/v1/bookings",
                                 "/payments/**",
+<<<<<<< HEAD
                                 "/query-resolution/resolve/**",
                                 "/passengerDetails","/revenue/**","/receipts/generate/**", "/query-resolution/getquery"
                                 ).permitAll() // Allow public access
+=======
+                                "/passengerDetails","/revenue/**","/receipts/generate/**","/query-resolution/**").permitAll() // Allow public access
+>>>>>>> 6f5380ce1086296b93c73bdd59a99e9edbe7446f
                         .anyRequest().authenticated() // Secure all other endpoints
                 )
                 .httpBasic(basic -> {}); // Enable Basic Authentication
