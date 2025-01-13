@@ -26,11 +26,8 @@ public class QueryResolvenceController {
         return queryService.getAllQueries();
     }
 
-<<<<<<< HEAD
     @CrossOrigin(origins = "http://localhost:5173")
-=======
 
->>>>>>> 6f5380ce1086296b93c73bdd59a99e9edbe7446f
     //Method is for admin to resolve queries of users
     @PutMapping("/resolve/{queryId}")
     public LoginMessage resolveQuery(@PathVariable Long queryId,

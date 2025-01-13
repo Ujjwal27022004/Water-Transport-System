@@ -82,29 +82,11 @@ public class QueryImpl implements QueryService {
             return new LoginMessage(e.getMessage(), false, "user");
         } catch (Exception e) {
             return new LoginMessage("Error while resolving the query: " + e.getMessage(), false, "user");
-<<<<<<< HEAD
-  }
-=======
+
         }
     }
 
-    @Override
-    public List<QueryDTO> getAllQueries() {
-        return queryRepository.findAll()
-                .stream()
-                .map(query -> {
-                    QueryDTO dto = new QueryDTO();
-                    dto.setQueryid(query.getqueryid()); // Map Query ID
-                    dto.setUser(query.getUser()); // Map User entity directly
-                    dto.setQueryDetails(query.getQueryDetails());
-                    dto.setStatus(query.getStatus());
-                    dto.setCreatedDate(query.getCreatedDate());
-                    dto.setResolvedDate(query.getResolvedDate());
-                    dto.setQueryResolution(query.getQueryResolution());
-                    return dto;
-                })
-                .collect(Collectors.toList());
-    }
+
 
     public List<QueryDTO> getQueriesByUserId(Long userid) {
         try {
@@ -132,7 +114,5 @@ public class QueryImpl implements QueryService {
         }
     }
 
->>>>>>> 6f5380ce1086296b93c73bdd59a99e9edbe7446f
 }
 
-}
