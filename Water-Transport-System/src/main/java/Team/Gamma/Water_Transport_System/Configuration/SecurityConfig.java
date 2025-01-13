@@ -29,7 +29,7 @@ public class SecurityConfig {
                                 "/admindetails",
                                 "/api/v1/shipdetails",
                                 "api/admindetails/adminedit",
-                                "/api/admindetails",
+                                "/api/admindetails/**",
                                 "/usermanagement",
                                 "/shipdetails/search",
                                 "/admindetails/Shipadd",
@@ -37,7 +37,7 @@ public class SecurityConfig {
                                 "/api/admindetails/Shipadd",
                                 "/api/v1/bookings",
                                 "/payments/**",
-                                "/passengerDetails","/revenue/**","/receipts/generate/**").permitAll() // Allow public access
+                                "/passengerDetails","/revenue/**","/receipts/generate/**","/query-resolution/**").permitAll() // Allow public access
                         .anyRequest().authenticated() // Secure all other endpoints
                 )
                 .httpBasic(basic -> {}); // Enable Basic Authentication

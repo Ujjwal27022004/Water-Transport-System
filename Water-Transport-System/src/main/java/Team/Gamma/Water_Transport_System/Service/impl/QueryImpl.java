@@ -69,6 +69,24 @@ public class QueryImpl implements QueryService {
         }
     }
 
+    @Override
+    public List<QueryDTO> getAllQueries() {
+        return queryRepository.findAll()
+                .stream()
+                .map(query -> {
+                    QueryDTO dto = new QueryDTO();
+                    dto.setQueryid(query.getqueryid()); // Map Query ID
+                    dto.setUser(query.getUser()); // Map User entity directly
+                    dto.setQueryDetails(query.getQueryDetails());
+                    dto.setStatus(query.getStatus());
+                    dto.setCreatedDate(query.getCreatedDate());
+                    dto.setResolvedDate(query.getResolvedDate());
+                    dto.setQueryResolution(query.getQueryResolution());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
     public List<QueryDTO> getQueriesByUserId(Long userid) {
         try {
             User user = userRepository.findById(userid)
