@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/query-resolution")
 public class QueryResolvenceController {
 
@@ -25,6 +26,7 @@ public class QueryResolvenceController {
         return queryService.getAllQueries();
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
 
     //Method is for admin to resolve queries of users
     @PutMapping("/resolve/{queryId}")
