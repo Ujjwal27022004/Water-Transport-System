@@ -7,7 +7,6 @@ import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Repository.AdminRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
-import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

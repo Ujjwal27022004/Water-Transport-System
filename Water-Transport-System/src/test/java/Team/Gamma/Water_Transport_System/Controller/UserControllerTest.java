@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import Team.Gamma.Water_Transport_System.Controller.UserController;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
 import Team.Gamma.Water_Transport_System.Entity.User;

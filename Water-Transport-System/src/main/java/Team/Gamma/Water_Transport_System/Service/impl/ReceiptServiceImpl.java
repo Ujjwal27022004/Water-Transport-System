@@ -2,16 +2,11 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Dto.ReceiptDTO;
 import Team.Gamma.Water_Transport_System.Entity.*;
-import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
-import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
 import Team.Gamma.Water_Transport_System.Repository.ReceiptRepository;
-import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
-import Team.Gamma.Water_Transport_System.Service.ReceiptService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.Optional;
+
 @Service
 public class ReceiptServiceImpl {
 
