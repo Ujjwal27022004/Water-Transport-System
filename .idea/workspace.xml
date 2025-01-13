@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dd4801c1-b5fe-482e-8801-e2653b74625d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/ShipDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Controller/ShipDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/Service/impl/UserImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/payload/response/LoginMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Water-Transport-System/src/main/java/Team/Gamma/Water_Transport_System/payload/response/LoginMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +86,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -106,7 +101,7 @@
       <command value="mvn ./mvnw clean install sonar:sonar compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in Auth">
+  <component name="RunManager" selected="Spring Boot.WaterTransportSystemApplication">
     <configuration name="WaterTransportSystemApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.WaterTransportSystemApplication" />
       <module name="Auth" />
@@ -232,6 +227,8 @@
       <workItem from="1736492142180" duration="2157000" />
       <workItem from="1736500909544" duration="673000" />
       <workItem from="1736501841946" duration="5992000" />
+      <workItem from="1736605050825" duration="976000" />
+      <workItem from="1736668054307" duration="5811000" />
     </task>
     <servers />
   </component>
