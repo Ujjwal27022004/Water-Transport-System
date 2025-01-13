@@ -17,12 +17,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity (adjust based on your app's needs)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/user/signup",
+                                "api/v1/user/**",
                                 "/api/v1/user/login",
                                 "/api/v1/user/Adminlogin",
                                 "/api/v1/user/logout",
                                 "/api/v1/user/details",
                                 "/api/v1/user/profile",
                                 "/api/v1/user/ask",
+                                "api/v1/user/getQueries",
                                 "/shipdetails/**",
                                 "/admindetails",
                                 "/api/v1/shipdetails",
