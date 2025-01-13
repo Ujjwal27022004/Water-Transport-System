@@ -28,6 +28,8 @@ public class QueryController {
         return ResponseEntity.ok(loginResponse);
        }
 
+
+
     @GetMapping("/getQueries")
     public ResponseEntity<?> getQueriesByUserId(@RequestParam("userid") Long userid) {
         try {
