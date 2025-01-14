@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/bookings")
 public class BookingController {
@@ -41,5 +43,11 @@ public class BookingController {
             throw new Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException("Booking not found with ID: " + bookingId);
         }
         return "Your booking has been successfully canceled";
+    }
+
+    @GetMapping("/getBookings")
+    public ResponseEntity<List<Bookings>> getBookingsByUserId(@RequestParam("userid") Long userid) {
+        List<Bookings> bookings = bookingservice.getBookingsByUserid(userid);
+        return ResponseEntity.ok(bookings);
     }
 }
