@@ -1,14 +1,18 @@
 package Team.Gamma.Water_Transport_System.Controller;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
+import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Exception.UserNotFoundException;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
+import Team.Gamma.Water_Transport_System.Service.BookingService;
 import Team.Gamma.Water_Transport_System.Service.UserService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -23,6 +27,8 @@ public class UserController {
         this.userService = userService;
         this.adminService = adminService;
     }
+    @Autowired
+    private BookingService bookingService;
 
     //Signup User and admin
     @CrossOrigin(origins = "http://localhost:5173")
@@ -67,5 +73,7 @@ public class UserController {
         }
         return user;
     }
+
+
 
 }

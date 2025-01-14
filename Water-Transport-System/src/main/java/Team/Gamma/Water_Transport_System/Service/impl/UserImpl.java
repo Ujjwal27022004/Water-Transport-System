@@ -2,17 +2,23 @@ package Team.Gamma.Water_Transport_System.Service.impl;
 
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Dto.UserDTO;
+import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.User;
+import Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException;
+import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
 import Team.Gamma.Water_Transport_System.Service.UserService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserImpl implements UserService {
+    @Autowired
+    private BookingRepository bookingRepo;
     @Autowired
     private UserRepository userRepo;
 
@@ -91,4 +97,5 @@ public class UserImpl implements UserService {
             throw new RuntimeException("Error retrieving user details: " + e.getMessage());
         }
     }
+
 }

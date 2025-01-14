@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -78,5 +79,23 @@ public class Bookingserviceimpl implements BookingService {
     @Override
     public Bookings getLatestBookingByUserId(Long userId) {
         return bookingRepository.findByUser_userid(userId);
+    }
+
+    public List<Bookings> getBookingsByUserid(Long userid) {
+        // Check if the user exists
+        Optional<User> optionalUser = userRepository.findById(userid);
+
+        if (optionalUser.isEmpty()) {
+            throw new BookingNotFoundException("User not found with ID: " + userid);
+        }
+
+        User user = optionalUser.get();
+
+        // Retrieve bookings for the user
+        List<Bookings> bookings = bookingRepository.findByUser(user);
+        if (bookings.isEmpty()) {
+            throw new BookingNotFoundException("No bookings found for user ID: " + userid);
+        }
+        return bookings;
     }
 }
