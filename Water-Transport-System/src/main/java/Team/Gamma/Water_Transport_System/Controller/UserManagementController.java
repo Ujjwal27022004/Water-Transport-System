@@ -41,9 +41,9 @@ public class UserManagementController {
     }
 
 //    delete user
-    @DeleteMapping("{userId}")
-    public String deleteUser(@PathVariable("userId") Long userId) {
-        userManagementService.removeUser(userId);
-        return "User Deleted Successfully";
-    }
+//    @DeleteMapping("{userId}")
+//    public String deleteUser(@PathVariable("userId") Long userId) {
+//        userManagementService.removeUser(userId);
+//        return "User Deleted Successfully";
+//    }
 }
