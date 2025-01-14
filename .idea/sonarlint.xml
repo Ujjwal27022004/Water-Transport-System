@@ -2,7 +2,8 @@
 <project version="4">
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
-    <option name="projectKey" value="squ_ac5010a145b38c958cef3218740f057c2e39a1ab" />
+    <option name="bindingSuggestionsEnabled" value="false" />
+    <option name="projectKey" value="squ_4620d6acc9bb1ad0d9a3039e695c2dbb59824453" />
     <option name="serverId" value="WTS" />
   </component>
 </project>

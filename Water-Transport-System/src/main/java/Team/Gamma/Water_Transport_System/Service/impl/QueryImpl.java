@@ -7,10 +7,11 @@ import Team.Gamma.Water_Transport_System.Repository.QueryRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
 import Team.Gamma.Water_Transport_System.Service.QueryService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QueryImpl implements QueryService {
@@ -24,6 +25,23 @@ public class QueryImpl implements QueryService {
     }
 
 
+    @Override
+    public List<QueryDTO> getAllQueries() {
+        return queryRepository.findAll()
+                .stream()
+                .map(query -> {
+                    QueryDTO dto = new QueryDTO();
+                    dto.setQueryid(query.getqueryid()); // Map Query ID
+                    dto.setUser(query.getUser()); // Map User entity directly
+                    dto.setQueryDetails(query.getQueryDetails());
+                    dto.setStatus(query.getStatus());
+                    dto.setCreatedDate(query.getCreatedDate());
+                    dto.setResolvedDate(query.getResolvedDate());
+                    dto.setQueryResolution(query.getQueryResolution());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
 
 
     public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {
@@ -54,17 +72,47 @@ public class QueryImpl implements QueryService {
             Query query = queryRepository.findById(queryId)
                     .orElseThrow(() -> new RuntimeException("Query not found with ID: " + queryId));
 
-        query.setQueryResolution(resolutionDetails);
-        query.setResolvedDate(new Date());
-        query.setStatus(status);
+            query.setQueryResolution(resolutionDetails);
+            query.setResolvedDate(new Date());
+            query.setStatus(status);
 
-        queryRepository.save(query);
+            queryRepository.save(query);
             return new LoginMessage("Query resolved successfully!", true, "user");
         } catch (RuntimeException e) {
             return new LoginMessage(e.getMessage(), false, "user");
         } catch (Exception e) {
             return new LoginMessage("Error while resolving the query: " + e.getMessage(), false, "user");
+
+        }
+    }
+
+
+
+    public List<QueryDTO> getQueriesByUserId(Long userid) {
+        try {
+            User user = userRepository.findById(userid)
+                    .orElseThrow(() -> new RuntimeException("User not found with ID: " + userid));
+
+            List<Query> queries = queryRepository.findByUser(user);
+
+            // Convert Query entities to QueryDTOs
+            List<QueryDTO> queryDTOs = queries.stream().map(query -> {
+                QueryDTO queryDTO = new QueryDTO();
+                queryDTO.setQueryid(query.getqueryid());
+                queryDTO.setQueryDetails(query.getQueryDetails());
+                queryDTO.setUser(query.getUser());
+                queryDTO.setQueryResolution(query.getQueryResolution());
+                queryDTO.setStatus(query.getStatus());
+                queryDTO.setCreatedDate(query.getCreatedDate());
+                queryDTO.setResolvedDate(query.getResolvedDate());
+                return queryDTO;
+            }).collect(Collectors.toList());
+
+            return queryDTOs;
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Error fetching queries: " + e.getMessage());
         }
     }
 
 }
+
