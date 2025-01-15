@@ -7,7 +7,6 @@ import Team.Gamma.Water_Transport_System.Repository.QueryRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
 import Team.Gamma.Water_Transport_System.Service.QueryService;
 import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -24,8 +23,6 @@ public class QueryImpl implements QueryService {
         this.queryRepository = queryRepository;
         this.userRepository = userRepository;
     }
-
-
 
 
     public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {

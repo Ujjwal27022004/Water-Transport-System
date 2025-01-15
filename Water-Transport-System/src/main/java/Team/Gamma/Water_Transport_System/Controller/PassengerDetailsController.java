@@ -20,16 +20,7 @@ public class PassengerDetailsController {
         this.passengerDetailsService = passengerDetailsService;
     }
 
-    //This function is for fetching passenger details
-//    @GetMapping("/{PassengerId}")
-//    @CrossOrigin(origins = "http://localhost:5173")
-//    public PassengerDetails fetchPassengerDetails(@PathVariable Long PassengerId) {
-//        PassengerDetails passengerDetails = passengerDetailsService.getpassengerdetails(PassengerId);
-//        if (passengerDetails == null) {
-//            throw new PassengerDetailsNotFoundException("Passenger with ID " + PassengerId + " not found.");
-//        }
-//        return passengerDetails;
-//    }
+
 
     //This method is for creating new entry of passenger
     @PostMapping
@@ -52,15 +43,7 @@ public class PassengerDetailsController {
     }
 
     //This method is for deleting entry of passenger
-//    @DeleteMapping("/{PassengerId}")
-//    @CrossOrigin(origins = "http://localhost:5173")
-//    public String deletePassengerDetails(@PathVariable Long PassengerId) {
-//        boolean isDeleted = passengerDetailsService.deletepassengerdetails(PassengerId);
-//        if (!isDeleted) {
-//            throw new PassengerDetailsNotFoundException("Passenger with ID " + PassengerId + " not found for deletion.");
-//        }
-//        return "Passenger details have been deleted successfully.";
-//    }
+
 
     //This method is for fetcging all passenger details
     @GetMapping

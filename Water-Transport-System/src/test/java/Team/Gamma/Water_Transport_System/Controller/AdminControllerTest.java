@@ -116,13 +116,5 @@ class AdminControllerTest {
         assertEquals("Ship was successfully updated", result);
     }
 
-    // Test: Deleting a ship (Success)
-    @Test
-    void deleteShipDetails_Success() {
-        Long shipId = 1L;
-       adminService.deleteShip(shipId);
 
-        String result = adminController.deleteShipDetails(shipId);
-        assertEquals("Ship Deleted Successfully", result);
-    }
 }

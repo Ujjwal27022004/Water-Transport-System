@@ -1,6 +1,4 @@
 package Team.Gamma.Water_Transport_System.Entity;
-import Team.Gamma.Water_Transport_System.Entity.Query;
-import Team.Gamma.Water_Transport_System.Entity.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;

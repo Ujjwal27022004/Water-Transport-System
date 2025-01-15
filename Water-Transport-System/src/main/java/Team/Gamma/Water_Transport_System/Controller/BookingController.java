@@ -21,8 +21,7 @@ public class BookingController {
     //Create booking for user
     @PostMapping
     public ResponseEntity<String> createBookingDetails(@RequestBody BookingDTO bookings) {
-        System.out.print("userid"+bookings.getUserid());
-        System.out.print("shipid"+bookings.getShipId());
+
 
         if (bookings.getUserid() == null || bookings.getShipId() == null) {
             return ResponseEntity.badRequest().body("User ID and Ship ID cannot be null");

@@ -1,7 +1,6 @@
 package Team.Gamma.Water_Transport_System.Controller;
 
 import Team.Gamma.Water_Transport_System.Dto.ReceiptDTO;
-import Team.Gamma.Water_Transport_System.Entity.Receipt;
 import Team.Gamma.Water_Transport_System.Exception.ReceiptException;
 import Team.Gamma.Water_Transport_System.Service.impl.ReceiptServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
