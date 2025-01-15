@@ -23,8 +23,9 @@ public class AdminServiceImpl implements AdminService {
     private ShipDetailsRepository shipRepository;
 
 
-    public AdminServiceImpl(AdminRepository adminRepository) {
+    public AdminServiceImpl(AdminRepository adminRepository, ShipDetailsRepository shipDetailsRepository) {
         this.adminRepository = adminRepository;
+        this.shipRepository = shipDetailsRepository;
     }
 
     @Override
@@ -32,13 +33,13 @@ public class AdminServiceImpl implements AdminService {
         shipRepository.save(ship);
         return "Ship Created Successfully!";
     }
-    // function to edit ship in DB
+
     @Override
     public String editShip(ShipDetail ship) {
         shipRepository.save(ship);
         return "Ship Updated Successfully!";
     }
-    // function to delete ship in DB
+
     @Override
     public String deleteShip(Long shipId) {
         shipRepository.deleteById(shipId);

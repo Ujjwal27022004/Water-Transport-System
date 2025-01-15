@@ -19,6 +19,10 @@ public class LoginMessage {
         this.userId = null;
     }
 
+    public LoginMessage(String loginSuccess, boolean b) {
+
+    }
+
     public String getRole() {
         return role;
     }
