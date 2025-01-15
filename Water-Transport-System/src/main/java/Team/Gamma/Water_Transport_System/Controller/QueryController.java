@@ -23,7 +23,7 @@ public class QueryController {
 
     //Method is for user to ask query
     @PostMapping("/ask")
-    public ResponseEntity<?> askQuery(@RequestParam("userid") Long userid, @RequestBody QueryDTO queryDTO) {
+    public ResponseEntity askQuery(@RequestParam("userid") Long userid, @RequestBody QueryDTO queryDTO) {
         LoginMessage loginResponse = queryService.askQuery(userid, queryDTO);
         return ResponseEntity.ok(loginResponse);
        }
@@ -31,7 +31,7 @@ public class QueryController {
 
 
     @GetMapping("/getQueries")
-    public ResponseEntity<?> getQueriesByUserId(@RequestParam("userid") Long userid) {
+    public ResponseEntity getQueriesByUserId(@RequestParam("userid") Long userid) {
         try {
             List<QueryDTO> queries = queryService.getQueriesByUserId(userid);
             return ResponseEntity.ok(queries); // Return the list of queries with HTTP 200

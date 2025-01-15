@@ -89,8 +89,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Controller;
 &nbsp;
-&nbsp;import Team.Gamma.Water_Transport_System.Dto.BookingDTO;
-&nbsp;import Team.Gamma.Water_Transport_System.Service.BookingService;
+&nbsp;import Dto.team.gamma.water_transport_system.BookingDTO;
+&nbsp;import Service.team.gamma.water_transport_system.BookingService;
 &nbsp;import org.springframework.beans.factory.annotation.Autowired;
 &nbsp;import org.springframework.web.bind.annotation.*;
 &nbsp;
@@ -113,7 +113,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;    public String cancelBooking(@PathVariable Long bookingId) {
 <b class="nc">&nbsp;        boolean isCanceled = bookingservice.cancelBooking(bookingId);</b>
 <b class="nc">&nbsp;        if (!isCanceled) {</b>
-<b class="nc">&nbsp;            throw new Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException(&quot;Booking not found with ID: &quot; + bookingId);</b>
+<b class="nc">&nbsp;            throw new Exception.team.gamma.water_transport_system.BookingNotFoundException(&quot;Booking not found with ID: &quot; + bookingId);</b>
 &nbsp;        }
 <b class="nc">&nbsp;        return &quot;Your booking has been successfully canceled&quot;;</b>
 &nbsp;    }

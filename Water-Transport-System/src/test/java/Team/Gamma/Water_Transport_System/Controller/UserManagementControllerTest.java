@@ -74,16 +74,5 @@ class UserManagementControllerTest {
         verify(userManagementService, times(1)).updateUser(user);
     }
 
-//    @Test
-//    void deleteUser() {
-//        Long userId = 1L;
-//
-//        // Assume that the deletion is successful
-//        //doNothing().when(userManagementService).removeUser(userId);
-//
-//        String result = userManagementController.deleteUser(userId);
-//
-//        assertEquals("User Deleted Successfully", result);
-//        verify(userManagementService, times(1)).removeUser(userId);
-//    }
+
 }

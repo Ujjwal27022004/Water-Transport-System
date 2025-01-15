@@ -25,6 +25,7 @@ public class QueryImpl implements QueryService {
     }
 
 
+
     @Override
     public List<QueryDTO> getAllQueries() {
         return queryRepository.findAll()

@@ -2,117 +2,113 @@
 //
 //import Team.Gamma.Water_Transport_System.Dto.PaymentDTO;
 //import Team.Gamma.Water_Transport_System.Entity.Payment;
-//import Team.Gamma.Water_Transport_System.Service.impl.PaymentServiceImpl;
+//import Team.Gamma.Water_Transport_System.Enum.PaymentMethod;
 //import Team.Gamma.Water_Transport_System.Exception.PaymentException;
+//import Team.Gamma.Water_Transport_System.Service.impl.PaymentServiceImpl;
+//import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-//import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-//import org.springframework.boot.test.mock.mockito.MockBean;
-//import org.springframework.http.MediaType;
-//import org.springframework.test.web.servlet.MockMvc;
+//import org.junit.jupiter.api.extension.ExtendWith;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.mockito.Mockito;
+//import org.mockito.junit.jupiter.MockitoExtension;
+//import org.springframework.http.ResponseEntity;
+//
+//import java.util.Date;
+//import java.util.Optional;
+//
+//import static org.junit.jupiter.api.Assertions.*;
+//import static org.mockito.ArgumentMatchers.*;
 //import static org.mockito.Mockito.*;
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 //
-//@WebMvcTest(PaymentController.class)
-//@AutoConfigureMockMvc(addFilters = false)
-// class PaymentControllerTest {
+//@ExtendWith(MockitoExtension.class)
+//class PaymentControllerTest {
 //
-//    @Autowired
-//    private MockMvc mockMvc;
+//   @Mock
+//   private PaymentServiceImpl paymentService;
 //
-//    @MockBean
-//    private PaymentServiceImpl paymentService;
+//   @InjectMocks
+//   private PaymentController paymentController;
 //
-//    @Test
-//     void testInitiatePayment_Success() throws Exception {
-//        Payment mockPayment = new Payment();
-//        mockPayment.setPaymentID(1L);
-//        mockPayment.setAmount(1000.0);
-//        mockPayment.setPaymentStatus("INITIATED");
+//   private Payment testPayment;
 //
-//        when(paymentService.initiatePayment(1L, 1000.0)).thenReturn(mockPayment);
+//   @BeforeEach
+//   void setUp() {
+//      testPayment = new Payment();
+//      testPayment.setPaymentID(1L);
+//      testPayment.setBookingID(101L);
+//      testPayment.setAmount(100.0);
+//      testPayment.setDate(new Date());
+//      testPayment.setPaymentMethod(PaymentMethod.NETBANKING);
+//      testPayment.setPaymentStatus("INITIATED");
+//   }
 //
-//        mockMvc.perform(post("/payments/initiate")
-//                        .param("bookingId", "1")
-//                        .param("amount", "1000.0")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())  // Updated to 200 OK
-//                .andExpect(jsonPath("$.paymentID").value(1))
-//                .andExpect(jsonPath("$.amount").value(1000.0))
-//                .andExpect(jsonPath("$.paymentStatus").value("INITIATED"));
+//   @Test
+//   void testInitiatePayment_Success() {
+//      // Arrange
+//      when(paymentService.initiatePayment(anyLong(), anyDouble())).thenReturn(testPayment);
 //
-//        verify(paymentService, times(1)).initiatePayment(1L, 1000.0);
-//    }
+//      // Act
+//      ResponseEntity<Payment> response = paymentController.initiatePayment(101L, 100.0);
 //
-//    @Test
-//    void testInitiatePayment_Failure() throws Exception {
-//        when(paymentService.initiatePayment(1L, 1000.0)).thenThrow(new IllegalArgumentException("Invalid booking ID"));
+//      // Assert
+//      assertNotNull(response);
+//      assertEquals(200, response.getStatusCodeValue());
+//      assertEquals(testPayment, response.getBody());
+//      verify(paymentService, times(1)).initiatePayment(101L, 100.0);
+//   }
 //
-//        mockMvc.perform(post("/payments/initiate")
-//                        .param("bookingId", "1")
-//                        .param("amount", "1000.0")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
-//                .andExpect(content().string("Failed to initiate payment: Invalid booking ID"));
+//   @Test
+//   void testInitiatePayment_Failure() {
+//      // Arrange
+//      when(paymentService.initiatePayment(anyLong(), anyDouble())).thenReturn(null);
 //
-//        verify(paymentService, times(1)).initiatePayment(1L, 1000.0);
-//    }
+//      // Act & Assert
+//      PaymentException exception = assertThrows(PaymentException.class, () -> paymentController.initiatePayment(101L, 100.0));
+//      assertEquals("Failed to initiate payment", exception.getMessage());
+//      verify(paymentService, times(1)).initiatePayment(101L, 100.0);
+//   }
 //
-//    @Test
-//    void testConfirmPayment_Success() throws Exception {
-//        PaymentDTO paymentDTO = new PaymentDTO();
-//        paymentDTO.setPaymentId(1L);
+//   @Test
+//   void testConfirmPayment_Success() {
+//      // Arrange
+//      PaymentDTO paymentDTO = new PaymentDTO("Payment is successful.", true);
+//      when(paymentService.confirmPayment(anyLong())).thenReturn(paymentDTO);
 //
-//        doReturn(paymentDTO).when(paymentService).confirmPayment(1L);
+//      // Act
+//      ResponseEntity response = paymentController.confirmPayment(1L);
 //
-//        mockMvc.perform(post("/payments/confirm")
-//                        .param("paymentId", "1")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())  // Updated to 200 OK
-//                .andExpect(content().string("Payment confirmed successfully"));
+//      // Assert
+//      assertNotNull(response);
+//      assertEquals(200, response.getStatusCodeValue());
+//      assertEquals(paymentDTO, response.getBody());
+//      verify(paymentService, times(1)).confirmPayment(1L);
+//   }
 //
-//        verify(paymentService, times(1)).confirmPayment(1L);
-//    }
+//   @Test
+//   void testConfirmPayment_Failure() {
+//      // Arrange
+//      PaymentDTO paymentDTO = new PaymentDTO("Payment not found or already processed.", false);
+//      when(paymentService.confirmPayment(anyLong())).thenReturn(paymentDTO);
 //
-//    @Test
-//    void testConfirmPayment_Failure() throws Exception {
-//        doThrow(new IllegalArgumentException("Invalid payment ID")).when(paymentService).confirmPayment(1L);
+//      // Act
+//      ResponseEntity response = paymentController.confirmPayment(1L);
 //
-//        mockMvc.perform(post("/payments/confirm")
-//                        .param("paymentId", "1")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
-//                .andExpect(content().string("Failed to confirm payment: Invalid payment ID"));
+//      // Assert
+//      assertNotNull(response);
+//      assertEquals(400, response.getStatusCodeValue());
+//      assertEquals(paymentDTO, response.getBody());
+//      verify(paymentService, times(1)).confirmPayment(1L);
+//   }
 //
-//        verify(paymentService, times(1)).confirmPayment(1L);
-//    }
+//   @Test
+//   void testHandlePaymentException() {
+//      // Act
+//      ResponseEntity<String> response = paymentController.handlePaymentException(new PaymentException("Test exception"));
 //
-//    @Test
-//    void testPaymentExceptionHandler_Success() throws Exception {
-//        when(paymentService.initiatePayment(1L, 1000.0)).thenThrow(new PaymentException("Payment initiation failed"));
-//
-//        mockMvc.perform(post("/payments/initiate")
-//                        .param("bookingId", "1")
-//                        .param("amount", "1000.0")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
-//                .andExpect(content().string("Payment initiation failed"));
-//
-//        verify(paymentService, times(1)).initiatePayment(1L, 1000.0);
-//    }
-//
-//    @Test
-//    void testPaymentExceptionHandler_Failure() throws Exception {
-//        doThrow(new PaymentException("Payment confirmation failed")).when(paymentService).confirmPayment(1L);
-//
-//        mockMvc.perform(post("/payments/confirm")
-//                        .param("paymentId", "1")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isBadRequest())  // Updated to 400 BAD REQUEST
-//                .andExpect(content().string("Payment confirmation failed"));
-//
-//        verify(paymentService, times(1)).confirmPayment(1L);
-//    }
+//      // Assert
+//      assertNotNull(response);
+//      assertEquals(400, response.getStatusCodeValue());
+//      assertEquals("Test exception", response.getBody());
+//   }
 //}

@@ -50,29 +50,4 @@ class PassengerDetailsControllerTest {
                 .andExpect(content().string("Passenger has been created successfully."));
     }
 
-//    @Test
-//    void updatePassengerDetails() throws Exception {
-//        PassengerDetails passengerDetails = new PassengerDetails();
-//        passengerDetails.setPassengerID(3L);
-//        passengerDetails.setName("Tom Smith");
-//        passengerDetails.setAge(40);
-//        passengerDetails.setGender("Male");
-//
-//        when(passengerDetailsService.updatepassengerdetails(any(PassengerDetails.class))).thenReturn(true);
-//
-//        mockMvc.perform(put("/passengerDetails")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content("{\"passengerId\":3, \"name\":\"Tom Smith\", \"age\":40, \"gender\":\"Male\"}"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string("The passenger has been updated successfully."));
-//    }
-
-//    @Test
-//    void deletePassengerDetails() throws Exception {
-//        when(passengerDetailsService.deletepassengerdetails(4L)).thenReturn(true);
-//
-//        mockMvc.perform(delete("/passengerDetails/4"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string("Passenger details have been deleted successfully."));
-//    }
 }
