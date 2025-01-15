@@ -11,5 +11,6 @@ public interface QueryService {
 
     LoginMessage askQuery(Long userid , QueryDTO queryDTO);
     LoginMessage resolveQuery(Long queryId, String resolutionDetails, String status);
+
     List<QueryDTO> getQueriesByUserId(Long userid);
 }

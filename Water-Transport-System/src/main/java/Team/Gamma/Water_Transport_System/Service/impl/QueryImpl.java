@@ -25,6 +25,26 @@ public class QueryImpl implements QueryService {
     }
 
 
+
+    @Override
+    public List<QueryDTO> getAllQueries() {
+        return queryRepository.findAll()
+                .stream()
+                .map(query -> {
+                    QueryDTO dto = new QueryDTO();
+                    dto.setQueryid(query.getqueryid()); // Map Query ID
+                    dto.setUser(query.getUser()); // Map User entity directly
+                    dto.setQueryDetails(query.getQueryDetails());
+                    dto.setStatus(query.getStatus());
+                    dto.setCreatedDate(query.getCreatedDate());
+                    dto.setResolvedDate(query.getResolvedDate());
+                    dto.setQueryResolution(query.getQueryResolution());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
+
     public LoginMessage askQuery(Long userid, QueryDTO queryDTO) {
         try {
             User user = userRepository.findById(userid)
@@ -53,36 +73,21 @@ public class QueryImpl implements QueryService {
             Query query = queryRepository.findById(queryId)
                     .orElseThrow(() -> new RuntimeException("Query not found with ID: " + queryId));
 
-        query.setQueryResolution(resolutionDetails);
-        query.setResolvedDate(new Date());
-        query.setStatus(status);
+            query.setQueryResolution(resolutionDetails);
+            query.setResolvedDate(new Date());
+            query.setStatus(status);
 
-        queryRepository.save(query);
+            queryRepository.save(query);
             return new LoginMessage("Query resolved successfully!", true, "user");
         } catch (RuntimeException e) {
             return new LoginMessage(e.getMessage(), false, "user");
         } catch (Exception e) {
             return new LoginMessage("Error while resolving the query: " + e.getMessage(), false, "user");
+
         }
     }
 
-    @Override
-    public List<QueryDTO> getAllQueries() {
-        return queryRepository.findAll()
-                .stream()
-                .map(query -> {
-                    QueryDTO dto = new QueryDTO();
-                    dto.setQueryid(query.getqueryid()); // Map Query ID
-                    dto.setUser(query.getUser()); // Map User entity directly
-                    dto.setQueryDetails(query.getQueryDetails());
-                    dto.setStatus(query.getStatus());
-                    dto.setCreatedDate(query.getCreatedDate());
-                    dto.setResolvedDate(query.getResolvedDate());
-                    dto.setQueryResolution(query.getQueryResolution());
-                    return dto;
-                })
-                .collect(Collectors.toList());
-    }
+
 
     public List<QueryDTO> getQueriesByUserId(Long userid) {
         try {
@@ -111,3 +116,4 @@ public class QueryImpl implements QueryService {
     }
 
 }
+
