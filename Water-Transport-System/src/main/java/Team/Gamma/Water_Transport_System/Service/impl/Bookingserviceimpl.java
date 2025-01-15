@@ -7,9 +7,9 @@ import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
 import Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
-import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
 import Team.Gamma.Water_Transport_System.Service.BookingService;
+import Team.Gamma.Water_Transport_System.Service.ShipDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,83 +19,76 @@ import java.util.Optional;
 
 @Service
 public class Bookingserviceimpl implements BookingService {
-
-    @Autowired
-    private BookingRepository bookingRepository;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ShipDetailsRepository shipRepository;
-    @Autowired
-    private ShipServiceImpl shipService;
     private static final int PRICE_PER_SEAT = 1000;
 
+    private final BookingRepository bookingRepository;
+    private final UserRepository userRepository;
+    private final ShipDetailsService shipService;
+
+    @Autowired
+    public Bookingserviceimpl(BookingRepository bookingRepository, UserRepository userRepository, ShipDetailsService shipService) {
+        this.bookingRepository = bookingRepository;
+        this.userRepository = userRepository;
+        this.shipService = shipService;
+    }
+
     @Override
-    public Bookings makeBooking(BookingDTO bookings) {
-        Optional<User> optionalUser = userRepository.findById(bookings.getUserid());
-        if (!optionalUser.isPresent()) {
-            throw new BookingNotFoundException("User not found with ID: " + bookings.getUserid());
-        }
+    public Bookings makeBooking(BookingDTO bookingDTO) {
+        User user = userRepository.findById(bookingDTO.getUserid())
+                .orElseThrow(() -> new BookingNotFoundException("User not found with ID: " + bookingDTO.getUserid()));
 
-        ShipDetail shipDetail = shipService.getShip(bookings.getShipId());
+        ShipDetail shipDetail = shipService.getShip(bookingDTO.getShipId());
         if (shipDetail == null) {
-            throw new BookingNotFoundException("User not found with ID: " + bookings.getUserid());
+            throw new BookingNotFoundException("Ship not found with ID: " + bookingDTO.getShipId());
         }
 
-        int totalPrice = bookings.getSeatsBooked() * PRICE_PER_SEAT;
-        bookings.setTotalPrice(totalPrice);
-
-        int bookedSeats = bookingRepository.countBookedSeatsForShip(bookings.getShipId());
+        int bookedSeats = bookingRepository.countBookedSeatsForShip(bookingDTO.getShipId());
         int remainingSeats = shipDetail.getCapacity() - bookedSeats;
 
-        if (remainingSeats < bookings.getSeatsBooked()) {
+        if (remainingSeats < bookingDTO.getSeatsBooked()) {
             throw new IllegalArgumentException("Not enough seats available. Remaining seats: " + remainingSeats);
         }
 
-        Bookings saveBooking = new Bookings();
-        saveBooking.setSeatsBooked(bookings.getSeatsBooked());
-        saveBooking.setUser(optionalUser.get());
-        saveBooking.setShip(shipDetail);
-        saveBooking.setBookingStatus(BookingStatus.PENDING);
-        saveBooking.setLocalDate(bookings.getLocalDate() != null ? bookings.getLocalDate() : LocalDateTime.now());
-        saveBooking.setTotalPrice(totalPrice);
+        int totalPrice = bookingDTO.getSeatsBooked() * PRICE_PER_SEAT;
 
-        return bookingRepository.save(saveBooking);
+        Bookings newBooking = new Bookings();
+        newBooking.setSeatsBooked(bookingDTO.getSeatsBooked());
+        newBooking.setUser(user);
+        newBooking.setShip(shipDetail);
+        newBooking.setBookingStatus(BookingStatus.PENDING);
+        newBooking.setLocalDate(bookingDTO.getLocalDate() != null ? bookingDTO.getLocalDate() : LocalDateTime.now());
+        newBooking.setTotalPrice(totalPrice);
+
+        return bookingRepository.save(newBooking);
     }
 
     @Override
     public boolean cancelBooking(Long bookingId) {
-        Optional<Bookings> optionalBooking = bookingRepository.findById(bookingId);
-        if (!optionalBooking.isPresent()) {
-            return false; // Booking not found
-        }
-        Bookings bookings = optionalBooking.get();
-        bookings.setBookingStatus(BookingStatus.CANCELLED);
-        bookingRepository.save(bookings);
-//        bookingRepository.deleteById(bookingId);
+        Bookings booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new BookingNotFoundException("Booking not found with ID: " + bookingId));
 
-        return true; // Booking canceled successfully
+        booking.setBookingStatus(BookingStatus.CANCELLED);
+        bookingRepository.save(booking);
+
+        return true;
     }
+
     @Override
     public Bookings getLatestBookingByUserId(Long userId) {
-        return bookingRepository.findByUser_userid(userId);
+        return Optional.ofNullable(bookingRepository.findByUser_userid(userId))
+                .orElseThrow(() -> new BookingNotFoundException("No bookings found for user ID: " + userId));
     }
 
-    public List<Bookings> getBookingsByUserid(Long userid) {
-        // Check if the user exists
-        Optional<User> optionalUser = userRepository.findById(userid);
+    @Override
+    public List<Bookings> getBookingsByUserid(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new BookingNotFoundException("User not found with ID: " + userId));
 
-        if (optionalUser.isEmpty()) {
-            throw new BookingNotFoundException("User not found with ID: " + userid);
-        }
-
-        User user = optionalUser.get();
-
-        // Retrieve bookings for the user
         List<Bookings> bookings = bookingRepository.findByUser(user);
         if (bookings.isEmpty()) {
-            throw new BookingNotFoundException("No bookings found for user ID: " + userid);
+            throw new BookingNotFoundException("No bookings found for user ID: " + userId);
         }
+
         return bookings;
     }
 }
