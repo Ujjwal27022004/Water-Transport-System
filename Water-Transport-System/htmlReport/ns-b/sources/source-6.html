@@ -1,0 +1,98 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > BookingRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">Team.Gamma.Water_Transport_System.Repository</a>
+</div>
+
+<h1>Coverage Summary for Class: BookingRepository (Team.Gamma.Water_Transport_System.Repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">BookingRepository$MockitoMock$TM69gjPm</td>
+  </tr>
+  <tr>
+    <td class="name">BookingRepository$MockitoMock$TM69gjPm$auxiliary$JElNRsFT</td>
+  </tr>
+  <tr>
+    <td class="name">BookingRepository$MockitoMock$TM69gjPm$auxiliary$n8nPy3hl</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Repository;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Bookings;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.User;
+&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+&nbsp;import org.springframework.data.jpa.repository.Query;
+&nbsp;import org.springframework.data.repository.query.Param;
+&nbsp;import org.springframework.stereotype.Repository;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@Repository
+&nbsp;public interface BookingRepository extends  JpaRepository&lt;Bookings, Long&gt; {
+&nbsp;    Bookings findByBookingId(Long bookingId);
+&nbsp;
+&nbsp;    Bookings findByUser_userid(Long userId);
+&nbsp;    @Query(&quot;SELECT COALESCE(SUM(b.seatsBooked), 0) FROM Bookings b WHERE b.ship.shipId = :shipId&quot;)
+&nbsp;    int countBookedSeatsForShip(@Param(&quot;shipId&quot;) Long shipId);
+&nbsp;    List&lt;Bookings&gt; findByUser(User user);
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-16 11:25</div>
+</div>
+</body>
+</html>

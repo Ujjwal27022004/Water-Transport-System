@@ -4,6 +4,7 @@ import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import Team.Gamma.Water_Transport_System.Repository.AdminRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.impl.AdminServiceImpl;
@@ -63,23 +64,32 @@ class AdminServiceTest {
 
     @Test
     void addShip() {
+        shipDetail.setCruiseType(CruiseType.FAMILY); // Setting cruise type for pricing
+        shipDetail.setPrice(0); // Initially, price is not set
+
         given(shipDetailRepository.save(shipDetail)).willReturn(shipDetail);
 
         String result = adminService.addShip(shipDetail);
 
         assertEquals("Ship Created Successfully!", result);
+        assertEquals(800f, shipDetail.getPrice(), 0.01); // Verify price is set correctly for FAMILY
         then(shipDetailRepository).should(times(1)).save(shipDetail);
     }
 
     @Test
     void editShip() {
+        shipDetail.setCruiseType(CruiseType.LUXURY); // Setting cruise type for pricing
+        shipDetail.setPrice(0); // Initially, price is not set
+
         given(shipDetailRepository.save(shipDetail)).willReturn(shipDetail);
 
         String result = adminService.editShip(shipDetail);
 
         assertEquals("Ship Updated Successfully!", result);
+        assertEquals(2000f, shipDetail.getPrice(), 0.01); // Verify price is set correctly for LUXURY
         then(shipDetailRepository).should(times(1)).save(shipDetail);
     }
+
 
     @Test
     void deleteShip() {

@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UserController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">Team.Gamma.Water_Transport_System.Controller</a>
+</div>
+
+<h1>Coverage Summary for Class: UserController (Team.Gamma.Water_Transport_System.Controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (12/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Controller;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.UserDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Bookings;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.User;
+&nbsp;import Team.Gamma.Water_Transport_System.Exception.UserNotFoundException;
+&nbsp;import Team.Gamma.Water_Transport_System.Service.AdminService;
+&nbsp;import Team.Gamma.Water_Transport_System.Service.BookingService;
+&nbsp;import Team.Gamma.Water_Transport_System.Service.UserService;
+&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@CrossOrigin(origins = &quot;http://localhost:5173&quot;)
+&nbsp;@RequestMapping(&quot;api/v1/user&quot;)
+&nbsp;public class UserController {
+&nbsp;
+&nbsp;    private final UserService userService;
+&nbsp;
+&nbsp;    private final AdminService adminService;
+&nbsp;    @Autowired
+<b class="fc">&nbsp;    public UserController(UserService userService, AdminService adminService) {</b>
+<b class="fc">&nbsp;        this.userService = userService;</b>
+<b class="fc">&nbsp;        this.adminService = adminService;</b>
+&nbsp;    }
+&nbsp;    @Autowired
+&nbsp;    private BookingService bookingService;
+&nbsp;
+&nbsp;    //Signup User and admin
+&nbsp;    @CrossOrigin(origins = &quot;http://localhost:5173&quot;)
+&nbsp;    @PostMapping(path = &quot;/signup&quot;)
+&nbsp;    public ResponseEntity&lt;Object&gt; signup(@RequestBody UserDTO userDTO) {
+<b class="fc">&nbsp;        LoginMessage loginResponse = userService.addUser(userDTO);</b>
+<b class="fc">&nbsp;        return ResponseEntity.ok(loginResponse);</b>
+&nbsp;    }
+&nbsp;//    Login User and admin
+&nbsp;
+&nbsp;    @PostMapping(path = &quot;/login&quot;)
+&nbsp;    public ResponseEntity&lt;Object&gt; login(@RequestBody LoginDTO loginDTO) {
+<b class="fc">&nbsp;        LoginMessage loginResponse = userService.loginUser(loginDTO);</b>
+<b class="fc">&nbsp;        return ResponseEntity.ok(loginResponse);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PostMapping(path = &quot;/Adminlogin&quot;)
+&nbsp;    public ResponseEntity&lt;Object&gt; adminLogin(@RequestBody LoginDTO loginDTO) {
+<b class="nc">&nbsp;        LoginMessage loginResponse = adminService.loginAdmin(loginDTO);</b>
+<b class="nc">&nbsp;        return ResponseEntity.ok(loginResponse);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    //profile of User and admin
+&nbsp;
+&nbsp;    @PutMapping(&quot;/profile&quot;)
+&nbsp;    public ResponseEntity&lt;Object&gt; updateProfile(
+&nbsp;            @RequestParam(&quot;userid&quot;) Long userid,
+&nbsp;            @RequestBody UserDTO request) {
+<b class="fc">&nbsp;        LoginMessage loginResponse = userService.updateProfile(userid, request);</b>
+<b class="fc">&nbsp;        return ResponseEntity.ok(loginResponse);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    //User details
+&nbsp;
+&nbsp;    @GetMapping(&quot;/details&quot;)
+&nbsp;    public User getUserDetails(@RequestParam(&quot;userid&quot;) Long userid) {
+<b class="fc">&nbsp;        User user = userService.getUserDetails(userid);</b>
+<b class="pc">&nbsp;        if (user == null) {</b>
+<b class="nc">&nbsp;            throw new UserNotFoundException(&quot;User not found with ID: &quot; + userid);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return user;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-16 11:25</div>
+</div>
+</body>
+</html>

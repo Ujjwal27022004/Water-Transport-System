@@ -4,6 +4,7 @@ import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
 import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
 import Team.Gamma.Water_Transport_System.Entity.Admin;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import Team.Gamma.Water_Transport_System.Repository.AdminRepository;
 import Team.Gamma.Water_Transport_System.Repository.ShipDetailsRepository;
 import Team.Gamma.Water_Transport_System.Service.AdminService;
@@ -12,16 +13,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+
 
 @Service
 public class AdminServiceImpl implements AdminService {
+
+    private static final Map<CruiseType, Float> PRICING_STRATEGY = Map.of(
+            CruiseType.FAMILY, 800f,
+            CruiseType.DELUXE, 1200f,
+            CruiseType.LUXURY, 2000f,
+            CruiseType.PREMIUM, 1500f
+    );
+
 
     @Autowired
     private AdminRepository adminRepository;
     @Autowired
     private ShipDetailsRepository shipRepository;
-
 
     public AdminServiceImpl(AdminRepository adminRepository, ShipDetailsRepository shipDetailsRepository) {
         this.adminRepository = adminRepository;
@@ -30,12 +40,14 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public String addShip(ShipDetail ship) {
+        setPriceBasedOnCruiseType(ship);
         shipRepository.save(ship);
         return "Ship Created Successfully!";
     }
 
     @Override
     public String editShip(ShipDetail ship) {
+        setPriceBasedOnCruiseType(ship);
         shipRepository.save(ship);
         return "Ship Updated Successfully!";
     }
@@ -45,7 +57,7 @@ public class AdminServiceImpl implements AdminService {
         shipRepository.deleteById(shipId);
         return "Ship Deleted Successfully!";
     }
-    // function to update admin details
+
     @Override
     public boolean updateAdmin(AdminDTO admin) {
         Optional<Admin> existingAdmin = adminRepository.findById(admin.getAdminId());
@@ -55,21 +67,18 @@ public class AdminServiceImpl implements AdminService {
             adminRepository.save(saveAdmin);
             return true;
         }
-        return false; // Return false if the admin does not exist
+        return false;
     }
 
-    // function to fetch admin details using id from DB
     @Override
     public Admin getAdmin(Long adminId) {
         return adminRepository.findById(adminId).orElse(null);
     }
 
-    // function to fetch all admin details from DB
     @Override
     public List<Admin> getAllAdmin() {
         return adminRepository.findAll();
     }
-
 
     @Override
     public LoginMessage loginAdmin(LoginDTO loginDTO) {
@@ -95,6 +104,14 @@ public class AdminServiceImpl implements AdminService {
             }
         } catch (Exception e) {
             return new LoginMessage("Error during login: " + e.getMessage(), false, "admin");
+        }
+    }
+
+    private void setPriceBasedOnCruiseType(ShipDetail ship) {
+        if (PRICING_STRATEGY.containsKey(ship.getCruiseType())) {
+            ship.setPrice(PRICING_STRATEGY.get(ship.getCruiseType()));
+        } else {
+            throw new IllegalArgumentException("Invalid cruise type: " + ship.getCruiseType());
         }
     }
 }
