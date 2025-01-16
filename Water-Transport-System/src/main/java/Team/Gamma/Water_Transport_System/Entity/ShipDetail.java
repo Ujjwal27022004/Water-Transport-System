@@ -22,7 +22,7 @@ public class ShipDetail {
     private CruiseType cruiseType;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
-    private final float price = 1000;
+    private float price;
     private float rating;
     private boolean availability;
 
@@ -91,6 +91,9 @@ public class ShipDetail {
     public float getPrice() {
         return price;
     }
+    public void setPrice(float price) {
+        this.price= price;
+    }
 
     public float getRating() {
         return rating;
@@ -113,7 +116,7 @@ public class ShipDetail {
     public ShipDetail(){
 
     }
-    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, CruiseType cruiseType, Date date, float rating, boolean availability) {
+    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, CruiseType cruiseType, Date date, float rating, boolean availability, float price) {
         this.shipId = shipId;
         this.name = name;
         this.source = source;
@@ -123,6 +126,7 @@ public class ShipDetail {
         this.date = date;
         this.rating = rating;
         this.availability = availability;
+        this.price = price;
     }
 
 }

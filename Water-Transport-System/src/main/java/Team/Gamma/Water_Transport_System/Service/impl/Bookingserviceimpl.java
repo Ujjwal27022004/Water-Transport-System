@@ -5,6 +5,7 @@ import Team.Gamma.Water_Transport_System.Entity.Bookings;
 import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Entity.User;
 import Team.Gamma.Water_Transport_System.Enum.BookingStatus;
+import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import Team.Gamma.Water_Transport_System.Exception.BookingNotFoundException;
 import Team.Gamma.Water_Transport_System.Repository.BookingRepository;
 import Team.Gamma.Water_Transport_System.Repository.UserRepository;
@@ -15,11 +16,19 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 @Service
 public class Bookingserviceimpl implements BookingService {
-    private static final int PRICE_PER_SEAT = 1000;
+//    private static final int PRICE_PER_SEAT = 1000;
+private static final Map<CruiseType, Function<Integer, Integer>> PRICING_STRATEGY = Map.of(
+        CruiseType.FAMILY, seats -> seats * 800,
+        CruiseType.DELUXE, seats -> seats * 1200,
+        CruiseType.LUXURY, seats -> seats * 2000,
+        CruiseType.PREMIUM, seats -> seats * 1500
+);
 
     private final BookingRepository bookingRepository;
     private final UserRepository userRepository;
@@ -42,6 +51,11 @@ public class Bookingserviceimpl implements BookingService {
             throw new BookingNotFoundException("Ship not found with ID: " + bookingDTO.getShipId());
         }
 
+        CruiseType cruiseType = shipDetail.getCruiseType(); // Assuming ShipDetail has a `getCruiseType()` method
+        if (!PRICING_STRATEGY.containsKey(cruiseType)) {
+            throw new IllegalArgumentException("Pricing strategy not defined for cruise type: " + cruiseType);
+        }
+
         int bookedSeats = bookingRepository.countBookedSeatsForShip(bookingDTO.getShipId());
         int remainingSeats = shipDetail.getCapacity() - bookedSeats;
 
@@ -49,7 +63,8 @@ public class Bookingserviceimpl implements BookingService {
             throw new IllegalArgumentException("Not enough seats available. Remaining seats: " + remainingSeats);
         }
 
-        int totalPrice = bookingDTO.getSeatsBooked() * PRICE_PER_SEAT;
+        // Calculate price using the lambda from the pricing strategy map
+        int totalPrice = PRICING_STRATEGY.get(cruiseType).apply(bookingDTO.getSeatsBooked());
 
         Bookings newBooking = new Bookings();
         newBooking.setSeatsBooked(bookingDTO.getSeatsBooked());
@@ -61,6 +76,7 @@ public class Bookingserviceimpl implements BookingService {
 
         return bookingRepository.save(newBooking);
     }
+
 
     @Override
     public boolean cancelBooking(Long bookingId) {

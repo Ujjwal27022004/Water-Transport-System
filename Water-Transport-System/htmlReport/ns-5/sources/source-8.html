@@ -1,0 +1,245 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > ShipDetail</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">Team.Gamma.Water_Transport_System.Entity</a>
+</div>
+
+<h1>Coverage Summary for Class: ShipDetail (Team.Gamma.Water_Transport_System.Entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ShipDetail</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.5%
+  </span>
+  <span class="absValue">
+    (21/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    97%
+  </span>
+  <span class="absValue">
+    (32/33)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ShipDetail$HibernateInstantiator$a7uoe5m6</td>
+  </tr>
+  <tr>
+    <td class="name">ShipDetail$HibernateProxy$6as8QsBR</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    95.5%
+  </span>
+  <span class="absValue">
+    (21/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    97%
+  </span>
+  <span class="absValue">
+    (32/33)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Entity;
+&nbsp;import com.fasterxml.jackson.annotation.JsonFormat;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import jakarta.persistence.*;
+&nbsp;import Team.Gamma.Water_Transport_System.Enum.CruiseType;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;@Entity
+&nbsp;@Table(name = &quot;ship_detail&quot;)
+&nbsp;
+&nbsp;public class ShipDetail {
+&nbsp;    @Id
+&nbsp;    private Long shipId;
+&nbsp;    private  String name;
+&nbsp;    private String source;
+&nbsp;    @JsonProperty(&quot;destination&quot;)
+&nbsp;    private String destination;
+<b class="fc">&nbsp;    private final int capacity = 200;</b>
+&nbsp;    private int cruiseLength;
+&nbsp;    @Enumerated(EnumType.STRING)
+&nbsp;    @Column(name = &quot;cruiseType&quot;)
+&nbsp;    private CruiseType cruiseType;
+&nbsp;    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = &quot;yyyy-MM-dd&quot;)
+&nbsp;    private Date date;
+<b class="fc">&nbsp;    private final float price = 1000;</b>
+&nbsp;    private float rating;
+&nbsp;    private boolean availability;
+&nbsp;
+&nbsp;    public Long getShipId() {
+<b class="fc">&nbsp;        return shipId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setShipId(Long shipId) {
+<b class="fc">&nbsp;        this.shipId = shipId;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setName(String name) {
+<b class="fc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getSource() {
+<b class="fc">&nbsp;        return source;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSource(String source) {
+<b class="fc">&nbsp;        this.source = source;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDestination() {
+<b class="fc">&nbsp;        return destination;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDestination(String destination) {
+<b class="fc">&nbsp;        this.destination = destination;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getCapacity() {
+<b class="fc">&nbsp;        return capacity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // No setter for capacity to enforce immutability
+&nbsp;
+&nbsp;    public float getCruiseLength() {
+<b class="fc">&nbsp;        return cruiseLength;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setCruiseLength(int cruiseLength) {
+<b class="fc">&nbsp;        this.cruiseLength = cruiseLength;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public CruiseType getCruiseType() {
+<b class="fc">&nbsp;        return cruiseType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setCruiseType(CruiseType cruiseType) {
+<b class="nc">&nbsp;        this.cruiseType = cruiseType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Date getDate() {
+<b class="fc">&nbsp;        return date;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDate(Date date) {
+<b class="fc">&nbsp;        this.date = date;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public float getPrice() {
+<b class="fc">&nbsp;        return price;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public float getRating() {
+<b class="fc">&nbsp;        return rating;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setRating(float rating) {
+<b class="fc">&nbsp;        this.rating = rating;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean getAvailability() {
+<b class="fc">&nbsp;        return availability;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAvailability(boolean availability) {
+<b class="fc">&nbsp;        this.availability = availability;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    //constructor
+<b class="fc">&nbsp;    public ShipDetail(){</b>
+&nbsp;
+&nbsp;    }
+<b class="fc">&nbsp;    public ShipDetail(Long shipId, String name, String source, String destination, int cruiseLength, CruiseType cruiseType, Date date, float rating, boolean availability) {</b>
+<b class="fc">&nbsp;        this.shipId = shipId;</b>
+<b class="fc">&nbsp;        this.name = name;</b>
+<b class="fc">&nbsp;        this.source = source;</b>
+<b class="fc">&nbsp;        this.destination = destination;</b>
+<b class="fc">&nbsp;        this.cruiseLength = cruiseLength;</b>
+<b class="fc">&nbsp;        this.cruiseType = cruiseType;</b>
+<b class="fc">&nbsp;        this.date = date;</b>
+<b class="fc">&nbsp;        this.rating = rating;</b>
+<b class="fc">&nbsp;        this.availability = availability;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-16 11:25</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > AdminService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">Team.Gamma.Water_Transport_System.Service</a>
+</div>
+
+<h1>Coverage Summary for Class: AdminService (Team.Gamma.Water_Transport_System.Service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">AdminService$MockitoMock$ZI8V8cWy</td>
+  </tr>
+  <tr>
+    <td class="name">AdminService$MockitoMock$ZI8V8cWy$auxiliary$80BNfWOU</td>
+  </tr>
+  <tr>
+    <td class="name">AdminService$MockitoMock$ZI8V8cWy$auxiliary$b5cB3ecM</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package Team.Gamma.Water_Transport_System.Service;
+&nbsp;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.AdminDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Dto.LoginDTO;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.Admin;
+&nbsp;import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
+&nbsp;import Team.Gamma.Water_Transport_System.payload.response.LoginMessage;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;public interface AdminService {
+&nbsp;    // Admin Actions
+&nbsp;    public String addShip(ShipDetail ship);
+&nbsp;    public String editShip(ShipDetail ship);
+&nbsp;    public String deleteShip(Long shipId);
+&nbsp;    boolean updateAdmin(AdminDTO admin);
+&nbsp;    public Admin getAdmin(Long adminId);
+&nbsp;    public List&lt;Admin&gt; getAllAdmin();
+&nbsp;    public LoginMessage loginAdmin(LoginDTO loginDTO);
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-16 11:25</div>
+</div>
+</body>
+</html>
