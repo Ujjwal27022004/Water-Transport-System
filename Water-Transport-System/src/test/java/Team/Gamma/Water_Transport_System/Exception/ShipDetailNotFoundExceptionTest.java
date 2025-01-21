@@ -4,7 +4,6 @@ package Team.Gamma.Water_Transport_System.Exception;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import Team.Gamma.Water_Transport_System.Exception.ShipDetailNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -9,7 +9,6 @@ import Team.Gamma.Water_Transport_System.Repository.PaymentRepository;
 import Team.Gamma.Water_Transport_System.Repository.PassengerDetailsRepository;
 import Team.Gamma.Water_Transport_System.Dto.PaymentDTO;
 import Team.Gamma.Water_Transport_System.Service.PaymentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

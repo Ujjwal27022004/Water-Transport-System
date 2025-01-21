@@ -54,54 +54,90 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.PaymentControllerTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.QueryImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ReceiptControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.Water_Transport_System in Auth.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.java in Auth.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Auth [./mvnw,clean,install,sonar:sonar...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Auth [sonar:sonar].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.WaterTransportSystemApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Vedant-new&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vedan/Downloads&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.PaymentControllerTest.executor": "Coverage",
+    "JUnit.QueryImplTest.executor": "Coverage",
+    "JUnit.ReceiptControllerTest.executor": "Run",
+    "JUnit.UserControllerTest.executor": "Coverage",
+    "JUnit.UserImplTest.executor": "Coverage",
+    "JUnit.Water_Transport_System in Auth.executor": "Run",
+    "JUnit.java in Auth.executor": "Run",
+    "Maven.Auth [./mvnw,clean,install,sonar:sonar...].executor": "Run",
+    "Maven.Auth [sonar:sonar].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.WaterTransportSystemApplication.executor": "Run",
+    "git-widget-placeholder": "Vedant-new",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ADMIN/Desktop/wts_uj",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "sonarlint",
+    "vue.rearranger.settings.migration": "true"
+=======
+<!--  <component name="PropertiesComponent">{-->
+<!--  &quot;keyToString&quot;: {-->
+<!--    &quot;JUnit.PaymentControllerTest.executor&quot;: &quot;Coverage&quot;,-->
+<!--    &quot;JUnit.QueryImplTest.executor&quot;: &quot;Coverage&quot;,-->
+<!--    &quot;JUnit.ReceiptControllerTest.executor&quot;: &quot;Run&quot;,-->
+<!--    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Coverage&quot;,-->
+<!--    &quot;JUnit.UserImplTest.executor&quot;: &quot;Coverage&quot;,-->
+<!--    &quot;JUnit.Water_Transport_System in Auth.executor&quot;: &quot;Run&quot;,-->
+<!--    &quot;JUnit.java in Auth.executor&quot;: &quot;Run&quot;,-->
+<!--    &quot;Maven.Auth [./mvnw,clean,install,sonar:sonar...].executor&quot;: &quot;Run&quot;,-->
+<!--    &quot;Maven.Auth [sonar:sonar].executor&quot;: &quot;Run&quot;,-->
+<!--    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,-->
+<!--    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,-->
+<!--    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,-->
+<!--    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,-->
+<!--    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,-->
+<!--    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,-->
+<!--    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,-->
+<!--    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,-->
+<!--    &quot;Spring Boot.WaterTransportSystemApplication.executor&quot;: &quot;Run&quot;,-->
+<!--    &quot;git-widget-placeholder&quot;: &quot;Vedant-new&quot;,-->
+<!--    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,-->
+<!--    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,-->
+<!--    &quot;last_opened_file_path&quot;: &quot;C:/Users/vedan/Downloads&quot;,-->
+<!--    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,-->
+<!--    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,-->
+<!--    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,-->
+<!--    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,-->
+<!--    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,-->
+<!--    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,-->
+<!--    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,-->
+<!--    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,-->
+<!--    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;,-->
+<!--    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;-->
+<!--  },-->
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn sonar:sonar" />
       <command value="mvn ./mvnw clean install sonar:sonar compile" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WaterTransportSystemApplication">
+  <component name="RunManager" selected="Application.WaterTransportSystemApplication">
+
     <configuration name="WaterTransportSystemApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.WaterTransportSystemApplication" />
       <module name="Auth" />
@@ -115,32 +151,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Auth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Auth" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Team.Gamma.Water_Transport_System.Controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Team.Gamma.Water_Transport_System.Controller" />
-      <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.Controller.PaymentControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReceiptControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Team.Gamma.Water_Transport_System in Auth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Auth" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Team.Gamma.Water_Transport_System.Controller.*" />
+          <option name="PATTERN" value="Team.Gamma.Water_Transport_System.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Team.Gamma.Water_Transport_System.Controller" />
-      <option name="MAIN_CLASS_NAME" value="Team.Gamma.Water_Transport_System.Controller.ReceiptControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="Team.Gamma.Water_Transport_System" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.java in Auth" />
         <item itemvalue="Application.WaterTransportSystemApplication" />
+        <item itemvalue="JUnit.All in Auth" />
+        <item itemvalue="JUnit.Team.Gamma.Water_Transport_System in Auth" />
+        <item itemvalue="JUnit.java in Auth" />
         <item itemvalue="JUnit.Water_Transport_System in Auth" />
-        <item itemvalue="JUnit.ReceiptControllerTest" />
-        <item itemvalue="JUnit.PaymentControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -246,6 +274,10 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Water_Transport_System$PaymentControllerTest.ic" NAME="PaymentControllerTest Coverage Results" MODIFIED="1736331916915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
@@ -254,17 +286,20 @@
       <FILTER>Team.Gamma.Water_Transport_System.Service.impl.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Water_Transport_System$java_in_Auth.ic" NAME="java in Auth Coverage Results" MODIFIED="1736406197468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/Water_Transport_System$All_in_Auth.ic" NAME="All in Auth Coverage Results" MODIFIED="1736422216223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Water_Transport_System$All_in_Auth.ic" NAME="All in Auth Coverage Results" MODIFIED="1736756858310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Water_Transport_System$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1736331665121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Water_Transport_System$QueryImplTest.ic" NAME="QueryImplTest Coverage Results" MODIFIED="1736331787919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Service.impl.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Water_Transport_System$Team_Gamma_Water_Transport_System_in_Auth.ic" NAME="Team.Gamma.Water_Transport_System in Auth Coverage Results" MODIFIED="1736705269917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Team.Gamma.Water_Transport_System.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Water_Transport_System$ReceiptControllerTest.ic" NAME="ReceiptControllerTest Coverage Results" MODIFIED="1736332027123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Team.Gamma.Water_Transport_System.Controller.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Water_Transport_System$WaterTransportSystemApplication.ic" NAME="WaterTransportSystemApplication Coverage Results" MODIFIED="1736508855607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Water_Transport_System$WaterTransportSystemApplication.ic" NAME="WaterTransportSystemApplication Coverage Results" MODIFIED="1736743832953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Team.Gamma.Water_Transport_System.*</FILTER>
     </SUITE>
   </component>

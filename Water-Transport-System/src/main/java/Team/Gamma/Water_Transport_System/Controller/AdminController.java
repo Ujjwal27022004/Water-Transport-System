@@ -70,11 +70,5 @@ public class AdminController {
         return "Ship was successfully updated";
     }
 
-    //This method is for deleting ship
-    @DeleteMapping("/delete/{shipId}")
-    @CrossOrigin(origins = "http://localhost:5173")
-    public String deleteShipDetails(@PathVariable("shipId") Long shipId) {
-        adminService.deleteShip(shipId);
-        return "Ship Deleted Successfully";
-    }
+
 }

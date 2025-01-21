@@ -1,6 +1,5 @@
 package Team.Gamma.Water_Transport_System.Entity;
 
-import Team.Gamma.Water_Transport_System.Entity.ShipDetail;
 import Team.Gamma.Water_Transport_System.Enum.CruiseType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ class ShipDetailTest {
     void setUp() {
         shipDetail = new ShipDetail(
                 1L, "Ship A", "Port A", "Port B",
-                500, CruiseType.LUXURY, new Date(), 4.5f, true
+                500, CruiseType.LUXURY, new Date(), 4.5f, true, 500
         );
     }
 
@@ -61,12 +60,6 @@ class ShipDetailTest {
     void testCapacityIsImmutable() {
         int capacity = shipDetail.getCapacity();
         assertEquals(200, capacity, "Capacity should always be 200 and immutable");
-    }
-
-    @Test
-    void testPriceIsImmutable() {
-        float price = shipDetail.getPrice();
-        assertEquals(1000f, price, "Price should always be 1000 and immutable");
     }
 
     @Test

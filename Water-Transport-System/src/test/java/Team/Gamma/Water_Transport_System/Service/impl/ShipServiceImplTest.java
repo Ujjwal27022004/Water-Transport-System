@@ -35,7 +35,7 @@ class ShipServiceImplTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        ship = new ShipDetail(1L, "Titanic", "New York", "London", 1000, CruiseType.LUXURY, null, 4.5f, true);
+        ship = new ShipDetail(1L, "Titanic", "New York", "London", 1000, CruiseType.LUXURY, null, 4.5f, true, 2000);
     }
 
     @Test
