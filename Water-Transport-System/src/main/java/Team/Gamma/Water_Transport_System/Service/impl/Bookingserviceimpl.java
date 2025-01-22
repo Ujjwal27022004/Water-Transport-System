@@ -22,7 +22,6 @@ import java.util.function.Function;
 
 @Service
 public class Bookingserviceimpl implements BookingService {
-//    private static final int PRICE_PER_SEAT = 1000;
 private static final Map<CruiseType, Function<Integer, Integer>> PRICING_STRATEGY = Map.of(
         CruiseType.FAMILY, seats -> seats * 800,
         CruiseType.DELUXE, seats -> seats * 1200,
@@ -94,6 +93,12 @@ private static final Map<CruiseType, Function<Integer, Integer>> PRICING_STRATEG
         return Optional.ofNullable(bookingRepository.findByUser_userid(userId))
                 .orElseThrow(() -> new BookingNotFoundException("No bookings found for user ID: " + userId));
     }
+    @Override
+    public Bookings getBookingById(Long bookingId) {
+        return Optional.ofNullable(bookingRepository.findByBookingId(bookingId))
+                .orElseThrow(() -> new BookingNotFoundException("No bookings found for with ID: " + bookingId));
+    }
+
 
     @Override
     public List<Bookings> getBookingsByUserid(Long userId) {

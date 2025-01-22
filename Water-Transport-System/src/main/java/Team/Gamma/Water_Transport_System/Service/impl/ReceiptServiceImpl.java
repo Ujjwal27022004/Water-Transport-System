@@ -30,9 +30,9 @@ public class ReceiptServiceImpl {
     private Bookingserviceimpl bookingserviceimpl;
 
 
-    public ReceiptDTO generateReceipt(Long userId) {
-        User user = userService.getUserDetails(userId);
-        Bookings booking = bookingserviceimpl.getLatestBookingByUserId(userId);
+    public ReceiptDTO generateReceipt(Long bookingId) {
+        User user = userService.getUserDetails(bookingId);
+        Bookings booking = bookingserviceimpl.getBookingById(bookingId);
 
         if (user == null || booking == null) {
             throw new IllegalArgumentException("Invalid data provided");
