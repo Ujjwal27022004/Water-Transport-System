@@ -5,17 +5,20 @@ public class ProductRequest {
     private Long quantity;
     private String name;
     private String currency;
-
+    private  String successUrl;
+    private String cancelUrl;
     // Default Constructor
     public ProductRequest() {
     }
 
     // Parameterized Constructor
-    public ProductRequest(Long amount, Long quantity, String name, String currency) {
+    public ProductRequest(Long amount, Long quantity, String name, String currency,String successUrl , String cancelUrl) {
         this.amount = amount;
         this.quantity = quantity;
         this.name = name;
         this.currency = currency;
+        this.successUrl = successUrl;
+        this.cancelUrl = cancelUrl;
     }
 
     // Getters and Setters
@@ -49,6 +52,22 @@ public class ProductRequest {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public String getSuccessUrl() {
+        return successUrl;
+    }
+
+    public String getCancelUrl() {
+        return cancelUrl;
+    }
+
+    public void setSuccessUrl(String successUrl) {
+        this.successUrl = successUrl;
+    }
+
+    public void setCancelUrl(String cancelUrl) {
+        this.cancelUrl = cancelUrl;
     }
 
     // toString Method
