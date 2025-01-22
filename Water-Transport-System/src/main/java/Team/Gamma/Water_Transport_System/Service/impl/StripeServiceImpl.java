@@ -48,9 +48,11 @@ public class StripeServiceImpl {
         SessionCreateParams params =
                 SessionCreateParams.builder()
                         .setMode(SessionCreateParams.Mode.PAYMENT)
-                        .setSuccessUrl("http://localhost:8085/success")
-                        .setCancelUrl("http://localhost:8085/cancel")
                         .addLineItem(lineItem)
+                        // Provide default URLs for success and cancel
+                        .setSuccessUrl("http://localhost:5173/metronic8/react/demo8/home")
+//                        .setSuccessUrl(productRequest.getSuccessUrl())
+                        .setCancelUrl("http://localhost:8085/cancel")
                         .build();
 
         // Create new session
@@ -58,16 +60,26 @@ public class StripeServiceImpl {
         try {
             session = Session.create(params);
         } catch (StripeException e) {
-            //log the error
+            // Log the exception details for better debugging
+            System.err.println("Error while creating Stripe session: " + e.getMessage());
+            return new StripeResponse.Builder()
+                    .status("ERROR")
+                    .message("Failed to create payment session")
+                    .build();
         }
+
+        if (session == null) {
+            return new StripeResponse.Builder()
+                    .status("ERROR")
+                    .message("Payment session could not be created")
+                    .build();
+        }
+
         return new StripeResponse.Builder()
                 .status("SUCCESS")
                 .message("Payment session created")
                 .sessionId(session.getId())
                 .sessionUrl(session.getUrl())
                 .build();
-
     }
 }
-
-

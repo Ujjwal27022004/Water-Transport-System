@@ -18,7 +18,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // NOSONAR: CSRF is disabled due to stateless API with token-based authentication.
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/user/signup",
-                                "/product/v1/checkout",
+                                "/product/v1/**",
                                 "/api/v1/user/**",
                                 "/api/v1/user/login",
                                 "/api/v1/user/Adminlogin",
