@@ -12,4 +12,5 @@ public interface BookingService {
     boolean cancelBooking(Long bookingId);
     Bookings getLatestBookingByUserId(Long userId);
     List<Bookings> getBookingsByUserid(Long userid);
+    Bookings getBookingById(Long bookingId);
 }
