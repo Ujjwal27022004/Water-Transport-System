@@ -67,5 +67,9 @@ public class User extends Person {
         this.email = email;
         this.password = password;
     }
+
+    public Long getUserId() {
+        return userid;
+    }
 }
 
