@@ -27,8 +27,8 @@ public class ReceiptController {
     @CrossOrigin(origins = "http://localhost:5173")
 
     @PostMapping("/generate")
-    public ResponseEntity<ReceiptDTO> generateReceipt(@RequestParam Long userId) {
-        ReceiptDTO receiptDTO = receiptService.generateReceipt(userId);
+    public ResponseEntity<ReceiptDTO> generateReceipt(@RequestParam Long bookingId) {
+        ReceiptDTO receiptDTO = receiptService.generateReceipt(bookingId);
         return ResponseEntity.ok(receiptDTO);
     }
 
