@@ -50,7 +50,7 @@ public class StripeServiceImpl {
                         .setMode(SessionCreateParams.Mode.PAYMENT)
                         .addLineItem(lineItem)
                         // Provide default URLs for success and cancel
-                        .setSuccessUrl("http://localhost:5173/metronic8/react/demo8/home")
+                        .setSuccessUrl("http://localhost:5173/metronic8/react/demo8/payment-success")
 //                        .setSuccessUrl(productRequest.getSuccessUrl())
                         .setCancelUrl("http://localhost:8085/cancel")
                         .build();
